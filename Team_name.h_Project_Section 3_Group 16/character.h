@@ -23,3 +23,4 @@ void decreaseMonsterHealth(int damage, struct character* monster);
 char* getSentence(struct character* monster);
 void displayMonster(struct character* monster);
 void displayMonsterHealth(struct character* monster);
+void setMonsterHealth(int health, struct character* monster);
