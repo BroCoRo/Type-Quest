@@ -9,6 +9,7 @@
 // 1.0       March 17th      2022
 
 #pragma once
+#include <stdio.h>
 
 //This function will output the sentence that the user must type to the terminal.
 char* DisplaySentence(char* monsterSentence); 
@@ -18,4 +19,4 @@ char* GetInput(int storeSpeed);
 
 //This function takes in the sentence that the user had to type, and it takes in the sentence that the user did type,
 //and it takes in the speed in which the user typed the sentence to find generated damage amount.
-double CheckSentence(char*, char*, double);
+double CheckSentence(char* sentenceToType, char* sentenceTyped, double typingSpeed);
