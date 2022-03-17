@@ -2,7 +2,7 @@
 #include "CppUnitTest.h"
 
 extern "C" {
-	double CheckSentence(char*, char*, int);
+	double CheckSentence(char*, char*, double);
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
