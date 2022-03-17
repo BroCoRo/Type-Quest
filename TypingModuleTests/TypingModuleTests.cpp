@@ -26,6 +26,12 @@ namespace TypingModuleTests
 		//This test method will test if the calcultated damadge from typing funtion works properly 
 		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_ModerateMatch_ModerateScoreOUTPUTTED)
 		{
+			double calculatedScore;
+			double recordedSpeed = 1;
+			//calculate the score with an non-impactful time and a perfectly matched sentence
+			calculatedScore = CheckSentence("Test sentence", "TeBB sentBBBB", recordedSpeed);
+			//check for perfect score
+			Assert::AreEqual(0.5, calculatedScore);
 		}
 		//This test method will test if the calcultated damadge from typing funtion works properly 
 		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_TerribleMatch_FailedScoreOUTPUTTED)
