@@ -7,3 +7,5 @@
 // 
 // Revision History 
 // 1.0       March 17th      2022
+
+#include "Typing.h"
