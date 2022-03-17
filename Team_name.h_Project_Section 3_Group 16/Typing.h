@@ -18,4 +18,4 @@ char* GetInput(int storeSpeed);
 
 //This function takes in the sentence that the user had to type, and it takes in the sentence that the user did type,
 //and it takes in the speed in which the user typed the sentence to find generated damage amount.
-double CheckSentence(char*, char*, int);
+double CheckSentence(char*, char*, double);
