@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <string.h>
-#define MAX_SIZE 80
+#define MAX_IMAGE_SIZE 80
 #define MAX_NAME_SIZE 40
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -16,7 +16,7 @@ extern "C" {
 		int health;
 		int ID;
 		char name[MAX_NAME_SIZE];
-		char image[MAX_SIZE][MAX_SIZE];
+		char image[MAX_IMAGE_SIZE][MAX_IMAGE_SIZE];
 
 	}CHARACTER;
 }

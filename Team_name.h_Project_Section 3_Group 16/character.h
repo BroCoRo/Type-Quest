@@ -7,7 +7,7 @@
 // character.h
 // Revision History 
 // 1.0       March 3rd      2022
-#define MAX_SIZE 80
+#define MAX_IMAGE_SIZE 80
 #define MAX_NAME_SIZE 40
 
 typedef struct character {
@@ -18,7 +18,7 @@ typedef struct character {
 
 }CHARACTER;
 
-struct character* generateRandomMonster(void);
+//struct character* generateRandomMonster(void);
 void decreaseMonsterHealth(int damage, struct character* monster);
 char* getSentence(struct character* monster);
 void displayMonster(struct character* monster);
