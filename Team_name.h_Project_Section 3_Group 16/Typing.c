@@ -11,7 +11,9 @@
 #include "Typing.h"
 #include <time.h>
 
-#define MAX_INPUT_BUFER 300
+#define MAX_INPUT_BUFER      300
+#define PERFECT_TYPING_SPEED 0.25
+#define REDUCE_IMPACT        0.10
 
 //This function will output the sentence that the user must type to the terminal.
 char* DisplaySentence(char* monsterSentence)
@@ -25,7 +27,7 @@ char* DisplaySentence(char* monsterSentence)
 //This function will get the input from the user (this input should match the sentence from the disaply sentence function 
 char* GetInput(int storeSpeed)
 {
-	char* enteredSentence;
+	char enteredSentence[MAX_INPUT_BUFER];
 	double tempStoreSpeed;
 	double startTime;
 	double endTime;
@@ -48,7 +50,35 @@ char* GetInput(int storeSpeed)
 
 //This function takes in the sentence that the user had to type, and it takes in the sentence that the user did type,
 //and it takes in the speed in which the user typed the sentence to find generated damage amount.
-double CheckSentence(char* sentenceToType, char* sentenceTyped, double typingSpeed)
+double CheckSentence(char* sentenceToType, int sentenceLength, char* sentenceTyped, double typingSpeed)
 {
+	int tempStoreNumCorrectChars = 0;
+	//loop through every char of the expected sentence and compare it with the entered sentence
+	for (int count = 0; count < sentenceLength; count++)
+	{
+		//compare characters betweeen the two sentences 
+		if (sentenceToType[count] == sentenceTyped[count])
+		{
+			//the chars match so increase the num of correct chars 
+			tempStoreNumCorrectChars++;
+		}
+	}
+	double accuracyScore = tempStoreNumCorrectChars / sentenceLength; // Calculate the accuracy of the entry based on the num of correct chars (from 0-100)
 
+	//determine the influence that the entry time will have on the score (a longer setence will take a longer time to type
+	double timeScore = typingSpeed / sentenceLength;
+
+	//based on research the average person can type 200 character per minute so based on the above calculate any score below 0.25 is a great speed
+	//So if the speed is below the great speed of 0.25 then dont reduce score at all
+	if (timeScore <= PERFECT_TYPING_SPEED)
+	{
+		//send back the calculated score as a double
+		return accuracyScore; 
+	}
+	else
+	{
+		//send back the calculated score as a double 
+		//the users typing speed was not considered perfect so reduce the accuracyScore by the time taken
+		return (accuracyScore - (timeScore - REDUCE_IMPACT)); //reduce the impact of the typing speed as typing speed isnt everything 
+	}
 }
