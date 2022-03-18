@@ -10,10 +10,14 @@
 
 #include "Typing.h"
 #include <time.h>
+#include <stdio.h>
+#include <math.h>
 
 #define MAX_INPUT_BUFER      300
 #define PERFECT_TYPING_SPEED 0.25
-#define REDUCE_IMPACT        0.10
+#define REDUCE_IMPACT        10
+#define TWO_DECIMAL_PLACES   100.0
+#define DECIMAL_FORMAT       100
 
 //This function will output the sentence that the user must type to the terminal.
 char* DisplaySentence(char* monsterSentence)
@@ -52,7 +56,9 @@ char* GetInput(int storeSpeed)
 //and it takes in the speed in which the user typed the sentence to find generated damage amount.
 double CheckSentence(char* sentenceToType, int sentenceLength, char* sentenceTyped, double typingSpeed)
 {
-	int tempStoreNumCorrectChars = 0;
+	double tempStoreNumCorrectChars = 0.0;
+	//store the setenceLength as a double for the most accurate calculation
+	double sentenceLen = (double)sentenceLength;
 	//loop through every char of the expected sentence and compare it with the entered sentence
 	for (int count = 0; count < sentenceLength; count++)
 	{
@@ -63,22 +69,33 @@ double CheckSentence(char* sentenceToType, int sentenceLength, char* sentenceTyp
 			tempStoreNumCorrectChars++;
 		}
 	}
-	double accuracyScore = tempStoreNumCorrectChars / sentenceLength; // Calculate the accuracy of the entry based on the num of correct chars (from 0-100)
+	double accuracyScore = tempStoreNumCorrectChars / sentenceLen; // Calculate the accuracy of the entry based on the num of correct chars (from 0-100)
 
 	//determine the influence that the entry time will have on the score (a longer setence will take a longer time to type
-	double timeScore = typingSpeed / sentenceLength;
+	double timeScore = typingSpeed / sentenceLength; //reduce the impact of the typing speed as typing speed isnt everything 
 
 	//based on research the average person can type 200 character per minute so based on the above calculate any score below 0.25 is a great speed
 	//So if the speed is below the great speed of 0.25 then dont reduce score at all
 	if (timeScore <= PERFECT_TYPING_SPEED)
 	{
-		//send back the calculated score as a double
-		return accuracyScore; 
+		//send back the calculated score as a double of 2 decimal places 
+		accuracyScore = round(accuracyScore * TWO_DECIMAL_PLACES); //round to 2 decimal places 
+		accuracyScore = accuracyScore / DECIMAL_FORMAT; //show result as decimal
+		return accuracyScore;
 	}
 	else
 	{
-		//send back the calculated score as a double 
 		//the users typing speed was not considered perfect so reduce the accuracyScore by the time taken
-		return (accuracyScore - (timeScore - REDUCE_IMPACT)); //reduce the impact of the typing speed as typing speed isnt everything 
+		accuracyScore = (accuracyScore - timeScore); 
+		//the user cannot receive a negative score so if the score is negative is will be considered a 0
+		if (accuracyScore < 0)
+		{
+			accuracyScore = 0.0;
+		}
+		//send back the calculated score as a double of 2 decimal places 
+		accuracyScore = round(accuracyScore * TWO_DECIMAL_PLACES); //round to 2 decimal places 
+		accuracyScore = accuracyScore / DECIMAL_FORMAT; //show result as decimal
+		//send back the calculated score as a double 
+		return accuracyScore;
 	}
 }

@@ -9,7 +9,6 @@
 // 1.0       March 17th      2022
 
 #pragma once
-#include <stdio.h>
 
 //This function will output the sentence that the user must type to the terminal.
 char* DisplaySentence(char* monsterSentence); 
