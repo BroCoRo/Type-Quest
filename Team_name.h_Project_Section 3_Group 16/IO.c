@@ -11,7 +11,7 @@
 #include "IO.h"
 
 //This function will collect and return a valid numeric selection from the user
-int CollectNumericSelection()
+int CollectNumericSelection(int lowerLimit, int upperLimit)
 {
 	bool isValidInput = false;
 	int selection;
@@ -21,7 +21,7 @@ int CollectNumericSelection()
 		printf("Please enter your selection here: ");
 
 		//collect input from the user until valid input have been entered
-		if(scanf_s("%d", &selection) != 1 || selection != 1 && selection != 2)
+		if(scanf_s("%d", &selection) != 1 || selection < lowerLimit || selection > upperLimit)
 		{
 			printf("**Invalid input**\n");
 			//dont consider \n a selection

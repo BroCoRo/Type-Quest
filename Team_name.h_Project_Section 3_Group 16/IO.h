@@ -15,4 +15,4 @@
 #include <stdbool.h>
 
 //This function will collect and return a valid numeric selection from the user
-int CollectNumericSelection();
+int CollectNumericSelection(int, int);
