@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 		printf("|                                  Level 1: Into The RedWood Forest                                    |\n");
 		printf("|______________________________________________________________________________________________________|\n");
 
-		printf("You wake up coughing up water to beaming sunlight passing through large trees.\n");
+		printf("\nYou wake up coughing up water to beaming sunlight passing through large trees.\n");
 		printf("You wonder where am I?\n");
 		printf("What happened?\n");
 		printf("You look around to see that you have washed up onto a beach with no sign of anyone around.\n");
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 		printf("But all that mattered was that you were alive and made it to land.\n");
 		printf("You had no idea where we were, and there was no sign of human inhabitance for miles.\n");
 		printf("And now it begins you are left to make a choice...\n");
-		printf("\n______________________________________________________________________________________________________\n");
+		printf("______________________________________________________________________________________________________\n");
 		printf("You think should I:\n");
 		
 
@@ -105,13 +105,14 @@ int main(int argc, char* argv[])
 			printf("   3. Walk into the redwood forest but do not follow the path?\n");
 			printf("   4. Wait on the beach and hope that someone will come to help?\n");
 			int userInput = CollectNumericSelection(1, 4);
+			printf("______________________________________________________________________________________________________\n");
 			switch (userInput)
 			{
 			//Choice 1
 			case 1:
 				printf("You decide that walking up the beach is the best option, so you pick yourself upand prepare to start on your quest.\n");
 				printf("Just as you are about to leave, you think that it might be helpful to have a weapon with you.\n");
-				printf("\n______________________________________________________________________________________________________\n");
+				printf("______________________________________________________________________________________________________\n");
 				printf("Should you...\n");
 
 				//Determine the next steps for the game!
@@ -121,6 +122,7 @@ int main(int argc, char* argv[])
 					printf("1. Bring the board you washed up to the shore on with you?\n");
 					printf("2. Bring a rock from the beach?\n");
 					int userInput = CollectNumericSelection(1, 2);
+					printf("______________________________________________________________________________________________________\n");
 					switch (userInput)
 					{
 					//Board choice
@@ -177,19 +179,27 @@ int main(int argc, char* argv[])
 				//CREATE ANGRY CHEF MONSTER HERE <-- Damage to defeat 50
 
 				printf("----------------------------------------------\n");
-				printf("|    > Health: 100%                          |\n");
+				printf("|    > Health: 100                           |\n");
 				printf("|                                            |\n");
-				printf("|    >Chef Health: 50%                       |\n");
+				printf("|    > Chef Damage Required: 50              |\n");
 				printf("|                                            |\n");
-				printf("|    >The angry chef wields his burnt pie    |\n");
-				printf("|    >and is ready to attack                 |\n");
+				printf("|    > The angry chef wields his burnt pie   |\n");
+				printf("|    > and is ready to attack                |\n");
 				printf("|                                            |\n");
-				printf("|    >Enter:                                 |\n");
+				printf("|    > Enter:                                |\n");
+				printf("|      As the chef thrusts the pie forwards, |\n");
+				printf("|      you lunge forward, grasp the door,    |\n");
+				printf("|      and slam it closed so the pie can     |\n");
+				printf("|      bounce off the door shield!           |\n");
 				printf("----------------------------------------------\n");
 
-				//SETUP CALL TO TYPING MODULE TO GET THE USER TO TYPE THIS SENTENCE
-				//ENTER this v
-				//As the chef thrusts the pie forwards, you lunge forward, grasp the door, and slam it closed so the pie can bounce off the door shield!
+				double typingSpeed = 0.0;
+				char* setenceTyped = GetInput(&typingSpeed);
+				double typingScore = CheckSentence("As the chef thrusts the pie forwards, you lunge forward, grasp the door, and slam it closed so the pie can bounce off the door shield!\0", //sentence to type
+													139, //sentence length
+													setenceTyped, //users sentence entry
+													typingSpeed); //users typing speed
+
 
 				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -199,7 +209,7 @@ int main(int argc, char* argv[])
 				printf("However, you do notice a yellowish fruit-looking thing on the ground.\n");
 				printf("You decide to pick it up and notice that it looks a lot like a potato.\n");
 				printf("You also notice it looks rather green and you think...\n");
-				printf("\n______________________________________________________________________________________________________\n");
+				printf("______________________________________________________________________________________________________\n");
 				printf("I should...\n");
 
 				//Determine the next steps for the game!
@@ -209,12 +219,13 @@ int main(int argc, char* argv[])
 					printf("1. Eat this, I'm famished.\n");
 					printf("2. Not eat this, I don't know where its been.\n");
 					int userInput = CollectNumericSelection(1, 2);
+					printf("______________________________________________________________________________________________________\n");
 					switch (userInput)
 					{
 					//Eat choice
 					case 1:
 						printf("You decide to put an end to your hunger and just eat it.\n");
-						//CREATEpoisonous potato OBJECT heath(OBJECT MODULE RANDOMLY GENERATES THE HEATH IMPACT OF EATING THIS OBJECT(- (0 - 100))
+						//CREATE poisonous potato OBJECT heath(OBJECT MODULE RANDOMLY GENERATES THE HEATH IMPACT OF EATING THIS OBJECT(- (0 - 100))
 						printf("After wolfing down this potato, you realize it did not taste too good.\n");
 						printf("Then it hits you that you don't start feeling good either.\n");
 						printf("The whole world starts to spin, and you quickly start feeling awful.\n");
@@ -260,7 +271,7 @@ int main(int argc, char* argv[])
 				printf("So you trip over a thick root and land face-first on this glimmering object.\n");
 				printf("Thanks to your fall, you have now noticed this object is strong and made of metal.\n");
 				printf("You think to yourself, what could this be? \n");
-				printf("\n______________________________________________________________________________________________________\n");
+				printf("______________________________________________________________________________________________________\n");
 				printf("Should you...\n");
 
 				//Determine the next steps for the game!
@@ -270,6 +281,7 @@ int main(int argc, char* argv[])
 					printf("1. Search for a stick to dig this thing out of the ground?\n");
 					printf("2. Ignore it and keep going?\n");
 					int userInput = CollectNumericSelection(1, 2);
+					printf("______________________________________________________________________________________________________\n");
 					switch (userInput)
 					{
 					//Search choice
@@ -303,7 +315,7 @@ int main(int argc, char* argv[])
 				printf("The tree is dead and is barely resting on the branch of another redwood tree.\n");
 				printf("The gentle breeze causes the trees to sway and causes the fallen tree to rock back and forth on this branch.\n");
 				printf("You can hear the tree's wood groaning under the weight of the fallen redwood.\n");
-				printf("\n______________________________________________________________________________________________________\n");
+				printf("______________________________________________________________________________________________________\n");
 				printf("You think, should I...\n");
 
 				//Determine the next steps for the game!
@@ -313,6 +325,7 @@ int main(int argc, char* argv[])
 					printf("1. Walk underneath the tree?\n");
 					printf("2. Go the long way around, just to be safe?\n");
 					int userInput = CollectNumericSelection(1, 2);
+					printf("______________________________________________________________________________________________________\n");
 					switch (userInput)
 					{
 					//Walk underneath choice
@@ -369,7 +382,7 @@ int main(int argc, char* argv[])
 				//LOAD CRABBY CRABS MONSTERS IN HERE damage required to defeat 25
 
 				printf("----------------------------------------------\n");
-				printf("|    > Health: 100%                          |\n");
+				printf("|    >Health: 100%                           |\n");
 				printf("|                                            |\n");
 				printf("|    >Crabby crabs Health: 25%               |\n");
 				printf("|                                            |\n");
@@ -377,11 +390,18 @@ int main(int argc, char* argv[])
 				printf("|    >are snaping their claws to attack      |\n");
 				printf("|                                            |\n");
 				printf("|    >Enter:                                 |\n");
+				printf("|      The crabby crabs curiously circled,   |\n");
+				printf("|      moving closer and closer after each   |\n");
+				printf("|      circle. They lunge, snapping their    |\n");
+				printf("|      crushing claws!                       |\n");
 				printf("----------------------------------------------\n");
 
-				//SETUP CALL TO TYPING MODULE TO GET THE USER TO TYPE THIS SENTENCE
-				//ENTER THIS v
-				//The crabby crabs curiously circled, moving closer and closer after each circle. They lunge, snapping their crushing claws!
+				typingSpeed = 0.0;
+				setenceTyped = GetInput(&typingSpeed);
+				typingScore = CheckSentence("The crabby crabs curiously circled, moving closer and closer after each circle. They lunge, snapping their crushing claws!\0", //sentence to type
+					127, //sentence length
+					setenceTyped, //users sentence entry
+					typingSpeed); //users typing speed
 
 				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -401,7 +421,7 @@ int main(int argc, char* argv[])
 
 		printf("After wandering around now aimlessly through the forest, you approach another area where you'll have to make a choice.\n");
 		printf("You look around and think, \n");
-		printf("\n______________________________________________________________________________________________________\n");
+		printf("______________________________________________________________________________________________________\n");
 		printf("Should I...\n");
 
 		//Determine the next steps for the game!
@@ -411,6 +431,7 @@ int main(int argc, char* argv[])
 			printf("1. Walk over to the large cliff I have just spotted?\n");
 			printf("2. Continue dodging between the trees?\n");
 			int userInput = CollectNumericSelection(1, 2);
+			printf("______________________________________________________________________________________________________\n");
 			switch (userInput)
 			{
 			//Walk over to clif choice
@@ -456,11 +477,19 @@ int main(int argc, char* argv[])
 				printf("|    >a brutal cloud of stink                |\n");
 				printf("|                                            |\n");
 				printf("|    >Enter:                                 |\n");
+				printf("|      Send your disgusting drowning goopy   |\n");
+				printf("|      stink away! Swat the thick slime      |\n");
+				printf("|      away to avoid potential suffocation!  |\n");
+				printf("|      Push through the cloud, eyes burning, |\n");
+				printf("|      nose plugged, you can do this!        |\n");
 				printf("----------------------------------------------\n");
-				
-				//SETUP CALL TO TYPING MODULE TO GET THE USER TO TYPE THIS SENTENCE
-				//ENTER THIS v
-				//Send your disgusting drowning goopy stink away! Swat the thick slime away to avoid potential suffocation! Push through the cloud, eyes burning, nose plugged, you can do this!
+
+				double typingSpeed = 0.0;
+				char* setenceTyped = GetInput(&typingSpeed);
+				double typingScore = CheckSentence("Send your disgusting drowning goopy stink away! Swat the thick slime away to avoid potential suffocation! Push through the cloud, eyes burning, nose plugged, you can do this!\0", //sentence to type
+					179, //sentence length
+					setenceTyped, //users sentence entry
+					typingSpeed); //users typing speed
 
 				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -492,6 +521,7 @@ int main(int argc, char* argv[])
 			printf("1. Save and exit\n");
 			printf("2. Continue to level 2\n");
 			int userInput = CollectNumericSelection(1,2);
+			printf("______________________________________________________________________________________________________\n");
 			switch (userInput)
 			{
 			//Save and exit
@@ -524,6 +554,7 @@ int main(int argc, char* argv[])
 			printf("1. Save and exit\n");
 			printf("2. Continue to level 3\n");
 			int userInput = CollectNumericSelection(1, 2);
+			printf("______________________________________________________________________________________________________\n");
 			switch (userInput)
 			{
 			//Save and exit
@@ -556,6 +587,7 @@ int main(int argc, char* argv[])
 			printf("1. Save and exit\n");
 			printf("2. Continue to level 4\n");
 			int userInput = CollectNumericSelection(1, 2);
+			printf("______________________________________________________________________________________________________\n");
 			switch (userInput)
 			{
 			//Save and exit

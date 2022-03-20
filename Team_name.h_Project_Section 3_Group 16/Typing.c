@@ -12,29 +12,28 @@
 #include <time.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 #define MAX_INPUT_BUFER      300
 #define PERFECT_TYPING_SPEED 0.25
 #define REDUCE_IMPACT        10
 #define TWO_DECIMAL_PLACES   100.0
 #define DECIMAL_FORMAT       100
-
-//This function will output the sentence that the user must type to the terminal.
-char* DisplaySentence(char* monsterSentence)
-{
-	//print the sentence that the user is required to type to the screen
-	printf("%s\n", monsterSentence);
-	//return the sentence that the user must type
-	return monsterSentence;
-}
+#define MAX_LINE_LENGTH      35
 
 //This function will get the input from the user (this input should match the sentence from the disaply sentence function 
-char* GetInput(int storeSpeed)
+char* GetInput(double *storeSpeed)
 {
 	char enteredSentence[MAX_INPUT_BUFER];
 	double tempStoreSpeed;
 	double startTime;
 	double endTime;
+	printf("----------------------------------------------\n");
+	printf("|    > Copy the above sentence here!         |\n");
+	printf("|    > Remember type fast and accurately!    |\n");
+	printf("|    > ");
+	//clear all the "junk" out of the input buffer before getting input from the user
+	while (getchar() != '\n');
 	//record the start time of when the user is ready to type
 	startTime = clock();
 	//allow the user to type (also have a max buf so the user cannot type forever)
@@ -48,6 +47,9 @@ char* GetInput(int storeSpeed)
 	//calculate the time take to enter the sentence by subtracting the end clock recording with the start clock recording divided by
 	//the number of clock cycles per second (THIS WILL CALCULATE THE TIME TAKEN IN SECONDS)
 	tempStoreSpeed = (endTime - startTime) / CLOCKS_PER_SEC; 
+	printf("----------------------------------------------\n");
+	//send back the recorded speed
+	*storeSpeed = tempStoreSpeed;
 	//send back the sentence that the user entered
 	return enteredSentence;
 }
