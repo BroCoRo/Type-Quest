@@ -18,6 +18,7 @@ int CollectNumericSelection(int lowerLimit, int upperLimit)
 	//continually collect input until a valid input is received
 	do
 	{
+		printf("______________________________________________________________________________________________________\n");
 		printf("Please enter your selection here: ");
 
 		//collect input from the user until valid input have been entered
@@ -32,7 +33,7 @@ int CollectNumericSelection(int lowerLimit, int upperLimit)
 			isValidInput = true;
 		}
 	} while (isValidInput == false);
-
+	printf("______________________________________________________________________________________________________\n");
 	//return the valid input
 	return selection;
 }

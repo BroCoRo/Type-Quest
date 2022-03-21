@@ -32,8 +32,6 @@ char* GetInput(double *storeSpeed)
 	printf("|    > Copy the above sentence here!         |\n");
 	printf("|    > Remember type fast and accurately!    |\n");
 	printf("|    > ");
-	//clear all the "junk" out of the input buffer before getting input from the user
-	while (getchar() != '\n');
 	//record the start time of when the user is ready to type
 	startTime = clock();
 	//allow the user to type (also have a max buf so the user cannot type forever)
