@@ -10,10 +10,16 @@
 #define MAX_SIZE 250
 #define MAX_NAME_SIZE 40
 #define MAX_ID_SIZE 10
+#define MAX_COLUM 100
+#define MAX_ROW 30
+#define MAX_ID 7
+
+
 #include "character.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 void decreaseMonsterHealth(int damage, struct character* monster) 
 {
@@ -27,20 +33,25 @@ void decreaseMonsterHealth(int damage, struct character* monster)
 	}
 }
 
-void displayMonster(struct character* monster) 
-{
+// displayMonster() is no longer needed since image isnt saved to struct
 
-	for (int i = 0; i < MAX_SIZE; i++) 
-	{
-		for (int j = 0; j < MAX_SIZE; j++)
-		{
-			printf("%c", monster->image[i][j]);
-		}
-
-	}
-
-	printf("\n");
-}
+//void displayMonster(struct character* monster) 
+//{
+//	for (int i = 0; i < MAX_ROW; i++)
+//	{
+//		for (int j = 0; j < MAX_COLUM; j++)
+//		{
+//			if (j == 0 && i == 0)
+//			{
+//				printf("    ");
+//			}
+//
+//			printf("%c", monster->image[i][j]);
+//		}
+//	}
+//
+//	printf("\n");
+//}
 
 void setMonsterHealth(int health, struct character* monster)
 {
@@ -52,7 +63,6 @@ void setMonsterHealth(int health, struct character* monster)
 	{
 		return 0;
 	}
-	
 }
 
 void displayMonsterHealth(struct character* monster) 
@@ -84,7 +94,7 @@ char* getSentence(struct character* monster)
 	int messageLength = 0;
 
 
-	if ((fp = fopen("data.txt", "r")) == NULL)
+	if ((fp = fopen("monstersentences.txt", "r")) == NULL)
 	{
 		sentence = "Monster has nothing to say.";
 		return sentence;
@@ -107,4 +117,66 @@ char* getSentence(struct character* monster)
 		}
 	}
 
+}
+void getImage(struct character* monster)
+{
+	FILE* fp;
+	char temp[MAX_ID];
+	bool running = true;
+	char holder = ' ';
+
+	char IDNumber[3];
+	sprintf(IDNumber, "%d", monster->ID);
+	int length = 4 + strlen(IDNumber);
+
+	if ((fp = fopen("ASCIImonsters.txt", "r")) == NULL)
+	{
+		fprintf(stderr, "Monster couldn't be displayed!");
+		exit(1);
+	}
+
+	while (fgets(temp, length, fp) != NULL) {
+		if ((strstr(temp, IDNumber)) != NULL) {
+			running = false;
+			break;
+		}
+		memset(temp, 0, sizeof(temp));
+	}
+
+	if (!running)
+	{
+		for (int indexi = 0; indexi < MAX_ROW; indexi++)
+		{
+			for (int indexj = 0; indexj < MAX_COLUM; indexj++)
+			{
+				if (holder == '\n')
+				{
+					indexi++;
+				}
+
+				if ((holder = getc(fp)) == ';')
+				{
+					fclose(fp);
+					return;
+				}
+
+				if (indexi == 0 && indexj == 0)
+				{
+					if (strlen(IDNumber) == 1)
+					{
+						printf("    ");
+					}
+					else if (strlen(IDNumber) == 2)
+					{
+						printf("     ");
+					}
+				}
+				if (holder != ';')
+				{
+					printf("%c", holder);
+				}
+
+			}
+		}
+	}
 }

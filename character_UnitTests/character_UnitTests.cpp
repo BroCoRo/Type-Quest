@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <string.h>
+#include <stdio.h>
 #define MAX_IMAGE_SIZE 80
 #define MAX_NAME_SIZE 40
 
@@ -75,12 +76,15 @@ namespace characterUnitTests
 		
 		TEST_METHOD(getSentence_valid)
 		{
-			CHARACTER monster = { 0,1,"name" };
+			//[DeploymentItem("monstersentences.txt")] ;
+			CHARACTER monster = { 100,1,"name" };
 			CHARACTER* p = &monster;
-			char* expected = "test sentence";
+			char* expected = "Monster has nothing to say.";
+			int size = strlen(expected);
 			char* actual = getSentence(p);
-			
-			Assert::IsTrue(strcmp(expected, actual) == 0);
+			int result = 1;
+			result = strcmp(expected, actual);
+			Assert::AreEqual(result, 0);
 		}
 
 	};

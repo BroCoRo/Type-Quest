@@ -1,0 +1,15 @@
+M#0: test sentence testing 1 2 3.
+
+M#1: The angry chef wields his burnt pie and is ready to attack!  
+
+M#2: Minotaurs are half man, half bull abominations who hate the colour red. 
+
+M#3: The mystical world is filled with wizards monsters and magic. 
+
+M#4: watch out for that cyclops' metal arm! Careful he doesn't poke out your eye.
+
+M#5: The crabby crabs start circling and are snaping their claws to attack. 
+
+M#6: The stinky glob plows forward with a brutal cloud of stink! 
+
+M#7: Slimes are made of Gooey goo, make sure not to let them touch your favourte shoe. 

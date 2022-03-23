@@ -14,13 +14,13 @@ typedef struct character {
 	int health;
 	int ID;
 	char name[MAX_NAME_SIZE];
-	char image[MAX_SIZE][MAX_SIZE];
 
 }CHARACTER;
 
 //struct character* generateRandomMonster(void);
 void decreaseMonsterHealth(int damage, struct character* monster);
 char* getSentence(struct character* monster);
-void displayMonster(struct character* monster);
+//void displayMonster(struct character* monster);
+void getImage(struct character* monster);
 void displayMonsterHealth(struct character* monster);
-void setMonsterHealth(int health, struct character* monster);
+void setMonsterHealth(int health, struct character* monster); 
