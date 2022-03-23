@@ -5,35 +5,54 @@
 // 
 // Revision History 
 // 1.0       March 14th      2022
+#define _CRT_SECURE_NO_WARNINGS
 #include "Player.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 
-int getHealth(ptrPLayer p) {
+ptrPlayer createPlayer(char name[MAXNAME], int Health, int Damage, int Defence) {
+	ptrPlayer newPlayer = (ptrPlayer)malloc(sizeof(PLAYER));
+
+	if (!newPlayer) {
+		printf("Error Allocating Memory\n");
+		free(newPlayer);
+		exit(1);
+		
+	}
+	strcpy(newPlayer->name, name);
+	newPlayer->Health = Health;
+	newPlayer->Damage = Damage;
+	newPlayer->Defence = Defence;
+	
+	return newPlayer;
+}
+int getHealth(ptrPlayer p) {
 	return p->Health;
 }
 
-void setHealth(ptrPLayer p, int health) {
+void setHealth(ptrPlayer p, int health) {
 	p->Health = health;
 }
 
-int getDamage(ptrPLayer p) {
+int getDamage(ptrPlayer p) {
 	return p->Damage;
 }
 
-void setDamage(ptrPLayer p,  int damage) {
+void setDamage(ptrPlayer p,  int damage) {
 	p->Damage = damage;
 }
 
-int getDefence(ptrPLayer p) {
+int getDefence(ptrPlayer p) {
 	return p->Defence;
 }
 
-void setDefence(ptrPLayer p, int defence) {
+void setDefence(ptrPlayer p, int defence) {
 	p->Defence = defence;
 }
 
-bool checkHealth(ptrPLayer p) {
+bool checkHealth(ptrPlayer p) {
 	if (p->Health <= 0) {
 		return false;
 	}
@@ -42,10 +61,25 @@ bool checkHealth(ptrPLayer p) {
 	}
 }
 
-void printPlayer(ptrPLayer p) {
+void printPlayer(ptrPlayer p) {
 	printf("Player Print:\n");
 	printf("Name: %s\n", p->name);
 	printf("Health: %d\n", p->Health);
 	printf("Damage: %d\n", p->Damage);
 	printf("Defence: %d\n", p->Defence);
+}
+
+int calculateDamage(ptrPlayer p, double score) {
+	int outputDamage = p->Damage * score;
+
+	if (score < 0.5) {
+		//Monster's Turn to damage
+		p->Health =- p->Damage * 0.5;
+		
+		return 0;
+	}
+	return outputDamage;
+}
+void DisposePlayer(ptrPlayer p) {
+	free(p);
 }

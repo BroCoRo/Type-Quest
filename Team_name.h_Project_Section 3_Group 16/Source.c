@@ -7,10 +7,18 @@
 // 1.0       March 3rd      2022
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "Player.h"
+/*
+	
+*/
 
 int main(void)
 {
-	printf("Hello world\n");
+	ptrPlayer Player = createPlayer("Owen", 25, 50, 30);
+	printPlayer(Player);
+
+	DisposePlayer(Player);
 
 	return(0);
 }
