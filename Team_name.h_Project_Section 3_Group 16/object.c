@@ -12,12 +12,11 @@ void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], in
 	ITEM* item;
 	item = (ITEM*)malloc(sizeof(struct item));
 
-
-	/*if (item == NULL)
+	if (item == NULL)
 	{
 		printf("memory not allocated\n");
 		exit(0);
-	}*/
+	}
 
 	strcpy(item->itemType, objectType);
 	strcpy(item->name, itemName);
@@ -45,9 +44,7 @@ void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], in
 
 
 
-//A function call by pickItem() when a player chooses to use an item. It has the struct player pointer 
-//and the food item's integer value as parameters and has the player pointer as the return type. 
-//The function will increase the player's health and return back to the player module
+//A function call by createItem() if the item is a "gFood" item
 void increaseHealth(PLAYER* player, int points)
 {
 	player->Health = player->Health + points;
@@ -55,27 +52,21 @@ void increaseHealth(PLAYER* player, int points)
 }
 
 
-////A function call by pickItem() when a player chooses to use an item. 
-////It has the struct player pointer and the food item's integer value as parameters and has the player pointer as the return type. 
-////The function will decrease the player's health and return back to the player module
+//A function call by createItem() if the item is a "bFood" item
 void decreaseHealth(PLAYER* player, int points)
 {
 	player->Health = player->Health - points;
 
 }
 
-////A function call by pickItem() when a player chooses to use an item. 
-////It has the struct player pointer and the attack item's integer value as parameters and has the player pointer as the return type. 
-////The function will increase the player's attack and return back to the player module
+//A function call by createItem() if the item is a "attack" item
 void increaseAttack(PLAYER* player, int points)
 {
 	player->Damage = player->Damage + points;
 
 }
 
-////A function call by pickItem() when a player chooses to use an item. 
-////It has the struct player pointer and the defense item's integer value as parameters and has the player pointer as the return type. 
-////The function will increase the player's defense and return back to the player module
+//A function call by createItem() if the item is a "defense" item
 void increaseDefense(PLAYER* player, int points)
 {
 	player->Defence = player->Defence + points;
