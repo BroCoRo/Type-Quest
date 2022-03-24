@@ -4,6 +4,7 @@
 #include <stdio.h>
 #define MAX_IMAGE_SIZE 80
 #define MAX_NAME_SIZE 40
+#define MAX_SIZE 250
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -77,9 +78,9 @@ namespace characterUnitTests
 		TEST_METHOD(getSentence_valid)
 		{
 			//[DeploymentItem("monstersentences.txt")] ;
-			CHARACTER monster = { 100,1,"name" };
+			CHARACTER monster = { 100,0,"name" };
 			CHARACTER* p = &monster;
-			char* expected = "Monster has nothing to say.";
+			char* expected = "test sentence testing 1 2 3.\n";
 			int size = strlen(expected);
 			char* actual = getSentence(p);
 			int result = 1;

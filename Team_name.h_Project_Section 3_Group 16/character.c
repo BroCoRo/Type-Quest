@@ -94,9 +94,9 @@ char* getSentence(struct character* monster)
 	int messageLength = 0;
 
 
-	if ((fp = fopen("monstersentences.txt", "r")) == NULL)
+	if ((fp = fopen("C:\\Users\\tyler\\source\\repos\\Team_name.h\\Team_name.h_Project_Section 3_Group 16\\monstersentences.txt", "r")) == NULL)
 	{
-		sentence = "Monster has nothing to say.";
+		sentence = "Monster file couldn't be opened.";
 		return sentence;
 	}
 	else
@@ -118,11 +118,12 @@ char* getSentence(struct character* monster)
 	}
 
 }
-void getImage(struct character* monster)
+bool getImage(struct character* monster)
 {
 	FILE* fp;
 	char temp[MAX_ID];
 	bool running = true;
+	bool fileError = false;
 	char holder = ' ';
 
 	char IDNumber[3];
@@ -132,7 +133,8 @@ void getImage(struct character* monster)
 	if ((fp = fopen("ASCIImonsters.txt", "r")) == NULL)
 	{
 		fprintf(stderr, "Monster couldn't be displayed!");
-		exit(1);
+		fileError = true;
+		return fileError;
 	}
 
 	while (fgets(temp, length, fp) != NULL) {
