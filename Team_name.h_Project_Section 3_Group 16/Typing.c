@@ -63,7 +63,7 @@ double CheckSentence(char* sentenceToType, int sentenceLength, char* sentenceTyp
 	for (int count = 0; count < sentenceLength; count++)
 	{
 		//compare characters betweeen the two sentences 
-		if (sentenceToType[count] == sentenceTyped[count])
+		if ((sentenceToType[count] ^ sentenceTyped[count]) == 0) //we can XOR (with the ^) the two sets of bits for each character to determine if they are the same (0)
 		{
 			//the chars match so increase the num of correct chars 
 			tempStoreNumCorrectChars++;

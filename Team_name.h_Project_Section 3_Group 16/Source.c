@@ -273,7 +273,12 @@ int main(int argc, char* argv[])
 						printf("You decide to put an end to your hunger and just eat it.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
-						//CREATE poisonous potato OBJECT heath(OBJECT MODULE RANDOMLY GENERATES THE HEATH IMPACT OF EATING THIS OBJECT(- (0 - 100))
+						srand(time(0));
+
+						//randomly generate poisonous potato damage to insert
+						int potatoDamage = ((rand() % (100 - 0 + 1)) + 0);
+						//SETUP poisonous potato object here with -potatoDamage DAMAGE
+
 						printf("After wolfing down this potato, you realize it did not taste too good.\n");
 						while (getchar() != '\n');
 						printf("Then it hits you that you don't start feeling good either.\n");
