@@ -5,12 +5,11 @@
 #include <string.h>
 #include "object.h"
 
-//a function call by the story module that will determine whether or not to show an item and that has return type struct Item. 
-//1 means item is shown and calls specificItem() and 0 for no item shown and returns to the story module
-void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, PLAYER* player)
+//a function called by the story module that creates an item and then calls other functions to increase the players stats
+void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, ptrPlayer player)
 {
 	ITEM* item;
-	item = (ITEM*)malloc(sizeof(struct item));
+	item = (ITEM*)malloc(sizeof(struct item)); //dynamically allocating memory for the item
 
 	if (item == NULL)
 	{
@@ -18,10 +17,12 @@ void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], in
 		exit(0);
 	}
 
+	//copying item information
 	strcpy(item->itemType, objectType);
 	strcpy(item->name, itemName);
 	item->points = itemPoints;
 
+	//calls one of the corresponding functions based on item type
 	if (strcmp(item->itemType, "gFood") == 0)
 	{
 		increaseHealth(player, item->points);
@@ -30,22 +31,27 @@ void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], in
 	{
 		decreaseHealth(player, item->points);
 	}
-	else if (strcmp(item->itemType, "attack") == 0)
+	else if (strcmp(item->itemType, "damage") == 0)
 	{
 		increaseAttack(player, item->points);
 	}
 	else if (strcmp(item->itemType, "defence") == 0)
 	{
-		increaseDefense(player, item->points);
+		increaseDefence(player, item->points);
 	}
+	else
+	{
+		printf("Entered incorrect item type. Please correct and try again");
+	}
+	
 
-	free(item);
+	free(item); //deleting the allocated memory after item use
 }
 
 
 
 //A function call by createItem() if the item is a "gFood" item
-void increaseHealth(PLAYER* player, int points)
+void increaseHealth(ptrPlayer player, int points)
 {
 	player->Health = player->Health + points;
 
@@ -53,21 +59,21 @@ void increaseHealth(PLAYER* player, int points)
 
 
 //A function call by createItem() if the item is a "bFood" item
-void decreaseHealth(PLAYER* player, int points)
+void decreaseHealth(ptrPlayer player, int points)
 {
 	player->Health = player->Health - points;
 
 }
 
 //A function call by createItem() if the item is a "attack" item
-void increaseAttack(PLAYER* player, int points)
+void increaseAttack(ptrPlayer player, int points)
 {
 	player->Damage = player->Damage + points;
 
 }
 
-//A function call by createItem() if the item is a "defense" item
-void increaseDefense(PLAYER* player, int points)
+//A function call by createItem() if the item is a "defence" item
+void increaseDefence(ptrPlayer player, int points)
 {
 	player->Defence = player->Defence + points;
 

@@ -1,6 +1,6 @@
 #pragma once
 #define MAX_NAME_SIZE 20
-#define MAX_ITEM_NAME 7
+#define MAX_ITEM_NAME 8
 
 typedef struct item
 {
@@ -10,8 +10,8 @@ typedef struct item
 
 } ITEM;
 
-void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, PLAYER*);
-void increaseHealth(PLAYER*, int points);
-void decreaseHealth(PLAYER*, int points);
-void increaseAttack(PLAYER*, int points);
-void increaseDefense(PLAYER*, int points);
+void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, ptrPlayer);
+void increaseHealth(ptrPlayer, int points);
+void decreaseHealth(ptrPlayer, int points);
+void increaseAttack(ptrPlayer, int points);
+void increaseDefence(ptrPlayer, int points);
