@@ -15,21 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c">
+    <ClCompile Include="TypingModuleTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Typing.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IO.c">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Typing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IO.h">
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
