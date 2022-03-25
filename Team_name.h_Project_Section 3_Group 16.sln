@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Team_name.h_Project_Section 3_Group 16", "Team_name.h_Project_Section 3_Group 16\Team_name.h_Project_Section 3_Group 16.vcxproj", "{9B6D0B5B-0C38-462A-B968-1FEE3E62611F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TypingModuleTests", "TypingModuleTests\TypingModuleTests.vcxproj", "{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "character_UnitTests", "character_UnitTests\character_UnitTests.vcxproj", "{E1269FB0-287C-461F-9A77-7E9C1125C2B0}"
 EndProject
 Global
@@ -31,6 +33,14 @@ Global
 		{E1269FB0-287C-461F-9A77-7E9C1125C2B0}.Release|x64.Build.0 = Release|x64
 		{E1269FB0-287C-461F-9A77-7E9C1125C2B0}.Release|x86.ActiveCfg = Release|Win32
 		{E1269FB0-287C-461F-9A77-7E9C1125C2B0}.Release|x86.Build.0 = Release|Win32
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Debug|x64.ActiveCfg = Debug|x64
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Debug|x64.Build.0 = Debug|x64
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Debug|x86.ActiveCfg = Debug|Win32
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Debug|x86.Build.0 = Debug|Win32
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Release|x64.ActiveCfg = Release|x64
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Release|x64.Build.0 = Release|x64
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Release|x86.ActiveCfg = Release|Win32
+		{96D6C4B0-B9D6-4E5E-89B1-ACAF150C514B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
