@@ -19,13 +19,13 @@ ptrPlayer createPlayer(char name[MAXNAME], int Health, int Damage, int Defence) 
 		printf("Error Allocating Memory\n");
 		free(newPlayer);
 		exit(1);
-		
+
 	}
 	strcpy(newPlayer->name, name);
 	newPlayer->Health = Health;
 	newPlayer->Damage = Damage;
 	newPlayer->Defence = Defence;
-	
+
 	return newPlayer;
 }
 int getHealth(ptrPlayer p) {
@@ -40,7 +40,7 @@ int getDamage(ptrPlayer p) {
 	return p->Damage;
 }
 
-void setDamage(ptrPlayer p,  int damage) {
+void setDamage(ptrPlayer p, int damage) {
 	p->Damage = damage;
 }
 
@@ -71,14 +71,36 @@ void printPlayer(ptrPlayer p) {
 
 int calculateDamage(ptrPlayer p, double score) {
 	int outputDamage = p->Damage * score;
-
+	int Pdefence, Pdamage;
 	if (score < 0.5) {
 		//Monster's Turn to damage
-		p->Health =- p->Damage * 0.5;
-		
+
+		Pdefence = p->Defence;
+		Pdamage = p->Damage;
+		if (Pdamage > Pdefence) {
+			p->Health -= Pdamage - Pdefence;
+		}
+		if (p->Health <= 0) {
+			return 0;
+		}
 		return 0;
 	}
 	return outputDamage;
+}
+void printPlayerStats(ptrPlayer player, FILE* fp) {
+	char scoreBoard[IMAGESIZEW][IMAGESIZEH];
+	for (int i = 0; i < IMAGESIZEW; i++) {
+		for (int j = 0; j < IMAGESIZEH; j++) {
+			fscanf(fp, "%c", &scoreBoard[i][j]);
+		}
+	}
+
+	for (int i = 0; i < IMAGESIZEW; i++) {
+		for (int j = 0; j < IMAGESIZEH; j++) {
+			printf("%c", scoreBoard[i][j]);
+		}
+	}
+	fclose(fp);
 }
 void DisposePlayer(ptrPlayer p) {
 	free(p);

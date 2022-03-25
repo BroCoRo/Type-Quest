@@ -7,14 +7,17 @@
 // Revision History 
 // 1.0       March 14th      2022
 #define MAXNAME 25
+#define IMAGESIZEH 29
+#define IMAGESIZEW 27
 #include <stdbool.h>
+#include <stdlib.h>
 typedef struct player {
 	char name[MAXNAME];
 	int Health;
 	int Damage;
 	int Defence;
 
-}PLAYER, *ptrPlayer;
+}PLAYER, * ptrPlayer;
 ptrPlayer createPlayer(char[MAXNAME], int, int, int);
 void DisposePlayer(ptrPlayer);
 int getHealth(ptrPlayer);
