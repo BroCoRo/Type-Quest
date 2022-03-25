@@ -10,10 +10,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include "object.h"
+
+#include "Player.h"
+/*
+	
+*/
 
 int main(void)
 {
-	
+	ptrPlayer Player = createPlayer("Owen", 25, 50, 30);
+	printPlayer(Player);
+
+	DisposePlayer(Player);
+
+	return(0);
 }
