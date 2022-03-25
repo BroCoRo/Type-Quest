@@ -24,7 +24,7 @@
     <ClCompile Include="IO.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Source.c">
+    <ClCompile Include="..\..\..\..\Source.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
