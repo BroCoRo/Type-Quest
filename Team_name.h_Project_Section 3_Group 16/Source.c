@@ -6,8 +6,11 @@
 // Revision History 
 // 1.0       March 3rd      2022
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "Player.h"
 /*
 	
