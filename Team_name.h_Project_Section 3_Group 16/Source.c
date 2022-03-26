@@ -12,16 +12,16 @@
 #include <stdlib.h>
 
 #include "Player.h"
+#include "object.h"
 /*
 	
 */
 
 int main(void)
 {
-	ptrPlayer Player = createPlayer("Owen", 25, 50, 30);
-	printPlayer(Player);
+	ptrPlayer p = createPlayer("owen", 100, 25, 25);
+	createItem("gitem", "cock", 25, p);
 
-	DisposePlayer(Player);
 
 	return(0);
 }
