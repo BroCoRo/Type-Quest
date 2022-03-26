@@ -183,3 +183,19 @@ bool getImage(struct character* monster)
 		}
 	}
 }
+
+CHARACTER* CreateCharacter(int health, int ID, char name[MAX_NAME_SIZE]) 
+{
+	CHARACTER* newCharacter = (CHARACTER*)malloc(sizeof(CHARACTER));
+	if (!newCharacter) {
+		printf("Error Allocating Memory\n");
+		free(newCharacter);
+		exit(1);
+	}
+	newCharacter->health = health;
+	newCharacter->ID = ID;
+	strcpy(newCharacter->name, name);
+
+	return newCharacter;
+
+}

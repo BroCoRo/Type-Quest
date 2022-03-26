@@ -13,6 +13,7 @@ extern "C" {
 	void decreaseMonsterHealth(int damage, struct character* monster);
 	char* getSentence(struct character* monster);
 	void setMonsterHealth(int health, struct character* monster);
+	
 
 	typedef struct character {
 		int health;

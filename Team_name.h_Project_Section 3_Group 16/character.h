@@ -26,3 +26,4 @@ char* getSentence(struct character* monster);
 bool getImage(struct character* monster);
 void displayMonsterHealth(struct character* monster); 
 void setMonsterHealth(int health, struct character* monster); 
+CHARACTER* CreateCharacter(int, int, char[MAX_NAME_SIZE]);
