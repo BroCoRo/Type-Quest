@@ -95,7 +95,7 @@ char* getSentence(struct character* monster)
 	int messageLength = 0;
 
 	//Team_name.h_Project_Section 3_Group 16
-	if ((fp = fopen("../../Team_name.h_Project_Section 3_Group 16/monstersentences.txt", "r")) == NULL)
+	if ((fp = fopen("../Team_name.h_Project_Section 3_Group 16/monstersentences.txt", "r")) == NULL)
 	{
 		sentence = "Monster file couldn't be opened.";
 		return sentence;
@@ -131,7 +131,7 @@ bool getImage(struct character* monster)
 	sprintf(IDNumber, "%d", monster->ID);
 	int length = 4 + strlen(IDNumber);
 
-	if ((fp = fopen("../../Team_name.h_Project_Section 3_Group 16/ASCIImonsters.txt", "r")) == NULL)
+	if ((fp = fopen("../Team_name.h_Project_Section 3_Group 16/ASCIImonsters.txt", "r")) == NULL)
 	{
 		fprintf(stderr, "Monster couldn't be displayed!");
 		fileError = true;

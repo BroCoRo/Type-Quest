@@ -21,6 +21,7 @@ extern "C" {
 		char image[MAX_IMAGE_SIZE][MAX_IMAGE_SIZE];
 
 	}CHARACTER;
+	
 	CHARACTER* CreateCharacter(int, int, char[MAX_NAME_SIZE]);
 }
 namespace CharacterTypingStoryIntegrationTests
@@ -29,7 +30,7 @@ namespace CharacterTypingStoryIntegrationTests
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1INT_TEST_CREATE_MONSTER_FROM_STORY)
+		TEST_METHOD(INT_TEST_CREATE_MONSTER_FROM_STORY)
 		{//Brodin
 
 		}
@@ -40,7 +41,7 @@ namespace CharacterTypingStoryIntegrationTests
 		TEST_METHOD(INT_TEST_CREATEMONSTER1)
 		{//Tyler
 		}
-		TEST_METHOD(NT_TEST_OPEN_SENTENCE_FILE)
+		TEST_METHOD(INT_TEST_OPEN_SENTENCE_FILE)
 		{//Tyler
 		}
 		TEST_METHOD(INT_TEST_OPEN_ASCIIART_FILE)
