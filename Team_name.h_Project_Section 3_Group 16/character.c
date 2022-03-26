@@ -124,7 +124,7 @@ bool getImage(struct character* monster)
 	FILE* fp;
 	char temp[MAX_ID];
 	bool running = true;
-	bool fileError = false;
+	bool fileOpen = true;
 	char holder = ' ';
 
 	char IDNumber[3];
@@ -134,8 +134,8 @@ bool getImage(struct character* monster)
 	if ((fp = fopen("../Team_name.h_Project_Section 3_Group 16/ASCIImonsters.txt", "r")) == NULL)
 	{
 		fprintf(stderr, "Monster couldn't be displayed!");
-		fileError = true;
-		return fileError;
+		fileOpen = false;
+		return fileOpen;
 	}
 
 	while (fgets(temp, length, fp) != NULL) {
@@ -160,7 +160,7 @@ bool getImage(struct character* monster)
 				if ((holder = getc(fp)) == ';')
 				{
 					fclose(fp);
-					return;
+					return fileOpen;
 				}
 
 				if (indexi == 0 && indexj == 0)
@@ -182,6 +182,7 @@ bool getImage(struct character* monster)
 			}
 		}
 	}
+	
 }
 
 CHARACTER* CreateCharacter(int health, int ID, char name[MAX_NAME_SIZE]) 

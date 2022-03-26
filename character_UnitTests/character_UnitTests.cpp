@@ -13,13 +13,13 @@ extern "C" {
 	void decreaseMonsterHealth(int damage, struct character* monster);
 	char* getSentence(struct character* monster);
 	void setMonsterHealth(int health, struct character* monster);
-	
+	bool getImage(struct character* monster);
 
 	typedef struct character {
 		int health;
 		int ID;
 		char name[MAX_NAME_SIZE];
-		char image[MAX_IMAGE_SIZE][MAX_IMAGE_SIZE];
+		//char image[MAX_IMAGE_SIZE][MAX_IMAGE_SIZE];
 
 	}CHARACTER;
 }
@@ -81,7 +81,7 @@ namespace characterUnitTests
 			//[DeploymentItem("monstersentences.txt")] ;
 			CHARACTER monster = { 100,0,"name" };
 			CHARACTER* p = &monster;
-			char* expected = "test sentence testing 1 2 3.\n";
+			char* expected = "test sentence testing testing.\n";
 			int size = strlen(expected);
 			char* actual = getSentence(p);
 			int result = 1;

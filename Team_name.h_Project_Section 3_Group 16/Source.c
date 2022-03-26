@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "character.h"
 
 #define FIRST_ARGUMENT 1
 #define LEVEL_ONE      1
@@ -25,6 +26,7 @@ int main(int argc, char* argv[])
 	int storyLevelToPlay = 0;
 	sscanf_s(argv[FIRST_ARGUMENT], "%d", &storyLevelToPlay);
 	bool canContinue = true;
+
 
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	if (storyLevelToPlay == LEVEL_ONE)

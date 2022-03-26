@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 #define MAX_IMAGE_SIZE 80
 #define MAX_NAME_SIZE 40
 #define MAX_SIZE 250
@@ -13,12 +14,13 @@ extern "C" {
 	char* getSentence(struct character* monster);
 	void setMonsterHealth(int health, struct character* monster);
 	double CheckSentence(char*, int, char*, double);
+	bool getImage(struct character* monster);
 	
 	typedef struct character {
 		int health;
 		int ID;
 		char name[MAX_NAME_SIZE];
-		char image[MAX_IMAGE_SIZE][MAX_IMAGE_SIZE];
+		//char image[MAX_IMAGE_SIZE][MAX_IMAGE_SIZE];
 
 	}CHARACTER;
 	
@@ -40,12 +42,40 @@ namespace CharacterTypingStoryIntegrationTests
 		}
 		TEST_METHOD(INT_TEST_CREATEMONSTER1)
 		{//Tyler
+			CHARACTER testMonster;
+			CHARACTER* p = &testMonster;
+			int monsterhealth = 100;
+			int monsterID = 1;
+			char monsterName[MAX_NAME_SIZE] = "Tester Monster";
+			p = CreateCharacter(monsterhealth, monsterID, monsterName);
+			int result = 1;
+			result = strcmp(monsterName, p->name);
+			Assert::AreEqual(monsterhealth, p->health);
+			Assert::AreEqual(monsterID, p->ID);
+			Assert::AreEqual(result, 0);
 		}
 		TEST_METHOD(INT_TEST_OPEN_SENTENCE_FILE)
 		{//Tyler
+			CHARACTER monster = { 100,7,"Slime" };
+			CHARACTER* p = &monster;
+			char* expected = "Slimes are made of Gooey goo, make sure not to let them touch your favourte shoe.\n";
+
+			char* error = "Monster has nothing to say.\n";
+			char* actual = getSentence(p);
+			int resultOutput = 1;
+			int notOpened = 1;
+			resultOutput = strcmp(expected, actual);
+			notOpened = strcmp(error, actual);
+			Assert::AreEqual(resultOutput, 0);
+			Assert::AreNotEqual(notOpened, 0);
 		}
 		TEST_METHOD(INT_TEST_OPEN_ASCIIART_FILE)
 		{//Tyler
+			CHARACTER monster = { 100,1,"Tester Monster" };
+			CHARACTER* p = &monster;
+			bool expected = true;
+			bool actual = getImage(p);
+			Assert::AreEqual(expected, actual);
 		}
 	};
 }
