@@ -19,8 +19,7 @@
 
 int main(void)
 {
-	ptrPlayer p = createPlayer("owen", 100, 25, 25);
-	createItem("gitem", "cock", 25, p);
+	
 
 
 	return(0);
