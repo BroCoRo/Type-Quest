@@ -1,17 +1,15 @@
 M#0: test sentence testing testing.
 
-M#1: The angry chef wields his burnt pie and is ready to attack!
-  
+M#1: As the chef thrusts the pie forwards, you lunge forward, grasp the door, and slam it closed so the pie can bounce off the door shield!
+
 M#2: Minotaurs are half man, half bull abominations who hate the colour red.
- 
+
 M#3: The mystical world is filled with wizards monsters and magic.
- 
+
 M#4: watch out for that cyclops' metal arm! Careful he doesn't poke out your eye.
 
-M#5: The crabby crabs start circling and are snaping their claws to attack.
- 
-M#6: The stinky glob plows forward with a brutal cloud of stink!
- 
-M#7: Slimes are made of Gooey goo, make sure not to let them touch your favourte shoe.
+M#5: The crabby crabs curiously circled, moving closer and closer after each circle. They lunge, snapping their crushing claws!
 
- 
+M#6: Send your disgusting drowning goopy stink away! Swat the thick slime away to avoid potential suffocation! Push through the cloud, eyes burning, nose plugged, you can do this!
+
+M#7: Slimes are made of Gooey goo, make sure not to let them touch your favourte shoe.

@@ -8,7 +8,7 @@
 // 1.0       March 3rd      2022 
 
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX_SIZE 250
+#define MAX_SIZE 300
 #define MAX_NAME_SIZE 40
 #define MAX_ID_SIZE 10
 #define MAX_COLUM 100

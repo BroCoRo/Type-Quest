@@ -46,6 +46,16 @@ namespace CharacterTypingStoryIntegrationTests
 
 		TEST_METHOD(INT_TEST_GETSENTENCE)
 		{//Brodin
+			int GooeyGlobhealth = 100;
+			int GooeyGlobID = 6;
+			char monsterName[MAX_NAME_SIZE] = "Gooey Glob";
+			CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, monsterName);
+			double calculatedScore;
+			double recordedSpeed = 1;
+			//calculate the score with an non-impactful time and a perfectly matched sentence
+			calculatedScore = CheckSentence(getSentence(gooeyGlob), 173, "Send your disgusting drowning goopy stink away!Swat the thick slime away to avoid potential suffocation!Push through the cloud, eyes burning, nose plugged, you can do this!", recordedSpeed);
+			//check for perfect score
+			Assert::AreEqual(1.0, calculatedScore);
 		}
 		TEST_METHOD(INT_TEST_CREATEMONSTER1)
 		{//Tyler
