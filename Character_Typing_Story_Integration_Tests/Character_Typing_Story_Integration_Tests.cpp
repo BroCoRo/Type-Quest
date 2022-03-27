@@ -34,7 +34,14 @@ namespace CharacterTypingStoryIntegrationTests
 		
 		TEST_METHOD(INT_TEST_CREATE_MONSTER_FROM_STORY)
 		{//Brodin
-
+			int GooeyGlobhealth = 100;
+			int GooeyGlobID = 6;
+			char monsterName[MAX_NAME_SIZE] = "Gooey Glob";
+			CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, monsterName);
+			int result = strcmp(monsterName, gooeyGlob->name);
+			Assert::AreEqual(GooeyGlobhealth, gooeyGlob->health);
+			Assert::AreEqual(GooeyGlobID, gooeyGlob->ID);
+			Assert::AreEqual(result, 0);
 		}
 
 		TEST_METHOD(INT_TEST_GETSENTENCE)
