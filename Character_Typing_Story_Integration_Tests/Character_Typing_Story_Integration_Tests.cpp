@@ -31,29 +31,34 @@ namespace CharacterTypingStoryIntegrationTests
 	TEST_CLASS(CharacterTypingStoryIntegrationTests)
 	{
 	public:
-		
+		//this test method ensures that a character from the story can be successfully created 
 		TEST_METHOD(INT_TEST_CREATE_MONSTER_FROM_STORY)
 		{//Brodin
+			//setup a sample story monster
 			int GooeyGlobhealth = 100;
 			int GooeyGlobID = 6;
-			char monsterName[MAX_NAME_SIZE] = "Gooey Glob";
-			CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, monsterName);
-			int result = strcmp(monsterName, gooeyGlob->name);
+			char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
+			//call create character function (as we would in the story module)
+			CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
+			//determine if the monster was setup correctly 
+			int result = strcmp(GooeyGlobName, gooeyGlob->name);
 			Assert::AreEqual(GooeyGlobhealth, gooeyGlob->health);
 			Assert::AreEqual(GooeyGlobID, gooeyGlob->ID);
 			Assert::AreEqual(result, 0);
 		}
-
+		//this test method ensure that the typing modules checkSentence function can use the getSentence function from the character module to know what sentence for the monster in the story to type 
 		TEST_METHOD(INT_TEST_GETSENTENCE)
 		{//Brodin
+			//setup sample story monster
 			int GooeyGlobhealth = 100;
 			int GooeyGlobID = 6;
 			char monsterName[MAX_NAME_SIZE] = "Gooey Glob";
 			CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, monsterName);
+			//setup sample typing scores
 			double calculatedScore;
-			double recordedSpeed = 1;
+			double recordedSpeed = 1.0;
 			//calculate the score with an non-impactful time and a perfectly matched sentence
-			calculatedScore = CheckSentence(getSentence(gooeyGlob), 173, "Send your disgusting drowning goopy stink away!Swat the thick slime away to avoid potential suffocation!Push through the cloud, eyes burning, nose plugged, you can do this!", recordedSpeed);
+			calculatedScore = CheckSentence(getSentence(gooeyGlob), 176, "Send your disgusting drowning goopy stink away! Swat the thick slime away to avoid potential suffocation! Push through the cloud, eyes burning, nose plugged, you can do this!\n", recordedSpeed);
 			//check for perfect score
 			Assert::AreEqual(1.0, calculatedScore);
 		}

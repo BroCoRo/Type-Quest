@@ -218,7 +218,10 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("With godspeed, you lunge into action.\n");
 
-				//CREATE ANGRY CHEF MONSTER HERE <-- Damage to defeat 50
+				int AngryChefHealth = 50;
+				int AngryChefID = 1;
+				char AngryChefName[MAX_NAME_SIZE] = "Angry Chef";
+				CHARACTER* AngryChef = CreateCharacter(AngryChefHealth, AngryChefID, AngryChefName);
 
 				printf("----------------------------------------------\n");
 				printf("|    > Health: 100                           |\n");
@@ -237,8 +240,8 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				double typingSpeed = 0.0;
 				char* setenceTyped = GetInput(&typingSpeed);
-				double typingScore = CheckSentence("As the chef thrusts the pie forwards, you lunge forward, grasp the door, and slam it closed so the pie can bounce off the door shield!\0", //sentence to type
-													139, //sentence length
+				double typingScore = CheckSentence(getSentence(AngryChef), //sentence to type
+													136, //sentence length
 													setenceTyped, //users sentence entry
 													typingSpeed); //users typing speed
 
@@ -491,7 +494,10 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("So you quickly pick up the board you drifted to the shore on and prepare to battle!\n");
 				
-				//LOAD CRABBY CRABS MONSTERS IN HERE damage required to defeat 25
+				int CrabbyCrabshealth = 25;
+				int CrabbyCrabsID = 5;
+				char CrabbyCrabsName[MAX_NAME_SIZE] = "Crabby Crabs";
+				CHARACTER* CrabbyCrabs = CreateCharacter(CrabbyCrabshealth, CrabbyCrabsID, CrabbyCrabsName);
 
 				printf("----------------------------------------------\n");
 				printf("|    >Health: 100                            |\n");
@@ -511,8 +517,8 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				typingSpeed = 0.0;
 				setenceTyped = GetInput(&typingSpeed);
-				typingScore = CheckSentence("The crabby crabs curiously circled, moving closer and closer after each circle. They lunge, snapping their crushing claws!\0", //sentence to type
-					127, //sentence length
+				typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
+					124, //sentence length
 					setenceTyped, //users sentence entry
 					typingSpeed); //users typing speed
 
@@ -607,7 +613,11 @@ int main(int argc, char* argv[])
 				printf("Then without skipping a beat, the disgusting gooey glob of stink starts crashing forward at you!\n");
 				while (getchar() != '\n');
 				printf("So you prepare to fight!!\n");
-				//Load in level 1 BOSS GOOEY GLOB damage required to defeat 100%
+				
+				int GooeyGlobhealth = 100;
+				int GooeyGlobID = 6;
+				char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
+				CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
 
 				printf("----------------------------------------------\n");
 				printf("|    > Health: 100                           |\n");
@@ -628,8 +638,8 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				double typingSpeed = 0.0;
 				char* setenceTyped = GetInput(&typingSpeed);
-				double typingScore = CheckSentence("Send your disgusting drowning goopy stink away! Swat the thick slime away to avoid potential suffocation! Push through the cloud, eyes burning, nose plugged, you can do this!\0", //sentence to type
-					179, //sentence length
+				double typingScore = CheckSentence(getSentence(gooeyGlob), //sentence to type
+					176, //sentence length
 					setenceTyped, //users sentence entry
 					typingSpeed); //users typing speed
 
