@@ -1,0 +1,560 @@
+________________________________________________________________________________________________________
+|                                                                                                      |       
+|                                  #(                                   ( (       (                    |                  
+|                                  ##*                                  ,(*     ,(                     |                   
+|           ,*(                    ,#(#                 .,               ##    (*                      |                   
+|             %                    %#(%((  .             ,,     ,       ##    (/                       |                   
+|        .#((   %,.                 .%#(%%%%%%((.((     ,,,        (     ##. ,(                        |                     
+|         #    %%#     /.           #%###%&%%%%%#(##. ,,,        /*     ((((#                          |                       
+|         #     /(%%###/ %,         ,%%###(((####%%%%#( ,,,      (/     *(#(#                          |                      
+|         *      #       %%#. ,     /%#(##(%########(((%#/,,       #    #(##                           |                   
+|                #         .%#/    *(%%###(#####(#%###(((((.      #* /(((#%#      #,                   |                            
+|                #           (   .,.(%%#%#(##(%#(((%########.     ###((#%%%      ,%&/                  |             
+|                (           (..*@*%%%%%%##%%#%###(#%#####(##,   .#####%%(      %&%%%                  |          
+|                #           .%, (%%%((((#(###%%%%%%%%******##   #((##%%       #&&&#                   |    
+|                ,           . .%#(((###############%##///(#%## ##(#%#%/###/##%&&%%%(*/((/             | 
+|                             (%(***/*########%######%%***/######(#%#%#%%*    &.                       |
+|                       &&/  /%((&&#&&((#%%###%##%%#%#***/(#%###(#%%#%%%,                              |
+|                  &&%%&    .#(*#%%#%##*##%%#%%#%%%##%/*/##%%#####%%%%%,                               |
+|                           %#***#%#&%//*%#%%%%%%%%%%%%%%%%%%######%%%(                                |
+|                           %%************/%#%%%%%%%%%%%%%%%%%%%#((#%#((#                              |
+|                   ..    (%##(((#(((((######%%#%%%%%%%%%%%%%%%#(##(#%% (   %                          |
+|             ,,,,%..,,,,*%%**##%%#(//*****###%%%%%%%%%%%%%%%%%%#(##%%,,%,,#*                          |
+|                  /%,,% %%%**###########%(###%%%%%%%%%&&%%%%%%%#(#%%%  *,.*./                         |                                           
+|             .,,,,. / (*,%%**###########%#*%%%%%%%%%%%%&%%&&&&%%(%%%%(,,,*,%,,,,                      |                   
+|                   % %,(*./**(##(((/////%%*(*%##(((###%%%%%%%%%%#%%%%%%/*,%%,...*                     |                     
+|            ,,,,,,#,#,.*.**/#*########%%****(//##((##/((%#(#%%#%%%%%%%%%##(# ,                        |        
+|              (((/,  %#*/%#**/((########%%*////(&((((#%(/(#(#%%##%%%%%%%%%%###(#                      |     
+|            ####%##(( **(##***%##%##((//(#**/**#((#/%((((##%%%%##((###%%%%%%%##(#####*                |        
+|           (##%  ,%%%####%#***%#######&//((#/**#((#((#####(#(%#########(#(/%%%%%##(((#####/           |     
+|      ,*/(##%%%%,%%*%######(###(##(##%&&%%%%%**((%((/(#(#####%%%%%#%%%%###(###########.               |  
+|        .,/####((((%%%%####(#((#######&&&&&&#(#%%####%%%%%%%%%%#%%%%%%%%%########(########((,         |
+|     ((####(((####%%%%%%%%%%%%%%%%%%##%%%%%%%&%%%%%%%%%%%%%%%%%%%%%%#%#%%###############/             |
+|     .################################%%%%%%%####((((((###((####//######((#%%%%%%%####(               |
+|                      /#######(####/########################(##########((##############/              |
+|                                    /##############%#(*,,*(##((########(                              |                                       
+|                                                                                                      |
+|                                                                                                      |
+|                                  Level 2: Lost in the Swamp                                          |
+|______________________________________________________________________________________________________|
+
+
+
+You managed to escape that deathly forest in one piece but your not in the clear yet.
+The beautiful forest has turned into a sickly swamp, dead trees and murky brown water surronds you. 
+Suddendly you feel a sharp pain in your stomach!
+You fall to your knees clucthing your stomach in pain.
+You haven't eaten in what feels like days, you need to eat someting fast.
+But what is there to eat in this fruitless swamp?
+You slowly get back on your feet looking around desperatly for something tasty.
+What will you do now?
+1 climb a tree for a better look around
+2 try and catch some frogs to eat
+3 walk closer to a mysterious light in the distance
+4 Make a fire and look for food in the morning
+--------------------------------------------------------------------------------------------------------------------------------------
+STORY S1
+
+You start climbing up a tall tree, the branchs seem to get weaker and weaker the higher you go.
+climbing the tree proves to be harder that expected.
+Out of breath you take a break from climbing and rest on a tree branch.
+You look up and spot a crow staring at you from above.
+Should you...
+1 climb higher and snacth the crow
+2 climb back down the tree 
+3 Throw your shoe at it
+
+1
+A crow what be an execellent source of meat!
+You climb slowly up the tree not wanting to snap a branch.
+The crow is inches away you prepare to grab when
+the crow lets out a ear piercing swack!
+This startles you so much that you loose your balance and fall into the swampy water below.
+You emerge from the water, gasping for air.
+You franctically make it back to shore soaked and miserable.
+You'll need to get dry if you want to survive the night.  
+
+ ____________________________
+[CONTINUE past other options]
+
+2
+You take the safer option and begin making your way back down.
+As you lower your foot down to the branch below you hear a loud CRACK!
+
+[YOU DIED (you fell out of a tree head first)]
+
+3
+This is a foolish idea you think to yourself, but desperate times call for desperate measures.
+You carefully remove your shoe and begin lining up your shot.
+With a mighty toss you throw your shoe up at the crows head.
+You hear a thud, excited that you actually managed to hit it!
+watching in excitement you wait for the crow to fall down the tree,
+but strangley you see the crow flying calmly out of the tree.
+confused, you wonder if you shoe didn't hit the crow, what was that thud?
+while you're trying to piece it together an arrow drops down beside you.
+
+101 arrow: damage +10
+You take the arrow maybe it could be useful in hunting for food. 
+ _______________________
+[JUMP to story section 4]
+
+--------------------------------------------------------------------------------------------------------------------------------------
+STORY S2
+
+You walk down to the edge of the lilly pad filled water, looking around for any frogs.
+Out of the corner of your eye you spot a big juicy toad sitting on a lilly pad.
+just my luck that's it's in the middle of the water you mutter to yourself.
+You roll up you're pant legs and step into the water, 
+with each step you feel the gooey surface sucking you down into it.
+You approach the the toad from behind and yank him off the lilly pad!
+
+what will you do with the toad?
+
+1 cook it and eat it right away
+2 use it as bait for a trap
+
+1
+You decide that you can't wait any longer you need to eat now.
+While you make your way back to land toad in hand, you feel the goo beneath you begin to pull you down more
+Almost as if it's tightenning its grip.
+In a fit of anger you start thrashing around trying to break free from it's hold.
+The goo beneath begins to shake and groan, a large object bursts from underneath you
+You look in front of you shocked and terrified to see a pile of slime with eyes and even a mouth!
+
+1m1 slime damage required to defeat 80 
+                       -------------------------------------------
+                       |          =====\       /=====            |
+                       |    ___________ \     / ___________      |
+                       |   |           | \   /|           |      |
+                       |   |           |      |           |      |
+                       |   |___________|      |___________|      |
+                       |                                         |
+                       |                                         |
+                       |                                         |
+                       |           ___________________           | 
+                       |         _/                   \_         |
+                       |                                         |
+                       |                                         |
+                       |                                         |
+  		       ------------------------------------------
+
+                     
+		   ---------------------------------------------------
+                  ¦   >Health: 100%                                   ¦
+                  ¦                                                   ¦
+                  ¦   >Slime Health: 80%                              ¦
+                  ¦                                                   ¦
+    		  ¦   >Slimes are made of Gooey goo, make sure not    ¦ 
+                  ¦   >to let them touch your favourte shoe.          ¦ 
+                  ¦                                                   ¦
+                  ¦   >Enter:                                         ¦
+                  ¦                                                   ¦
+                   ---------------------------------------------------
+
+ENTER this
+Slimes are made of Gooey goo, make sure not to let them touch your favourte shoe.
+You break free from it's slimey hold and dash towards the shore.
+You look back to see the goo is getting bigger and bigger. 
+To make things even worse you realize your toad is no longer in your hand!
+You won't make it to shore in time so you deciede to climb a nearby tree to escape.
+
+ ____________________________
+[CONTINUE past other option]
+ 
+You think to yourself that one toad isn't going to do the trick, you're gonna need someting bigger to eat.
+Noticing all the branches and vines around you get an idea to start working on building a trap. 
+some animal gotta be as hungry as i am you say to yourself.
+With your trap complete you hide behind some willows and wait for an anmial to take the bait.
+You sit back and wait, drifting off into a peacefully slumber but are awoken by the sounds of snarling and chewing.
+You jolt your head up in curisoty, wow! my trap actually worked? you think to yourself.
+piering through the willows you make out what appears to be a man hunched over devouring your toad.
+H-Hello..? you manage to stammer out in a scared voice, the man immedatly stops and whips his head around.
+To reveal 2 sharp horns petruding out the side of his head. This wasn't a man at all, it had a head of a bull.
+Upon realizing this you attemp to get out of there as quick as possible
+But it's too late the beast's beatly little eyes have already spotted you. 
+
+1m1 minotaur damage required to defeat 100
+
+            /\                   /\
+            \ \    _______      / /
+             \ \_ /        \___/ /
+              \__|      ~    |__/
+                 /      9    |
+               /o o\         | 
+                ''''')       | 
+               /''''''   /    | 
+               \________/      \ 
+                  |              \ 
+                  |_______________|     
+               
+            
+ ----------------------------------------------
+|    > Health: 100%                          |
+|                                            |
+|    >minotaur: 50%                          |
+|                                            |
+|    >Minotaurs are half man, half bull      |
+|    >abominations who hate the colour red   |
+|                                            |
+|    >Enter:                                 |
+----------------------------------------------
+
+ENTER this v
+Minotaurs are half man, half bull abominations who hate the colour red. 
+You defeated the minotaur and stopped it from eating you, it might have the body of a man but not the brain.
+Horrified of the creature you just encountered you decide to climb a tree to avoid any more minotaurs roaming around.
+
+ _________________
+[JUMP to section 1]
+
+--------------------------------------------------------------------------------------------------------------------------------------
+STORY S3
+
+You start persuing this newly discovered light in the distance.
+It appears to be moving almost as if someone is swinging it back and forth.
+You carefully make your way through the thick marsh until you're close enough to see.
+you can see a figure holding a torch. You squint your eyes hoping to get a better look at this person.
+The figure is an old deshevled man wearing a faded blue cloak. 
+Hes waving his torch around like a manic and chanting in some languge you couldn't make out.
+He looks like hes performing some kind of ritual.
+This guy must be nuts i better stay away from him you think to yourself. 
+As you are turning back you spot a slaughtered pig near the old man.
+It must be some sort of scarafice for his ritual but that pig could keep feed you for a long time.
+You decide that the swamp won't offer anything better to eat you'll have to get that pig.
+
+How will you get the pig?
+1 Ask the old man for it
+2 steal it when hes not looking
+
+
+1.
+
+You step out of the shrubs, your heart beating a mile a minute.
+You approch the old man who is chanting even louder now.
+Just as your about to open your mouth the old man stops and turns towards you.
+His blood shot eyes stare at you as if hes looking into your soul. You both stand 
+there in silence for what feels like. finally you work up the courage to ask him about the pig. 
+he strokes his beard and replies in a raspy voice "THIS MEAT IS CURSED, IT IS NOT MEANT FOR EATING YOU FOOL!".
+
+Should you... 
+
+1 trust the old man 
+2 Don't trust the old man
+
+1
+You decide you should stay away from the meat.
+After all it's probably best not to enrage a derranged old man.
+You nod slowly and start backing away, before you can leave the old man
+calls out to you, "If you're in search of food, avoid looking in the clearings of the swamp".
+You take the old man advice and head back into the marsh, still starving but atleast unharmed.
+
+ ____________________________
+[CONTINUE past other option]
+
+2
+You think to yourself you can't trust the word of some senile old man, whos out here in the middle of some swamp.
+Without a second thought you push past the old man and grab the pig meat from off the ground.
+You can hear the old man shouting angrely behind you, you don't care this is the first time
+in a long time you had actual food in your hand. unable to resist you take big bite of the raw pig meat.
+ ______________________________
+[YOU DIED (The meat has cursed)]
+
+2 
+Not wanting to alert the old man you around sneak around to the other side of the bushes.
+With the pig meat in sight you make a mad dash towards it.
+But unfortunatly you're too slow the old man has spotted you. 
+The old man raises his hands in the air and a thick purple fog surronds the both of you.
+
+1m1 wizard damage to defeat 120
+             
+                          *_ *
+                          // * 
+                         //
+                     /\_//           /\             /\/\
+                    \  //\          /  \           /  \/  
+                    \ //  \        /    \         /    \
+                     \     \      /______\       /     /  
+                      \     \     | <-> <->     /     /
+                       \     \   (   / > \)    /     /
+                        \     \___| |  O |____/     /                  
+                         \           \  /          /
+                          \_          \/         _/                               
+                            \_        x        _/                        
+                              \       x       /
+                               |      x      |                     
+                               |      x      |                
+                               \             /           
+                               [.....{-}.....]                     
+                               /      |      \                      
+                              /       |       \                                
+                             /        ^        \                             
+                            /        / \        \
+                           /        /| |\        \
+                          /________/ | | \________\
+                              |      | |      |                               
+                              |      | |      |
+                              |      | |      | 
+                              
+
+ 		   ---------------------------------------------------
+                  ¦   >Health: 100%                                   ¦
+                  ¦                                                   ¦
+                  ¦   >Wizard Health: 120%                            ¦
+                  ¦                                                   ¦
+    		  ¦   >The mystical world is filled with wizards,     ¦ 
+                  ¦   >monsters and magic.                            ¦ 
+                  ¦                                                   ¦
+                  ¦   >Enter:                                         ¦
+                  ¦                                                   ¦
+                   ---------------------------------------------------
+
+
+
+You defeated the wizard and the purple fog begins to settle. You look around for the pig meat.
+but it's nowhere in sight, it must of been lost in the battle.
+Angered at the loss of a meal you head back into the marshy swamp.  
+ _______________________
+[JUMP to story section 5]
+--------------------------------------------------------------------------------------------------------------------------------------
+STORY S4
+
+The swamp is getting dark, the sun is lowering and the crickets are starting to cherp.
+You believe that the best option to survive is to stay warm by making a fire.
+The hunt for food can wait till the morning.
+Its still a while until the sun will completely set, what should you do to pass the time?
+1 sleep by the fire
+2 craft something 
+
+1
+
+sleeping will pass the time nicely you think to yourself.
+You lean back yawning preparing to use a mossy rock as your pillow. 
+Its never a good idea to sleep with an empty stomach.
+But in your case theres nothing else you can do.
+You awake not to much longer after you fell asleep, you are disoriented and confused.
+You glance over to your fire and notice it fizzled out leaving you in darkness.
+Far off in the distance you make out a small flicking light.
+Beliving it could be someone who could help you escape this swamp you run quickly towards the light.
+ ___________________________
+[CONTINUE past other options] 
+
+2
+You have some time in the light still better make the most of it.
+You decide that if you're going to hunt for animals you may as well do 
+it with a proper tool. What tool shall you make?
+
+1. wooden spear
+2. Bow
+3. Torch
+
+1 
+with all these branches lying around you get to work quickly sharping the branch.
+1o1 wooden spear damage + 30
+You successfully crafted a spear! Now you have an edge over those pesky animals.
+Far off in the distance you notice a small flicking light.
+Beliving it could be someone who could lead you to food
+with your newly crafted spear you run quickly towards the light. 
+
+2 
+You decide a bow could come in handy.
+You grab a vine clutching on to a willow tree.
+and tie it to a small branch you broke off a tree. 
+It may not be somewhat flimsy but it sure beats using your hands
+1o1 bow damage +25 
+Far off in the distance you notice a small flicking light.
+Beliving it could be someone who could lead you to food
+with your newly crafted bow you run quickly towards the light. 
+
+3 
+You come up with a brillant idea of creating a torch, 
+that way you could navigate your way out of this flithy swamp!
+You start taking off old moss and wraping it around a tree branch to create your torch.
+Now the only thing left to do is light it, as you go to light your 
+torch you stumble over a rock whichs sents you flying right into the fire.
+ _____________________________________
+[YOU DIED (next time watch your step!)]
+ 
+ _______________________
+[JUMP to story section 3]
+--------------------------------------------------------------------------------------------------------------------------------------
+STORY S5
+
+After just barely surviving the encounter, you contiune trugging through the dense swamp in search of food.
+Your hunger has worsened, you start to loose hope of ever finding anything to eat.
+You reach a cross roads in the swamp what do you do:
+
+
+1 Heads toward a clearing in the trees
+2 Follow some markings on the trees
+3 investigate a sunken structure in the water
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+1
+You finally reach an open area without any thick marsh or murky waters.
+You sit down on a mushroom covered stump and take a breath
+you think about all the bizzare things that just happened and how you narrowly survived them.
+Then the sky turns turns a dark grey and rain clouds start to form.
+The light rain feels refreshing but it quickly turns to a complete down pour.
+The booming of thunder can be heard in the distance, exhausted, you decide to simply wait it out in the clearing.  
+ _________________________________________________________
+[YOU DIED (you were struck by lightning)]
+--------------------------------------------------------------------------------------------------------------------------------------
+2
+You noticed a strange symbol of a eye engraved on a tree beside you.
+it seems to be some kind of warning to scare trespassers away.
+You decided whatever it is it could possibly lead to food, 
+At this point you don't have very many options left. 
+You make your way past the symbol and catch a glisme of a small building nested in the trees.
+Upon closer inspection you notice it's an old wooden cabin with a rusted out tin roof thats overtaken by vines. 
+You approach the cabin with caution but exicted at the possiblity of a meal being inside.
+You go to open the door only to see it has a the door is at least 8 feet tall.
+Thats strange, who would need such as tall door? you think to yourself. 
+At then moment, the 8 foot wooden door creaks open revealing a hulking figure standing in the door way.
+You jump back in horror as the one eyed monsterous figure emerges from the shadows wielding a sturdy metal arm.  
+ 
+
+  
+
+1m1 damage required to defeat 200%
+
+   
+            ______
+           / ~~~~ \         _______
+          | ( 0 )  |       /\      \_
+         (    ..    )     /  \       \
+    _____/ |< -- >| \____|    \      \
+   /        \____/        \    \______\
+  |                        |  /\______\
+   \           |           / / /\    \/
+    | \____.___^___.____/ |\/ /  \    \
+     \  |   ___|___   |  /  \/    \    \
+      |  \   __|__   /  |     \    \____\
+      |   |   _|_   |   |      \  / ___  /
+      \____\_______/____/       \/_////_/
+      /||             ||\        
+     / ||             || \        
+    /   \\___________//   \    
+   /     \___________/     \    
+   |        |       |       \ 
+   |       /        \        |
+   |      |          |       |
+   |______|           |______|
+    |     |           |     |
+ __/      |           |      \__ 
+|_________)           (_________|
+   
+----------------------------------------------
+|    > Health: 100%                          |
+|                                            |
+|    > cyclops health: 200%                  |
+|                                            |
+|    >watch out for that cyclops' metal arm! |
+|    >careful he doesn't poke out your eye.  |
+|                                            |
+|    >Enter:                                 |
+----------------------------------------------                
+
+ENTER THIS v
+watch out for that cyclops' metal arm! careful he doesn't poke out your eye.
+ ________________
+[IF BOSS DEFEATED]
+
+You managed to land a critical strike to the cyclops' eye!
+The cyclops stumbles back and collaspes to the ground in pain.
+You notice freshly cooked crow sitting on the cyclops table ready to be eaten.
+101 cooked crow +30 health
+It may not be the best meal but at least it's food. 
+As you're just about to finish your meal you hear the cyclops beginning to get back up.
+You rush out of the cyclop's cabin in a panic looking for someplace to hide, you spot a dark cave entrance hidden behind some rotting logs.
+With the cyclops on your tail it seems the cave is the only escape...
+ ______________________________________________________________________
+[CONGRATULATIONS YOU HAVE SURVIVED LEVEL 2 - Lost in the swamp!!!]
+
+3
+Your curiosty got the better of you, you jumped right into the swamp!
+Once you started swimming and getting closer to the mysterious structure you 
+notice its simply a piece of drift wood.
+Feeling kind of disappointed that you got in the water for nothing you turn back around to head to shore.
+Out of the blue you feel the gooey surface beneath you pulling you down!
+_________________________________________________________
+[YOU DIED (you should have never trusted a swamp water)]
+ ____  ____  ____  ____   
+||T ||||Y ||||P ||||E ||
+||__||||__||||__||||__||
+|/__\||/__\||/__\||/__\|
+ ____  ____  ____  ____  ____      
+||Q ||||U ||||E ||||S ||||T ||     
+||__||||__||||__||||__||||__||     
+|/__\||/__\||/__\||/__\||/__\| 
+
+ooooooooooooo oooooo   oooo ooooooooo.   oooooooooooo                
+8'   888   `8  `888.   .8'  `888   `Y88. `888'     `8                
+     888        `888. .8'    888   .d88'  888                        
+     888         `888.8'     888ooo88P'   888oooo8                   
+     888          `888'      888          888    "                   
+     888           888       888          888       o                
+    o888o         o888o     o888o        o888ooooood8                
+                                                                     
+                                                                     
+                                                                     
+  .oooooo.      ooooo     ooo oooooooooooo  .oooooo..o ooooooooooooo 
+ d8P'  `Y8b     `888'     `8' `888'     `8 d8P'    `Y8 8'   888   `8 
+888      888     888       8   888         Y88bo.           888      
+888      888     888       8   888oooo8     `"Y8888o.       888      
+888      888     888       8   888    "         `"Y88b      888      
+`88b    d88b     `88.    .8'   888       o oo     .d8P      888      
+ `Y8bood8P'Ybd'    `YbodP'    o888ooooood8 8""88888P'      o888o     
+                                                                     
+ _________    ___    ___ ________  _______           ________  ___  ___  _______   ________  _________   
+|\___   ___\ |\  \  /  /|\   __  \|\  ___ \         |\   __  \|\  \|\  \|\  ___ \ |\   ____\|\___   ___\ 
+\|___ \  \_| \ \  \/  / | \  \|\  \ \   __/|        \ \  \|\  \ \  \\\  \ \   __/|\ \  \___|\|___ \  \_| 
+     \ \  \   \ \    / / \ \   ____\ \  \_|/__       \ \  \\\  \ \  \\\  \ \  \_|/_\ \_____  \   \ \  \  
+      \ \  \   \/  /  /   \ \  \___|\ \  \_|\ \       \ \  \\\  \ \  \\\  \ \  \_|\ \|____|\  \   \ \  \ 
+       \ \__\__/  / /      \ \__\    \ \_______\       \ \_____  \ \_______\ \_______\____\_\  \   \ \__\
+        \|__|\___/ /        \|__|     \|_______|        \|___| \__\|_______|\|_______|\_________\   \|__|
+            \|___|/                                           \|__|                  \|_________|        
+                                                                                                         
+                                                                                                  
+                                 ~.                                    .^                           
+                                 ?J:                                 ^:.7      .~                   
+                                 ~P?                    :.           .~7?      !~                   
+         .:..:                   :55!                  :^.             75^    !?.                   
+          .^!?                    JPY?:                ^^.             ^5~   :5^:                   
+      ..     ~?.                  ~P5PPJ!:^^.  ..      .^~:     :.     ^P7   7J~:                   
+      .^!7!!. !J~                 .YP5GGPP55Y?~^?^    :^~^.   ...~^    ~5J::7Y.                     
+        .Y?!!~!PP^    .~.          ~G555PGGGGGPYY5J~..~~:     .:^7~    ^55YYY~                      
+         !~    ~P5?!!!^!?^         .5G555PGGPPGGPPGPY!^^~^.     :Y.    .YYY57                       
+         :^     J5YJJ5YJ5PJ:        5G55P5555555555PGGY~^~~.    .~J!   .YY5Y:                       
+         ..     7Y    ..~?5P!:^    :5G55P55P55P555P55555Y?!:     .J~ .^?YYP7                        
+                7J        .7G5!  .~7PGP5P55P55P555PP55YYYY?.     !5^!JY55PG^   .~JY!                
+                ~J          ~?:.:~!^PGPPP55PY5P55Y5P55Y5555?.    !555YYPGBJ     ~P#B:               
+                :?          .!.:JP?YPGGGPPPPPPP5P5YPP555P55PJ.   JP5555GG?.    ~GBGB7               
+                :7           7~:75PGP5PPPPPPPGGPPP5PP57????JP!  :555PPG5:     .P#BG5!~!~..          
+                :~          .Y~^YP55P5Y5555555PP55PPPPJ????YP5:.Y5Y5PPP~::..:~J##PY!!7?7!^.         
+                .:           .~PP??JJ555PPPPPPPPPPPPPPY77?JPPPJ!PY5PPPP5P5YYY5#P?!~^:::::           
+                        :~^. ^PP?JJYJ?5PPPPPPPPPPP5PPPJ77?JPPPP55YPPPPPGY:.. 7?.                    
+                   .:..7GJ^ :5P?5BGG#PJ5PPP5PP5PPPPPPJ777JYGP5P5YPPPPGB5.                           
+                 .!55?YP:   JG??PBGGBGJ?PPGPPGPPPGPPPY77J5PPG55PY5PPPGY^                            
+                 ...   .   ~GY77YBGGBP?!YPPGGGGGGGGGGGP5PGGGGP5555PPGG:                             
+                          .5577!7?JJJ?!!7YPPGGGGGGGGGGGBGGGGGPP555PPPPJ:                            
+                          ?P5JYJJJ??????7?5PGGPGGGGGGGGGGGGGGGP5Y55YY55^.  .~                       
+             .:::^... .  ~PPJJJJJJYYYYYYYY5PPGGGGGGGGGGGGGGGGGG55P55PP^!? .J?.....                  
+             .:::!J~:^7!~5G5!75555YYYYYJJ??PPGGGBGGGBGGGGGGGBBGPY5PPGJ.?Y.^Y~:.........             
+                 .~Y!:?J!GGY77PPPPPPPPPPPPJPPPBBBBBBBBBBBBBBBBGG55PGB?.!?~~^?!.........             
+        .::::::^^~7^^^^Y!JGY!7555555PPPPPP?YGPGGGGGGGGBBBBBBBBBG55PGGP?!JJ77Y^^^::::::::..          
+     .:::...      .7:!!!!!!?77YJJJJJJYYYYP??55GPP5555PGGGBBBBBGGPPGGPG5?YJJ5J^~^^~^^^:..            
+    .^~^:::::^^^^^:^J7Y!7?:!7755?55555555P?77?YYJYYYYYP5YGPGGPGGPPGGPPPPP555J~~.!:..^~~^:           
+     ......   .:^^^^^JY?^7~!77557PPPPPPPPPJ77!7YYJYYYY5YY55GY5GPPPGGGGGPPGGP55J~7   ...             
+             ~?JYYJ!.:??^!5?77YJ?JYYYYYY5PJ7777Y5YYYJY5JYY555PPP55PGGGGGGGGG5555!...                
+            !5PGPPP5Y7?JJ5P?!7Y5555YYYYYYYJ7777Y5Y5YJYYYY5555PPP555PPPPPPPGGPP55555YY?:.            
+           .Y5GJ:!JPPPPPPPP?77YPPPPPPPGG55Y5Y7!J5YY555YY555YY55PP555555YYYY5GGPPPPP55555YJ?^        
+     .:^^^~?PPGY?!5YYPPPP55YYY5555555PB#BBGGG?!JYY5YYYYY5555PPPPP5PPPPPPP55Y5PPPP5555P5J?7!:        
+    ^7?JJJY55P5P5?PY555555555555555555B##BBBGYY55P5Y55PPPPPPPGGPPPPGBGGGPP55P5555555Y55YYJ7!^.      
+         :~!JP555555PGGGGGGPPPP5555555PPGGGGGGGBBGPPPGGGGGGGGGGGGGGGGGGGGP5PP55555555PPPPP555^      
+     .^~7555555555P55PPPPPPPPPPPGGGGGGGGPGGBGGGGGGGGGGGPPPPPPPPPPPPPPPPPPGPP555555555Y?777!^.       
+     !Y55555555555555P5555555P5555555PGGPPPPPP555555555555555555Y555555555555PPPP5555Y?^            
+      ..:::::^::::^^^!Y5555555YY55555PPP5555PPPPPPPPPPP555P55555555PP555555PPPP555555YJ^            
+                       .........:^~7JJYYYYYJJJYYYYYYJ??77?JYYYYYYYYYYJJ?!^^~~~~~~~^^:.                                                             
+                                                                     
+                                                                     

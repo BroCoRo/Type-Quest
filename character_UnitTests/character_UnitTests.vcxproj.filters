@@ -15,50 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-
-    <ClCompile Include="object.c">
+    <ClCompile Include="character_UnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="character.c">
-
-    <ClCompile Include="character.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Typing.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IO.c">
-
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source.c">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="character.h">
-
-    <ClInclude Include="Typing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IO.h">
-
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-
-    <ClInclude Include="object.h">
-
-    <ClInclude Include="character.h">
-
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
