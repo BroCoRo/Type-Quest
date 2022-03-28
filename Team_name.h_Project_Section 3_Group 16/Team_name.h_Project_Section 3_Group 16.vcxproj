@@ -139,33 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-
-
     <ClCompile Include="Player.c" />
     <ClCompile Include="Source.c" />
-
     <ClCompile Include="object.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="object.h" />
-
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
     <ClInclude Include="Player.h" />
-
-    
     <ClCompile Include="IO.c" />
     <ClCompile Include="Typing.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IO.h" />
     <ClInclude Include="Typing.h" />
-    
   </ItemGroup>
   <ItemGroup>
-	  <ClCompile Include="character.c" />
-
+    <ClCompile Include="character.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

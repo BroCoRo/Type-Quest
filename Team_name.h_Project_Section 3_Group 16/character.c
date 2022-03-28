@@ -10,13 +10,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 
-#define _CRT_SECURE_NO_WARNINGS
-#define MAX_SIZE 300
-#define MAX_NAME_SIZE 40
-#define MAX_ID_SIZE 10
-#define MAX_COLUM 100
-#define MAX_ROW 30
-#define MAX_ID 7
+
 
 
 
@@ -42,13 +36,7 @@ CHARACTER* CreateCharacter(int health , int ID, char name[MAX_NAME_SIZE]) {
 	return newCharacter;
 	
 }
-void decreaseMonsterHealth(int damage, struct character* monster)
-{
-	if (monster->health != 0)
-	{
-		monster->health -= damage;
 
-#include <stdbool.h>
 
 void decreaseMonsterHealth(int damage, struct character* monster) 
 {
@@ -62,25 +50,6 @@ void decreaseMonsterHealth(int damage, struct character* monster)
 	}
 }
 
-// displayMonster() is no longer needed since image isnt saved to struct
-
-//void displayMonster(struct character* monster) 
-//{
-//	for (int i = 0; i < MAX_ROW; i++)
-//	{
-//		for (int j = 0; j < MAX_COLUM; j++)
-//		{
-//			if (j == 0 && i == 0)
-//			{
-//				printf("    ");
-//			}
-//
-//			printf("%c", monster->image[i][j]);
-//		}
-//	}
-//
-//	printf("\n");
-//}
 
 void setMonsterHealth(int health, struct character* monster)
 {
@@ -111,18 +80,7 @@ void displayMonster(struct character* monster)
 	printf("\n");
 }
 
-void setMonsterHealth(int health, struct character* monster)
-{
-	if (health > 0)
-	{
-		monster->health = health;
-	}
-	else
-	{
-		return 0;
-	}
 
-}
 void disposeCharacter(CHARACTER* c) {
 	free(c);
 }
@@ -245,19 +203,3 @@ bool getImage(struct character* monster)
 	
 }
 
-CHARACTER* CreateCharacter(int health, int ID, char name[MAX_NAME_SIZE]) 
-{
-	CHARACTER* newCharacter = (CHARACTER*)malloc(sizeof(CHARACTER));
-	if (!newCharacter) {
-		printf("Error Allocating Memory\n");
-		free(newCharacter);
-		exit(1);
-	}
-	newCharacter->health = health;
-	newCharacter->ID = ID;
-	strcpy(newCharacter->name, name);
-
-	return newCharacter;
-
-
-}

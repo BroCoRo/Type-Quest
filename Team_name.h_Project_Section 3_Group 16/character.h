@@ -10,11 +10,13 @@
 // 1.0       March 3rd      2022
 
 #define MAX_SIZE 80
-
-#include <stdbool.h>
-#define MAX_IMAGE_SIZE 80
-
 #define MAX_NAME_SIZE 40
+#define MAX_ID_SIZE 10
+#define MAX_COLUM 100
+#define MAX_ROW 30
+#define MAX_ID 7
+#include <stdbool.h>
+
 
 typedef struct character {
 	int health;
@@ -27,7 +29,7 @@ typedef struct character {
 
 CHARACTER* CreateCharacter(int, int, char[MAX_NAME_SIZE]);
 void disposeCharacter(CHARACTER*);
-struct character* generateRandomMonster(void);
+CHARACTER * generateRandomMonster(void);
 void decreaseMonsterHealth(int damage, struct character* monster);
 char* getSentence(struct character* monster);
 void displayMonster(struct character* monster);
