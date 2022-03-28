@@ -6,7 +6,7 @@
 #include "object.h"
 
 //a function called by the story module that creates an item and then calls other functions to increase the players stats
-void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, ptrPlayer player)
+ITEM* createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, ptrPlayer player)
 {
 	ITEM* item;
 	item = (ITEM*)malloc(sizeof(struct item)); //dynamically allocating memory for the item
@@ -45,7 +45,9 @@ void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], in
 	}
 	
 
-	free(item); //deleting the allocated memory after item use
+	//free(item); //deleting the allocated memory after item use
+
+	return item;
 }
 
 

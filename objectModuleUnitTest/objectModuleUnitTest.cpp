@@ -1,5 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "pch.h"
 #include "CppUnitTest.h"
+
+extern "C" {
+#include "Player.h"
+#include "object.h"
+}
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -9,7 +15,7 @@ namespace objectModuleUnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(INT_TEST_CREATEOBJ1)
 		{
 		}
 	};

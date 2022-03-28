@@ -10,7 +10,7 @@ typedef struct item
 
 } ITEM;
 
-void createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, ptrPlayer);
+ITEM* createItem(char objectType[MAX_ITEM_NAME], char itemName[MAX_NAME_SIZE], int itemPoints, ptrPlayer);
 void increaseHealth(ptrPlayer, int points);
 void decreaseHealth(ptrPlayer, int points);
 void increaseAttack(ptrPlayer, int points);
