@@ -6,12 +6,17 @@
 // Revision History 
 // 1.0       March 3rd      2022
 
+
+
+
+
 #include "Typing.h"
 #include "IO.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "character.h"
+
 
 #define FIRST_ARGUMENT 1
 #define LEVEL_ONE      1
@@ -22,6 +27,7 @@
 
 int main(int argc, char* argv[])
 {
+
 	//collect which level of the story to play
 	int storyLevelToPlay = 0;
 	sscanf_s(argv[FIRST_ARGUMENT], "%d", &storyLevelToPlay);
@@ -773,6 +779,7 @@ int main(int argc, char* argv[])
 	{
 		fprintf(stderr, "An error occured when attempted to load a story. Ensure that a valid story number is entered (1-4)\n");
 	}
+
 
 	return(0);
 }

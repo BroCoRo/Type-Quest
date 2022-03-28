@@ -8,8 +8,12 @@
 // character.h
 // Revision History 
 // 1.0       March 3rd      2022
+
+#define MAX_SIZE 80
+
 #include <stdbool.h>
 #define MAX_IMAGE_SIZE 80
+
 #define MAX_NAME_SIZE 40
 
 typedef struct character {
@@ -17,13 +21,18 @@ typedef struct character {
 	int ID;
 	char name[MAX_NAME_SIZE];
 
+	char image[MAX_SIZE][MAX_SIZE];
+
 }CHARACTER;
 
-//struct character* generateRandomMonster(void);
+CHARACTER* CreateCharacter(int, int, char[MAX_NAME_SIZE]);
+void disposeCharacter(CHARACTER*);
+struct character* generateRandomMonster(void);
 void decreaseMonsterHealth(int damage, struct character* monster);
 char* getSentence(struct character* monster);
-//void displayMonster(struct character* monster);
-bool getImage(struct character* monster);
-void displayMonsterHealth(struct character* monster); 
-void setMonsterHealth(int health, struct character* monster); 
-CHARACTER* CreateCharacter(int, int, char[MAX_NAME_SIZE]);
+void displayMonster(struct character* monster);
+void displayMonsterHealth(struct character* monster);
+void setMonsterHealth(int health, struct character* monster);
+
+
+
