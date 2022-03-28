@@ -19,7 +19,8 @@
 
 int main(void)
 {
-	
+	ptrPlayer p = createPlayer("owen", 100, 50, 25);
+	createItem("defence", "shield", 25, p);
 
 
 	return(0);
