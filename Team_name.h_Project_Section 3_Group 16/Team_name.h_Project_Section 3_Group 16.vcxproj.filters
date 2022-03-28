@@ -22,7 +22,6 @@
     <ClCompile Include="Player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="character.c">
 
     <ClCompile Include="character.c">
       <Filter>Source Files</Filter>
@@ -43,7 +42,6 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="character.h">
 
     <ClInclude Include="Typing.h">
       <Filter>Header Files</Filter>
@@ -58,7 +56,7 @@
     <ClInclude Include="object.h">
 
     <ClInclude Include="character.h">
-
+	</ClInclude>
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
