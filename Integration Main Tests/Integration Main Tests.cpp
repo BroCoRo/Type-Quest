@@ -55,14 +55,6 @@ namespace IntegrationMainTests
 			Assert::AreEqual(0, newPlayer->Health);
 		}
 		/*
-		Typing Module
-		
-		
-		
-		
-		
-		*/
-		/*
 		Object
 		
 		

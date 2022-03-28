@@ -6,16 +6,14 @@
 // Revision History 
 // 1.0       March 3rd      2022
 
-
-
-
-
 #include "Typing.h"
 #include "IO.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "character.h"
+#include "object.h"
+#include "Player.h"
 
 
 #define FIRST_ARGUMENT 1
@@ -33,6 +31,8 @@ int main(int argc, char* argv[])
 	sscanf_s(argv[FIRST_ARGUMENT], "%d", &storyLevelToPlay);
 	bool canContinue = true;
 
+	//setup a player for the game
+	ptrPlayer newPlayer = createPlayer("Test Player", 100, 100, 100);
 
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	if (storyLevelToPlay == LEVEL_ONE)
@@ -148,15 +148,15 @@ int main(int argc, char* argv[])
 					{
 					//Board choice
 					case 1:
-						//SETUP BOARD OBJECT HERE +25 DAMAGE
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
+						ITEM* board = createItem("damage", "board", 25, newPlayer);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
 					//Rock choice
 					case 2:
-						//SETUP ROCK DAMAGE HERE +20 DAMAGE
 						printf("You think that the rock will be the best option as this is a weapon with range, so you pick up the rockand stuff it into your pocket.\n");
+						ITEM* rock = createItem("damage", "rock", 20, newPlayer);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
@@ -288,7 +288,8 @@ int main(int argc, char* argv[])
 
 						//randomly generate poisonous potato damage to insert
 						int potatoDamage = ((rand() % (100 - 0 + 1)) + 0);
-						//SETUP poisonous potato object here with -potatoDamage DAMAGE
+						
+						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, newPlayer);
 
 						printf("After wolfing down this potato, you realize it did not taste too good.\n");
 						while (getchar() != '\n');
@@ -302,7 +303,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 
 						//if the poisonous potato killed the player
-						if (0 == 0) //health decrease causes health to drop below zero
+						if (getHealth(newPlayer) == 0) //health decrease causes health to drop below zero
 						{
 							printf("________________________________________________\n");
 							printf("[YOU DIED(the poisonous potato wasn't so savoury)]\n");
@@ -318,7 +319,6 @@ int main(int argc, char* argv[])
 						printf("You are also thankful that this potato did not kill you, but you can tell you've definitely been injured somehow.\n");
 						while (getchar() != '\n');
 						printf("You note that staying away from those potatoes is likely the best idea.\n");
-						
 						canContinue = false;
 						break;
 					//Don't eat choice
@@ -384,7 +384,7 @@ int main(int argc, char* argv[])
 						printf("Anyway, this didn't matter if you couldn't find them, so you put on the chest plate even though it was covered in mud.\n");
 						while (getchar() != '\n');
 						printf("You think eh its extra protection.\n");
-						//CREATE OBJECT chestplate defense + 50
+						ITEM* chestplate = createItem("defence", "chestplate", 50, newPlayer);
 						canContinue = false;
 						break;
 					//Move on choice
@@ -438,7 +438,6 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("_______________________________________________________________\n");
 						printf("[YOU DIED(the fallen dead redwood tree squashed you like a bug)]\n");
-						//SAVE GAME
 						exit(1);
 						canContinue = false;
 						break;
@@ -583,7 +582,6 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("_________________________________________________________\n");
 				printf("[YOU DIED(you got a little too comfortable with heights)]\n");
-				//SAVE GAME
 				exit(1);
 				canContinue = false;
 				break;
@@ -651,7 +649,7 @@ int main(int argc, char* argv[])
 
 				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
-				if (0 == 0) // boss defeated
+				if (gooeyGlob->health == 0) // boss defeated
 				{
 					while (getchar() != '\n');
 					printf("You have done it!The gooey glob spills over the forest floor, and the glow from the chemical reaction of the stink dims to nothing.\n");
@@ -681,16 +679,15 @@ int main(int argc, char* argv[])
 		while (canContinue == true)
 		{
 			printf("Would you like to save and exit or continue on to level 2?\n");
-			printf("1. Save and exit\n");
+			printf("1. Exit\n");
 			printf("2. Continue to level 2\n");
 			int userInput = CollectNumericSelection(1,2);
 			switch (userInput)
 			{
 			//Save and exit
 			case 1:
-				printf("Saving game...\n");
+				printf("Closing game...\n");
 				canContinue = false;
-				//CALL SAVE FUNCTION HERE
 				break;
 			//Continue to next level
   			case 2:
