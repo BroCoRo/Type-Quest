@@ -250,7 +250,7 @@ int main(int argc, char* argv[])
 				double typingSpeed = 0.0;
 				char* setenceTyped = "N/A";
 				double typingScore = 0.0;
-				bool loopAgain = true;
+				bool loopAgain = true;	
 
 				while (loopAgain)
 				{
