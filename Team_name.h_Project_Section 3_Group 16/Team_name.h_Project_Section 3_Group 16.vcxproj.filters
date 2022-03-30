@@ -19,6 +19,9 @@
     <ClCompile Include="Typing.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Colours.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Typing.h">
@@ -34,6 +37,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

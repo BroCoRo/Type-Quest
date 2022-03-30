@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer newPlayer = createPlayer("Test Player", 100, 50, 25);
+	ptrPlayer Player = createPlayer("Test Player", 100, 100, 100);
 
 
 
@@ -165,14 +165,14 @@ int main(int argc, char* argv[])
 					//Board choice
 					case 1:
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
-						ITEM* board = createItem("damage", "board", 25, newPlayer);
+						ITEM* board = createItem("damage", "board", 25, Player);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
 					//Rock choice
 					case 2:
 						printf("You think that the rock will be the best option as this is a weapon with range, so you pick up the rockand stuff it into your pocket.\n");
-						ITEM* rock = createItem("damage", "rock", 20, newPlayer);
+						ITEM* rock = createItem("damage", "rock", 20, Player);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
@@ -339,7 +339,7 @@ int main(int argc, char* argv[])
 						//randomly generate poisonous potato damage to insert
 						int potatoDamage = ((rand() % (100 - 0 + 1)) + 0);
 						
-						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, newPlayer);
+						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, Player);
 						printf("\033[0;37m");
 
 						printf("After wolfing down this potato, you realize it did not taste too good.\n");
@@ -354,7 +354,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 
 						//if the poisonous potato killed the player
-						if (getHealth(newPlayer) == 0) //health decrease causes health to drop below zero
+						if (getHealth(Player) == 0) //health decrease causes health to drop below zero
 						{
 							printf("\033[0;31m");
 							printf("________________________________________________\n");
@@ -439,7 +439,7 @@ int main(int argc, char* argv[])
 						printf("Anyway, this didn't matter if you couldn't find them, so you put on the chest plate even though it was covered in mud.\n");
 						while (getchar() != '\n');
 						printf("You think eh its extra protection.\n");
-						ITEM* chestplate = createItem("defence", "chestplate", 50, newPlayer);
+						ITEM* chestplate = createItem("defence", "chestplate", 50, Player);
 						canContinue = false;
 						break;
 					//Move on choice
@@ -1032,6 +1032,10 @@ int main(int argc, char* argv[])
 						int SlimeID = 7;
 						char SlimeName[MAX_NAME_SIZE] = "Slime";
 						CHARACTER* Slime = CreateCharacter(SlimeHealth, SlimeID, SlimeName);
+						if (!getImage(Slime))
+						{
+							printf("%s couldn't be displayed\n", Slime->name);
+						}
 
 						//LOAD SLIME MONSTER IN HERE damage required to defeat 80
 
@@ -1069,7 +1073,7 @@ int main(int argc, char* argv[])
 						printf("You won't make it to shore in time so you deciede to climb a nearby tree to escape.\n");
 						while (getchar() != '\n');
 
-
+						disposeCharacter(Slime);
 						canContinue = false;
 						break;
 						//Don't eat choice
@@ -1098,9 +1102,13 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						int MinotaurHealth = 100;
 						int MinotaurID = 2;
-						char SlimeName[MAX_NAME_SIZE] = "Slime";
-						CHARACTER* Slime = CreateCharacter(SlimeHealth, SlimeID, SlimeName);
+						char MinotaurName[MAX_NAME_SIZE] = "Minotaur";
+						CHARACTER* Minotaur = CreateCharacter(MinotaurHealth, MinotaurID, MinotaurName);
 						//LOAD MINOTAUR MONSTER IN HERE damage required to defeat 100
+						if (!getImage(Minotaur))
+						{
+							printf("%s couldn't be displayed\n", Minotaur->name);
+						}
 
 						printf("----------------------------------------------\n");
 						printf("|    >Health: 100                            |\n");
@@ -1118,20 +1126,20 @@ int main(int argc, char* argv[])
 						printf("----------------------------------------------\n");
 
 						while (getchar() != '\n');
-						//typingSpeed = 0.0;
-						//setenceTyped = GetInput(&typingSpeed);
-						//createMonster(minotaur,100,2)
-						//char* sentence = getsentence(minotaur)
-						//typingScore = CheckSentence(//sentence, //sentence to type
-							//strlen(sentence), //sentence length
-							//setenceTyped, //users sentence entry
-							//typingSpeed); //users typing speed
+						typingSpeed = 0.0;
+						double typingSpeed = 0.0;
+						char* setenceTyped = GetInput(&typingSpeed);
+						double typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
+							73, //sentence length
+							setenceTyped, //users sentence entry
+							typingSpeed);
 
 						//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 						printf("You defeated the minotaur and stopped it from eating you, it might have the body of a man but not the brain.\n");
 						while (getchar() != '\n');
 						printf("Horrified of the creature you just encountered you decide to climb a tree to avoid any more minotaurs roaming around.\n");
 						while (getchar() != '\n');
+						disposeCharacter(Minotaur);
 						canContinue = false;
 						break;
 						//None of the menu options were selected
@@ -1242,6 +1250,58 @@ int main(int argc, char* argv[])
 								break;
 							}
 						}
+					
+						//Steal from wizard
+					case 2:
+						printf("Not wanting to alert the old man you around sneak around to the other side of the bushes.\n");
+						while (getchar() != '\n');
+						printf("With the pig meat in sight you make a mad dash towards it.\n");
+						while (getchar() != '\n');
+						printf("But unfortunatly you're too slow the old man has spotted you.\n");
+						while (getchar() != '\n');
+						printf("The old man raises his hands in the air and a thick purple fog surronds the both of you.\n");
+						while (getchar() != '\n');
+						//LOAD WIZARD MONSTER IN HERE damage required to defeat 100
+						int WizardHealth = 120;
+						int WizardID = 3;
+						char WizardName[MAX_NAME_SIZE] = "Wizard";
+						CHARACTER* Wizard = CreateCharacter(WizardHealth, WizardID, WizardName);
+						if (!getImage(Wizard))
+						{
+							printf("%s couldn't be displayed\n", Wizard->name);
+						}
+						printf("----------------------------------------------\n");
+						printf("|    >Health: 100                            |\n");
+						printf("|                                            |\n");
+						printf("|    >wizard Health: 120                     |\n");
+						printf("|                                            |\n");
+						printf("|    >The mystical world is filled with      |\n");
+						printf("|    >wizards monsters and magic.            |\n");
+						printf("|                                            |\n");
+						printf("|    >Enter:                                 |\n");
+						printf("|                                            |\n");
+						printf("|                                            |\n");
+						printf("|                                            |\n");
+						printf("|                                            |\n");
+						printf("----------------------------------------------\n");
+						while (getchar() != '\n');
+						double typingSpeed = 0.0;
+						char* setenceTyped = GetInput(&typingSpeed);
+						//printf("The mystical world is filled with wizards monsters and magic.\n")
+						double typingScore = CheckSentence(getSentence(Wizard), //sentence to type
+							63, //sentence length
+							setenceTyped, //users sentence entry
+							typingSpeed);
+						
+
+						//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+						printf("You defeated the wizard and the purple fog begins to settle. You look around for the pig meat.\n");
+						while (getchar() != '\n');
+						printf("but it's nowhere in sight, it must of been lost in the battle.\n");
+						while (getchar() != '\n');
+						printf("Angered at the loss of a meal you head back into the marshy swamp.\n");
+						while (getchar() != '\n');
+						disposeCharacter(Wizard);
 						canContinue = true;
 						while (canContinue == true)
 						{
@@ -1269,7 +1329,7 @@ int main(int argc, char* argv[])
 								printf("_________________________________________________________\n");
 								printf("[YOU DIED(you got struck by lightninng!)]\n");
 								//SAVE GAME
-								exit(1);
+								return 0;
 								canContinue = false;
 								break;
 								// Follow markings
@@ -1297,8 +1357,15 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("You jump back in horror as the one eyed monsterous figure emerges from the shadows wielding a sturdy metal arm.  \n");
 								while (getchar() != '\n');
-
+								int CyclopsHealth = 200;
+								int CyclopsID = 4;
+								char CyclopsName[MAX_NAME_SIZE] = "Cyclops";
+								CHARACTER* Cyclops = CreateCharacter(CyclopsHealth, CyclopsID, CyclopsName);
 								//Load in level 2 BOSS CYCLOPS damage required to defeat 200%
+								if (!getImage(Cyclops))
+								{
+									printf("%s couldn't be displayed\n", Cyclops->name);
+								}
 
 								printf("----------------------------------------------\n");
 								printf("|    > Health: 100                           |\n");
@@ -1315,16 +1382,14 @@ int main(int argc, char* argv[])
 								printf("|                                            |\n");
 								printf("|                                            |\n");
 								printf("----------------------------------------------\n");
-
 								while (getchar() != '\n');
-								//typingSpeed = 0.0;
-								//setenceTyped = GetInput(&typingSpeed);
-								//createMonster(cyclops,200,4)
-								//char* sentence = getsentence(cyclops)
-								//typingScore = CheckSentence(//sentence, //sentence to type
-									//strlen(sentence), //sentence length
-									//setenceTyped, //users sentence entry
-									//typingSpeed); //users typing speed
+								double typingSpeed = 0.0;
+								char* setenceTyped = GetInput(&typingSpeed);
+								//printf("watch out for that cyclops' metal arm! Careful he doesn't poke out your eye.\n")
+								double typingScore = CheckSentence(getSentence(Cyclops), //sentence to type
+									78, //sentence length
+									setenceTyped, //users sentence entry
+									typingSpeed);
 
 								//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -1340,6 +1405,7 @@ int main(int argc, char* argv[])
 									while (getchar() != '\n');
 									printf("You waste no time in gobbling it down! It may not be the best meal but at least it's food.\n");
 									while (getchar() != '\n');
+									ITEM* Crow = createItem("gFood", "Cooked crow", 15, newPlayer);
 									printf("As you're just about to finish your meal you hear the cyclops beginning to get back up.\n");
 									while (getchar() != '\n');
 									printf("You rush out of the cyclop's cabin in a panic looking for someplace to hide, you spot a dark cave entrance hidden behind some rotting logs.\n");
@@ -1348,11 +1414,11 @@ int main(int argc, char* argv[])
 									while (getchar() != '\n');
 									printf("______________________________________________________________________\n");
 									printf("[CONGRATULATIONS YOU HAVE SURVIVED LEVEL 2 - Lost In The Swamp!!!]\n");
-									canContinue = false;
-									break;
+
 								}
-
-
+								disposeCharacter(Cyclops);
+								canContinue = false;
+								break;
 								//None of the menu options were selected
 
 							case 3:
@@ -1369,7 +1435,7 @@ int main(int argc, char* argv[])
 								printf("_________________________________________________________\n");
 								printf("[YOU DIED(you were sucked into the swamp!)]\n");
 								//SAVE GAME
-								exit(1);
+								return 0;
 								canContinue = false;
 								break;
 							default:
@@ -1377,51 +1443,8 @@ int main(int argc, char* argv[])
 								break;
 							}
 						}
-						canContinue = false;
-						break;
-						//Steal from wizard
-					case 2:
-						printf("Not wanting to alert the old man you around sneak around to the other side of the bushes.\n");
-						while (getchar() != '\n');
-						printf("With the pig meat in sight you make a mad dash towards it.\n");
-						while (getchar() != '\n');
-						printf("But unfortunatly you're too slow the old man has spotted you.\n");
-						while (getchar() != '\n');
-						printf("The old man raises his hands in the air and a thick purple fog surronds the both of you.\n");
-						while (getchar() != '\n');
-						//LOAD WIZARD MONSTER IN HERE damage required to defeat 100
-
-						printf("----------------------------------------------\n");
-						printf("|    >Health: 100                            |\n");
-						printf("|                                            |\n");
-						printf("|    >wizard Health: 120                     |\n");
-						printf("|                                            |\n");
-						printf("|    >The mystical world is filled with      |\n");
-						printf("|    >wizards monsters and magic.           |\n");
-						printf("|                                            |\n");
-						printf("|    >Enter:                                 |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("----------------------------------------------\n");
-
-						while (getchar() != '\n');
-						//typingSpeed = 0.0;
-						//setenceTyped = GetInput(&typingSpeed);
-						//createMonster(wizard,120,3)
-						//typingScore = CheckSentence(//sentence, //sentence to type
-							//strlen(sentence), //sentence length
-							//setenceTyped, //users sentence entry
-							//typingSpeed); //users typing speed
-
-						//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
-						printf("You defeated the wizard and the purple fog begins to settle. You look around for the pig meat.\n");
-						while (getchar() != '\n');
-						printf("but it's nowhere in sight, it must of been lost in the battle.\n");
-						while (getchar() != '\n');
-						printf("Angered at the loss of a meal you head back into the marshy swamp.\n");
-						while (getchar() != '\n');
+						
+						
 						canContinue = false;
 						break;
 						//None of the menu options were selected
@@ -1432,8 +1455,8 @@ int main(int argc, char* argv[])
 				}
 
 
-				canContinue = true;
-				userInput = 5;
+				//canContinue = true;
+				//userInput = 5;
 				break;
 				//Choice 4
 			case 4:
@@ -1481,10 +1504,10 @@ int main(int argc, char* argv[])
 						printf("You have some time in the light still better make the most of it.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
-						printf("You decide that if you're going to hunt for animals you may as well do\n");
+						printf("You decide that if you're going to hunt for animals you may as well do with a proper tool.\n");
 						while (getchar() != '\n');
 						printf("______________________________________________________________________________________________________\n");
-						printf("it with a proper tool. What tool shall you make?\n");
+						printf("What tool shall you make?\n");
 
 						while (canContinue == true)
 						{
@@ -1500,6 +1523,7 @@ int main(int argc, char* argv[])
 								printf("With all these branches lying around you get to work quickly sharping the branch.\n");
 								while (getchar() != '\n');
 								while (getchar() != '\n');
+								ITEM* Spear = createItem("damage", "Spear", 30, newPlayer);
 								printf("You successfully crafted a spear! Now you have an edge over those pesky animals..\n");
 								while (getchar() != '\n');
 								printf("Far off in the distance you notice a small flicking light.\n");
@@ -1520,6 +1544,7 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("and tie it to a small branch you broke off a tree.\n");
 								while (getchar() != '\n');
+								ITEM* Bow = createItem("damage", "Bow", 25, newPlayer);
 								printf("It may not be somewhat flimsy but it sure beats using your hands\n");
 								while (getchar() != '\n');
 								printf("Far off in the distance you notice a small flicking light.\n");
@@ -1546,7 +1571,7 @@ int main(int argc, char* argv[])
 								printf("_______________________________________________________________\n");
 								printf("[YOU DIED(next time watch your step!)]\n");
 								//SAVE GAME
-								exit(1);
+								return 0;
 								canContinue = false;
 								break;
 
