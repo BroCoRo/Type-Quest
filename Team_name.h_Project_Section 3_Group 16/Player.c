@@ -107,4 +107,3 @@ void DisposePlayer(ptrPlayer p) {
 	free(p);
 }
 
-
