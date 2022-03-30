@@ -20,6 +20,7 @@ namespace IntegrationMainTests
 		TEST_METHOD(TestMethod1)
 		{
 			ptrPlayer p = createPlayer("Butthead", 100, 69, 69);
+			Assert::AreEqual(0, 0);
 
 		}
 
