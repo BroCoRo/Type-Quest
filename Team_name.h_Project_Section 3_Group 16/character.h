@@ -32,6 +32,7 @@ void disposeCharacter(CHARACTER*);
 //CHARACTER * generateRandomMonster(void);
 void decreaseMonsterHealth(int damage, struct character* monster);
 char* getSentence(struct character* monster);
+bool getImage(struct character* monster);
 void displayMonster(struct character* monster);
 void displayMonsterHealth(struct character* monster);
 int getMonsterHealth(struct character* monster);
