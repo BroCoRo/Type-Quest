@@ -293,14 +293,15 @@ int main(int argc, char* argv[])
 					red();
 					printf("_________________________________________\n");
 					printf("[YOU DIED(the angry chef was too strong)]\n");
-					printf("\033[0;37m");
+					return(0);
+					reset();
 				}
 				else //you defeated the monster!
 				{
 					green();
 					printf("______________________________________________\n");
 					printf("[CONGRATULATIONS(you defeated the angry chef)]\n");
-					printf("\033[0;37m");
+					reset();
 				}
 
 				reset();
@@ -610,7 +611,8 @@ int main(int argc, char* argv[])
 				{
 					red();
 					printf("_________________________________________\n");
-					printf("[YOU DIED(the angry chef was too strong)]\n");
+					printf("[YOU DIED(the crabby crabs were too strong)]\n");
+					return(0);
 					reset();
 				}
 				else //you defeated the monster!
@@ -765,6 +767,7 @@ int main(int argc, char* argv[])
 					red();
 					printf("_________________________________________\n");
 					printf("[YOU DIED(the gooey glob was too strong)]\n");
+					return(0);
 					reset();
 				}
 				else //you defeated the monster!
