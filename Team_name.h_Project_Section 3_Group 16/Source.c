@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer newPlayer = createPlayer("Test Player", 100, 100, 100);
+	ptrPlayer Player = createPlayer("Test Player", 100, 100, 100);
 
 
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -164,14 +164,14 @@ int main(int argc, char* argv[])
 					//Board choice
 					case 1:
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
-						ITEM* board = createItem("damage", "board", 25, newPlayer);
+						ITEM* board = createItem("damage", "board", 25, Player);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
 					//Rock choice
 					case 2:
 						printf("You think that the rock will be the best option as this is a weapon with range, so you pick up the rockand stuff it into your pocket.\n");
-						ITEM* rock = createItem("damage", "rock", 20, newPlayer);
+						ITEM* rock = createItem("damage", "rock", 20, Player);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
@@ -306,7 +306,7 @@ int main(int argc, char* argv[])
 						//randomly generate poisonous potato damage to insert
 						int potatoDamage = ((rand() % (100 - 0 + 1)) + 0);
 						
-						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, newPlayer);
+						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, Player);
 						printf("\033[0;37m");
 
 						printf("After wolfing down this potato, you realize it did not taste too good.\n");
@@ -321,7 +321,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 
 						//if the poisonous potato killed the player
-						if (getHealth(newPlayer) == 0) //health decrease causes health to drop below zero
+						if (getHealth(Player) == 0) //health decrease causes health to drop below zero
 						{
 							printf("\033[0;31m");
 							printf("________________________________________________\n");
@@ -407,7 +407,7 @@ int main(int argc, char* argv[])
 						printf("Anyway, this didn't matter if you couldn't find them, so you put on the chest plate even though it was covered in mud.\n");
 						while (getchar() != '\n');
 						printf("You think eh its extra protection.\n");
-						ITEM* chestplate = createItem("defence", "chestplate", 50, newPlayer);
+						ITEM* chestplate = createItem("defence", "chestplate", 50, Player);
 						canContinue = false;
 						break;
 					//Move on choice

@@ -9,6 +9,7 @@
 #include "Player.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "Colours.h"
 #include <string.h>
 #include <stdbool.h>
 
@@ -104,4 +105,49 @@ void printPlayerStats(ptrPlayer player, FILE* fp) {
 }
 void DisposePlayer(ptrPlayer p) {
 	free(p);
+}
+
+void printAffects(ptrPlayer p, ITEM i) {
+	printPlayer(p);
+
+	printf("|\n");
+	printf("|\n");
+	printf("|\n");
+	printf("V\n");
+	if (i.itemType == "gFood") {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d", p->Health);
+		green();
+		printf("+ %d\n", i.points);
+		reset();
+		printf("Damage: %d\n", p->Damage);
+		printf("Defence: %d\n", p->Defence);
+	}
+	if (i.itemType == "bFood") {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d", p->Health);
+		red();
+		printf("- %d\n", i.points);
+		reset();
+		printf("Damage: %d\n", p->Damage);
+		printf("Defence: %d\n", p->Defence);
+	}
+	if (i.itemType == "damage") {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d\n", p->Health);
+		printf("Damage: %d", p->Damage);
+		green();
+		printf("+ %d\n", i.points);
+		reset();
+		printf("Defence: %d\n", p->Defence);
+	}
+	if (i.itemType == "defence") {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d\n", p->Health);
+		printf("Damage: %d\n", p->Damage);
+		printf("Defence: %d", p->Defence);
+		green();
+		printf("+ %d\n", i.points);
+		reset();
+	}
 }
