@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer newPlayer = createPlayer("Test Player", 100, 100, 100);
+	ptrPlayer Player = createPlayer("Test Player", 100, 100, 100);
 
 
 
@@ -165,14 +165,14 @@ int main(int argc, char* argv[])
 					//Board choice
 					case 1:
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
-						ITEM* board = createItem("damage", "board", 25, newPlayer);
+						ITEM* board = createItem("damage", "board", 25, Player);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
 					//Rock choice
 					case 2:
 						printf("You think that the rock will be the best option as this is a weapon with range, so you pick up the rockand stuff it into your pocket.\n");
-						ITEM* rock = createItem("damage", "rock", 20, newPlayer);
+						ITEM* rock = createItem("damage", "rock", 20, Player);
 						while (getchar() != '\n');
 						canContinue = false;
 						break;
@@ -245,28 +245,53 @@ int main(int argc, char* argv[])
 				char AngryChefName[MAX_NAME_SIZE] = "Angry Chef";
 				CHARACTER* AngryChef = CreateCharacter(AngryChefHealth, AngryChefID, AngryChefName);
 
-				printf("\033[0;33m");
-				printf("----------------------------------------------\n");
-				printf("|    > Health: 100                           |\n");
-				printf("|                                            |\n");
-				printf("|    > Chef Damage Required: 50              |\n");
-				printf("|                                            |\n");
-				printf("|    > The angry chef wields his burnt pie   |\n");
-				printf("|    > and is ready to attack                |\n");
-				printf("|                                            |\n");
-				printf("|    > Enter:                                |\n");
-				printf("|      As the chef thrusts the pie forwards, |\n");
-				printf("|      you lunge forward, grasp the door,    |\n");
-				printf("|      and slam it closed so the pie can     |\n");
-				printf("|      bounce off the door shield!           |\n");
-				printf("----------------------------------------------\n");
-				while (getchar() != '\n');
 				double typingSpeed = 0.0;
-				char* setenceTyped = GetInput(&typingSpeed);
-				double typingScore = CheckSentence(getSentence(AngryChef), //sentence to type
-													136, //sentence length
-													setenceTyped, //users sentence entry
-													typingSpeed); //users typing speed
+				char* setenceTyped = "N/A";
+				double typingScore = 0.0;
+
+				while (getHealth(newPlayer) > 0 || getMonsterHealth(AngryChef))
+				{
+					printf("\033[0;33m");
+					printf("----------------------------------------------\n");
+					printf("|    > Health: 100                           |\n");
+					printf("|                                            |\n");
+					printf("|    > Chef Damage Required: 50              |\n");
+					printf("|                                            |\n");
+					printf("|    > The angry chef wields his burnt pie   |\n");
+					printf("|    > and is ready to attack                |\n");
+					printf("|                                            |\n");
+					printf("|    > Enter:                                |\n");
+					printf("|      As the chef thrusts the pie forwards, |\n");
+					printf("|      you lunge forward, grasp the door,    |\n");
+					printf("|      and slam it closed so the pie can     |\n");
+					printf("|      bounce off the door shield!           |\n");
+					printf("----------------------------------------------\n");
+					while (getchar() != '\n');
+					double typingSpeed = 0.0;
+					char* setenceTyped = GetInput(&typingSpeed);
+					double typingScore = CheckSentence(getSentence(AngryChef), //sentence to type
+						136, //sentence length
+						setenceTyped, //users sentence entry
+						typingSpeed); //users typing speed
+				}
+
+				//check to see the results of the battle
+				if (getHealth(newPlayer) <= 0) //the monster killed you
+				{
+					printf("\033[0;31m");
+					printf("_________________________________________\n");
+					printf("[YOU DIED(the angry chef was too strong)]\n");
+					printf("\033[0;37m");
+				}
+				else //you defeated the monster!
+				{
+					printf("\033[1;32m");
+					printf("______________________________________________\n");
+					printf("[CONGRATULATIONS(you defeated the angry chef)]\n");
+					printf("\033[0;37m");
+				}
+
+
 				printf("\033[0;37m");
 
 				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
@@ -307,7 +332,7 @@ int main(int argc, char* argv[])
 						//randomly generate poisonous potato damage to insert
 						int potatoDamage = ((rand() % (100 - 0 + 1)) + 0);
 						
-						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, newPlayer);
+						ITEM* poisonousPotato = createItem("bFood", "Poisonous Potato", potatoDamage, Player);
 						printf("\033[0;37m");
 
 						printf("After wolfing down this potato, you realize it did not taste too good.\n");
@@ -322,14 +347,13 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 
 						//if the poisonous potato killed the player
-						if (getHealth(newPlayer) == 0) //health decrease causes health to drop below zero
+						if (getHealth(Player) == 0) //health decrease causes health to drop below zero
 						{
 							printf("\033[0;31m");
 							printf("________________________________________________\n");
 							printf("[YOU DIED(the poisonous potato wasn't so savoury)]\n");
 							printf("\033[0;37m");
-							//SAVE GAME
-							exit(1);
+							return(0);
 						}
 
 						//the poisonous potato did not kill the player
@@ -408,7 +432,7 @@ int main(int argc, char* argv[])
 						printf("Anyway, this didn't matter if you couldn't find them, so you put on the chest plate even though it was covered in mud.\n");
 						while (getchar() != '\n');
 						printf("You think eh its extra protection.\n");
-						ITEM* chestplate = createItem("defence", "chestplate", 50, newPlayer);
+						ITEM* chestplate = createItem("defence", "chestplate", 50, Player);
 						canContinue = false;
 						break;
 					//Move on choice

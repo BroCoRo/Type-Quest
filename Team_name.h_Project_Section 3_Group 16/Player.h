@@ -11,6 +11,7 @@
 #define IMAGESIZEW 27
 #include <stdbool.h>
 #include <stdlib.h>
+#include "object.h"
 typedef struct player {
 	char name[MAXNAME];
 	int Health;
@@ -28,4 +29,5 @@ int getDefence(ptrPlayer);
 void setDefence(ptrPlayer, int);
 bool checkHealth(ptrPlayer);
 void printPlayer(ptrPlayer);
+void printAffects(ptrPlayer, ITEM);
 int calculateDamage(ptrPlayer, double);
