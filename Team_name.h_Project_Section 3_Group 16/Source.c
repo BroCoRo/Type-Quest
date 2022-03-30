@@ -45,6 +45,7 @@ int main(int argc, char* argv[])
 	//setup a player for the game
 	ptrPlayer newPlayer = createPlayer("Test Player", 100, 100, 100);
 
+
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	if (storyLevelToPlay == LEVEL_ONE)
 	{

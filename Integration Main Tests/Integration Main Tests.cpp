@@ -61,13 +61,21 @@ namespace IntegrationMainTests
 		
 		
 		*/
-		/*
-		Character
+		
+		//Character
+		TEST_METHOD(INT_TEST_DAMAGECHARACTER)
+		{
+			CHARACTER* p = CreateCharacter(100,1,"wizard");
+			ptrPlayer Player = createPlayer("Joe", 20, 50, 10);
+			double perfectScore = 1.0;
+			int expectedHealth = 50;
+			decreaseMonsterHealth(calculateDamage(Player,perfectScore), p);
+			Assert::AreEqual(expectedHealth, p->health);
+		}
 		
 		
 		
 		
-		*/
 		/*
 		Player
 		
