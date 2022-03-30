@@ -165,6 +165,7 @@ int main(int argc, char* argv[])
 					//Board choice
 					case 1:
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
+						
 						ITEM* board = createItem("damage", "board", 25, Player);
 						while (getchar() != '\n');
 						canContinue = false;
@@ -249,7 +250,7 @@ int main(int argc, char* argv[])
 				char* setenceTyped = "N/A";
 				double typingScore = 0.0;
 
-				while (getHealth(newPlayer) > 0 || getMonsterHealth(AngryChef))
+				while (getHealth(Player) > 0 || getMonsterHealth(AngryChef))
 				{
 					printf("\033[0;33m");
 					printf("----------------------------------------------\n");
@@ -276,7 +277,7 @@ int main(int argc, char* argv[])
 				}
 
 				//check to see the results of the battle
-				if (getHealth(newPlayer) <= 0) //the monster killed you
+				if (getHealth(Player) <= 0) //the monster killed you
 				{
 					printf("\033[0;31m");
 					printf("_________________________________________\n");
@@ -915,7 +916,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("while you're trying to piece it together an arrow drops down beside you, oh so thats what I hit you say to yourself\n");
 						while (getchar() != '\n');
-						ITEM* board = createItem("damage", "arrow", 15, newPlayer);
+						ITEM* board = createItem("damage", "arrow", 15, Player);
 						printf("You take the arrow maybe it could be useful in hunting for food.\n");
 						while (getchar() != '\n');
 						//None of the menu options were selected
