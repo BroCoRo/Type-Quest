@@ -245,6 +245,10 @@ int main(int argc, char* argv[])
 				char AngryChefName[MAX_NAME_SIZE] = "Angry Chef";
 				CHARACTER* AngryChef = CreateCharacter(AngryChefHealth, AngryChefID, AngryChefName);
 
+				double typingSpeed = 0.0;
+				char* setenceTyped = "N/A";
+				double typingScore = 0.0;
+
 				while (getHealth(newPlayer) > 0 || getMonsterHealth(AngryChef))
 				{
 					printf("\033[0;33m");
