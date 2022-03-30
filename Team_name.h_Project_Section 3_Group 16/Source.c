@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer newPlayer = createPlayer("Test Player", 100, 100, 100);
+	ptrPlayer newPlayer = createPlayer("Test Player", 100, 50, 25);
 
 
 
@@ -248,8 +248,9 @@ int main(int argc, char* argv[])
 				double typingSpeed = 0.0;
 				char* setenceTyped = "N/A";
 				double typingScore = 0.0;
+				bool loopAgain = true;
 
-				while (getHealth(newPlayer) > 0 || getMonsterHealth(AngryChef))
+				while (loopAgain)
 				{
 					printf("\033[0;33m");
 					printf("----------------------------------------------\n");
@@ -273,6 +274,15 @@ int main(int argc, char* argv[])
 						136, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
+					decreaseMonsterHealth(calculateDamage(newPlayer, typingScore), AngryChef);
+					if (getHealth(newPlayer) <= 0)
+					{
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(AngryChef) <= 0)
+					{
+						loopAgain = false;
+					}
 				}
 
 				//check to see the results of the battle
@@ -293,9 +303,6 @@ int main(int argc, char* argv[])
 
 
 				printf("\033[0;37m");
-
-				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
-
 				printf("You hear the chef losing it over his now ruined door, and you realize that this chef will not be of any help for your escape, so you sprint away from his shed as quickly as you can.\n");
 				while (getchar() != '\n');
 				while (getchar() != '\n');
@@ -558,31 +565,60 @@ int main(int argc, char* argv[])
 				char CrabbyCrabsName[MAX_NAME_SIZE] = "Crabby Crabs";
 				CHARACTER* CrabbyCrabs = CreateCharacter(CrabbyCrabshealth, CrabbyCrabsID, CrabbyCrabsName);
 
-				printf("\033[0;33m");
-				printf("----------------------------------------------\n");
-				printf("|    >Health: 100                            |\n");
-				printf("|                                            |\n");
-				printf("|    >Crabby crabs Health: 25                |\n");
-				printf("|                                            |\n");
-				printf("|    >The crabby crabs start circling and    |\n");
-				printf("|    >are snaping their claws to attack      |\n");
-				printf("|                                            |\n");
-				printf("|    >Enter:                                 |\n");
-				printf("|      The crabby crabs curiously circled,   |\n");
-				printf("|      moving closer and closer after each   |\n");
-				printf("|      circle. They lunge, snapping their    |\n");
-				printf("|      crushing claws!                       |\n");
-				printf("----------------------------------------------\n");
+				loopAgain = true;
 
-				while (getchar() != '\n');
-				typingSpeed = 0.0;
-				setenceTyped = GetInput(&typingSpeed);
-				typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
-					124, //sentence length
-					setenceTyped, //users sentence entry
-					typingSpeed); //users typing speed
-				printf("\033[0;37m");
-				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+				while (loopAgain)
+				{
+					printf("\033[0;33m");
+					printf("----------------------------------------------\n");
+					printf("|    >Health: 100                            |\n");
+					printf("|                                            |\n");
+					printf("|    >Crabby crabs Health: 25                |\n");
+					printf("|                                            |\n");
+					printf("|    >The crabby crabs start circling and    |\n");
+					printf("|    >are snaping their claws to attack      |\n");
+					printf("|                                            |\n");
+					printf("|    >Enter:                                 |\n");
+					printf("|      The crabby crabs curiously circled,   |\n");
+					printf("|      moving closer and closer after each   |\n");
+					printf("|      circle. They lunge, snapping their    |\n");
+					printf("|      crushing claws!                       |\n");
+					printf("----------------------------------------------\n");
+
+					while (getchar() != '\n');
+					typingSpeed = 0.0;
+					setenceTyped = GetInput(&typingSpeed);
+					typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
+						124, //sentence length
+						setenceTyped, //users sentence entry
+						typingSpeed); //users typing speed
+					printf("\033[0;37m");
+					decreaseMonsterHealth(calculateDamage(newPlayer, typingScore), CrabbyCrabs);
+					if (getHealth(newPlayer) <= 0)
+					{
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(CrabbyCrabs) <= 0)
+					{
+						loopAgain = false;
+					}
+				}
+
+				//check to see the results of the battle
+				if (getHealth(newPlayer) <= 0) //the monster killed you
+				{
+					printf("\033[0;31m");
+					printf("_________________________________________\n");
+					printf("[YOU DIED(the angry chef was too strong)]\n");
+					printf("\033[0;37m");
+				}
+				else //you defeated the monster!
+				{
+					printf("\033[1;32m");
+					printf("______________________________________________\n");
+					printf("[CONGRATULATIONS(you defeated the crabby crabs)]\n");
+					printf("\033[0;37m");
+				}
 
 				printf("You spin in circles, swinging the board at the crabs around you.\n");
 				while (getchar() != '\n');
@@ -677,40 +713,60 @@ int main(int argc, char* argv[])
 				printf("Then without skipping a beat, the disgusting gooey glob of stink starts crashing forward at you!\n");
 				while (getchar() != '\n');
 				printf("So you prepare to fight!!\n");
-				
-				int GooeyGlobhealth = 100;
-				int GooeyGlobID = 6;
-				char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
-				CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
-				printf("\033[0;33m");
-				printf("----------------------------------------------\n");
-				printf("|    > Health: 100                           |\n");
-				printf("|                                            |\n");
-				printf("|    > Gooey Glob Health: 100                |\n");
-				printf("|                                            |\n");
-				printf("|    >The stinky glob plows forward with     |\n");
-				printf("|    >a brutal cloud of stink                |\n");
-				printf("|                                            |\n");
-				printf("|    >Enter:                                 |\n");
-				printf("|      Send your disgusting drowning goopy   |\n");
-				printf("|      stink away! Swat the thick slime      |\n");
-				printf("|      away to avoid potential suffocation!  |\n");
-				printf("|      Push through the cloud, eyes burning, |\n");
-				printf("|      nose plugged, you can do this!        |\n");
-				printf("----------------------------------------------\n");
 
-				while (getchar() != '\n');
-				double typingSpeed = 0.0;
-				char* setenceTyped = GetInput(&typingSpeed);
-				double typingScore = CheckSentence(getSentence(gooeyGlob), //sentence to type
-					176, //sentence length
-					setenceTyped, //users sentence entry
-					typingSpeed); //users typing speed
-				printf("\033[0;37m");
+				bool loopAgain = true;
 
-				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+				while (loopAgain)
+				{
+					int GooeyGlobhealth = 100;
+					int GooeyGlobID = 6;
+					char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
+					CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
+					printf("\033[0;33m");
+					printf("----------------------------------------------\n");
+					printf("|    > Health: 100                           |\n");
+					printf("|                                            |\n");
+					printf("|    > Gooey Glob Health: 100                |\n");
+					printf("|                                            |\n");
+					printf("|    >The stinky glob plows forward with     |\n");
+					printf("|    >a brutal cloud of stink                |\n");
+					printf("|                                            |\n");
+					printf("|    >Enter:                                 |\n");
+					printf("|      Send your disgusting drowning goopy   |\n");
+					printf("|      stink away! Swat the thick slime      |\n");
+					printf("|      away to avoid potential suffocation!  |\n");
+					printf("|      Push through the cloud, eyes burning, |\n");
+					printf("|      nose plugged, you can do this!        |\n");
+					printf("----------------------------------------------\n");
 
-				if (gooeyGlob->health == 0) // boss defeated
+					while (getchar() != '\n');
+					double typingSpeed = 0.0;
+					char* setenceTyped = GetInput(&typingSpeed);
+					double typingScore = CheckSentence(getSentence(gooeyGlob), //sentence to type
+						176, //sentence length
+						setenceTyped, //users sentence entry
+						typingSpeed); //users typing speed
+					printf("\033[0;37m");
+					decreaseMonsterHealth(calculateDamage(newPlayer, typingScore), gooeyGlob);
+					if (getHealth(newPlayer) <= 0)
+					{
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(gooeyGlob) <= 0)
+					{
+						loopAgain = false;
+					}
+				}
+
+				//check to see the results of the battle
+				if (getHealth(newPlayer) <= 0) //the monster killed you
+				{
+					printf("\033[0;31m");
+					printf("_________________________________________\n");
+					printf("[YOU DIED(the gooey glob was too strong)]\n");
+					printf("\033[0;37m");
+				}
+				else //you defeated the monster!
 				{
 					while (getchar() != '\n');
 					printf("You have done it!The gooey glob spills over the forest floor, and the glow from the chemical reaction of the stink dims to nothing.\n");
@@ -765,6 +821,7 @@ int main(int argc, char* argv[])
 		}
 		printf("\033[0;37m");
 	}
+	
 	//Play level 2---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	else if (storyLevelToPlay == LEVEL_TWO)
 	{
@@ -1518,7 +1575,7 @@ int main(int argc, char* argv[])
 			}
 
 		}
-
+		
 		//Determine the next steps for the game!
 		canContinue = true;
 		while (canContinue == true)
