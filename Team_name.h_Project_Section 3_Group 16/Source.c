@@ -830,7 +830,7 @@ int main(int argc, char* argv[])
 	else if (storyLevelToPlay == LEVEL_TWO)
 	{
 	
-	
+		green();
 		printf("________________________________________________________________________________________________________\n");
 		printf("|                                                                                                      |\n");
 		printf("|                                  ~.                                    .^                            |\n");
@@ -872,6 +872,7 @@ int main(int argc, char* argv[])
 		printf("|                           Hint: Consider your options carefully!                                     |\n");
 		printf("|                                                                                                      |\n");
 		printf("|______________________________________________________________________________________________________|\n");
+		reset();
 
 		printf("\nYou managed to escape that deathly forest in one piece but your not in the clear yet.\n");
 		while (getchar() != '\n');
@@ -911,6 +912,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You look up and spot a crow staring at you from above.\n");
 				while (getchar() != '\n');
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("Should you...\n");
 
@@ -921,6 +923,7 @@ int main(int argc, char* argv[])
 					printf("1. Climb higher and snacth the crow?\n");
 					printf("2. Climb back down the tree?\n");
 					printf("3. Throw your shoe at it?\n");
+					reset();
 					int userInput = CollectNumericSelection(1, 3);
 					switch (userInput)
 					{
@@ -950,10 +953,12 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("As you lower your foot down to the branch below you hear a loud CRACK!\n");
 						while (getchar() != '\n');
+						red();
 						printf("_______________________________________________________________\n");
-						printf("[\033[0;30mYOU DIED(you fell out of a tree head first)]\033[0m\n");
+						printf("[YOU DIED(you fell out of a tree head first)\n");
+						reset();
 						//SAVE GAME
-						exit(1);
+						return 0;
 						canContinue = false;
 						break;
 
@@ -1005,7 +1010,8 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You approach the the toad from behind and yank him off the lilly pad!\n");
 				while (getchar() != '\n');
-
+				
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("What will you do with the toad?...\n");
 
@@ -1015,6 +1021,7 @@ int main(int argc, char* argv[])
 				{
 					printf("1. Cook it and eat it right away\n");
 					printf("2. Use it as bait for a trap\n");
+					reset();
 					int userInput = CollectNumericSelection(1, 2);
 					switch (userInput)
 					{
@@ -1035,6 +1042,7 @@ int main(int argc, char* argv[])
 						int SlimeHealth = 80;
 						int SlimeID = 7;
 						char SlimeName[MAX_NAME_SIZE] = "Slime";
+						yellow();
 						CHARACTER* Slime = CreateCharacter(SlimeHealth, SlimeID, SlimeName);
 						if (!getImage(Slime))
 						{
@@ -1058,7 +1066,7 @@ int main(int argc, char* argv[])
 						printf("|                                            |\n");
 						printf("|                                            |\n");
 						printf("----------------------------------------------\n");
-
+						reset();
 						while (getchar() != '\n');
 						double typingSpeed = 0.0;
 						char* setenceTyped = GetInput(&typingSpeed);
@@ -1106,6 +1114,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						int MinotaurHealth = 100;
 						int MinotaurID = 2;
+						yellow();
 						char MinotaurName[MAX_NAME_SIZE] = "Minotaur";
 						CHARACTER* Minotaur = CreateCharacter(MinotaurHealth, MinotaurID, MinotaurName);
 						//LOAD MINOTAUR MONSTER IN HERE damage required to defeat 100
@@ -1128,7 +1137,8 @@ int main(int argc, char* argv[])
 						printf("|                                            |\n");
 						printf("|                                            |\n");
 						printf("----------------------------------------------\n");
-
+						
+						reset();
 						while (getchar() != '\n');
 						typingSpeed = 0.0;
 						typingSpeed = 0.0;
@@ -1178,6 +1188,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You decide that the swamp won't offer anything better to eat you'll have to get that pig.\n");
 				while (getchar() != '\n');
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("How will you get the pig?...\n");
 
@@ -1187,6 +1198,7 @@ int main(int argc, char* argv[])
 				{
 					printf("1. Ask the old man for it?\n");
 					printf("2. Steal it when hes not looking\n");
+					reset();
 					int userInput = CollectNumericSelection(1, 2);
 					switch (userInput)
 					{
@@ -1205,12 +1217,14 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("he strokes his beard and replies in a raspy voice: THIS MEAT IS CURSED, IT IS NOT MEANT FOR EATING YOU FOOL!.\n");
 						while (getchar() != '\n');
+						cyan();
 						printf("______________________________________________________________________________________________________\n");
 						printf("Should you...\n");
 						while (canContinue == true)
 						{
 							printf("1. Trust the old man?\n");
 							printf("2. Not trust the old man?\n");
+							reset();
 							int userInput = CollectNumericSelection(1, 2);
 							switch (userInput)
 							{
@@ -1241,8 +1255,11 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("in a long time you had actual food in your hand. unable to resist you take big bite of the raw pig meat.\n");
 								while (getchar() != '\n');
+
+								red();
 								printf("_______________________________________________________________\n");
 								printf("[YOU DIED(you ate cursed meat!)]\n");
+								reset();
 								//SAVE GAME
 								exit(1);
 								canContinue = false;
@@ -1269,6 +1286,7 @@ int main(int argc, char* argv[])
 						int WizardHealth = 120;
 						int WizardID = 3;
 						char WizardName[MAX_NAME_SIZE] = "Wizard";
+						yellow();
 						CHARACTER* Wizard = CreateCharacter(WizardHealth, WizardID, WizardName);
 						if (!getImage(Wizard))
 						{
@@ -1288,6 +1306,7 @@ int main(int argc, char* argv[])
 						printf("|                                            |\n");
 						printf("|                                            |\n");
 						printf("----------------------------------------------\n");
+						reset();
 						while (getchar() != '\n');
 						double typingSpeed = 0.0;
 						char* setenceTyped = GetInput(&typingSpeed);
@@ -1307,11 +1326,15 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						disposeCharacter(Wizard);
 						canContinue = true;
+						yellow();
+						printf("______________________________________________________________________________________________________\n");
+						printf("Should you...\n");
 						while (canContinue == true)
 						{
 							printf("1. Heads toward a clearing in the trees?\n");
 							printf("2. Follow some markings on the trees?\n");
 							printf("3. Investigate a sunken structure in the water?\n");
+							reset();
 							int userInput = CollectNumericSelection(1, 3);
 							switch (userInput)
 							{
@@ -1330,8 +1353,10 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("The booming of thunder can be heard in the distance, exhausted, you decide to simply wait it out in the clearing.\n");
 								while (getchar() != '\n');
+								red();
 								printf("_________________________________________________________\n");
 								printf("[YOU DIED(you got struck by lightninng!)]\n");
+								reset();
 								//SAVE GAME
 								return 0;
 								canContinue = false;
@@ -1366,6 +1391,7 @@ int main(int argc, char* argv[])
 								char CyclopsName[MAX_NAME_SIZE] = "Cyclops";
 								CHARACTER* Cyclops = CreateCharacter(CyclopsHealth, CyclopsID, CyclopsName);
 								//Load in level 2 BOSS CYCLOPS damage required to defeat 200%
+								yellow();
 								if (!getImage(Cyclops))
 								{
 									printf("%s couldn't be displayed\n", Cyclops->name);
@@ -1386,6 +1412,7 @@ int main(int argc, char* argv[])
 								printf("|                                            |\n");
 								printf("|                                            |\n");
 								printf("----------------------------------------------\n");
+								reset();
 								while (getchar() != '\n');
 								double typingSpeed = 0.0;
 								char* setenceTyped = GetInput(&typingSpeed);
@@ -1416,8 +1443,10 @@ int main(int argc, char* argv[])
 									while (getchar() != '\n');
 									printf("With the cyclops on your tail it seems the cave is the only escape...\n");
 									while (getchar() != '\n');
+									yellow();
 									printf("______________________________________________________________________\n");
 									printf("[CONGRATULATIONS YOU HAVE SURVIVED LEVEL 2 - Lost In The Swamp!!!]\n");
+									reset();
 
 								}
 								disposeCharacter(Cyclops);
@@ -1436,8 +1465,10 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("Out of the blue you feel the gooey surface beneath you pulling you down!n");
 								while (getchar() != '\n');
+								red();
 								printf("_________________________________________________________\n");
 								printf("[YOU DIED(you were sucked into the swamp!)]\n");
+								reset();
 								//SAVE GAME
 								return 0;
 								canContinue = false;
@@ -1471,6 +1502,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("The hunt for food can wait till the morning.\n");
 				while (getchar() != '\n');
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("Its still a while until the sun will completely set, what should you do to pass the time?\n");
 
@@ -1478,6 +1510,7 @@ int main(int argc, char* argv[])
 				{
 					printf("1. Sleep by the fire?\n");
 					printf("2. Craft something?\n");
+					reset();
 					int userInput = CollectNumericSelection(1, 2);
 					switch (userInput)
 					{
@@ -1510,6 +1543,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("You decide that if you're going to hunt for animals you may as well do with a proper tool.\n");
 						while (getchar() != '\n');
+						cyan();
 						printf("______________________________________________________________________________________________________\n");
 						printf("What tool shall you make?\n");
 
@@ -1518,6 +1552,7 @@ int main(int argc, char* argv[])
 							printf("1. Wooden spear?\n");
 							printf("2. Bow?\n");
 							printf("3. Torch?\n");
+							reset();
 							int userInput = CollectNumericSelection(1, 3);
 							switch (userInput)
 							{
@@ -1572,8 +1607,10 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("torch you stumble over a rock whichs sents you flying right into the fire.\n");
 								while (getchar() != '\n');
+								red();
 								printf("_______________________________________________________________\n");
 								printf("[YOU DIED(next time watch your step!)]\n");
+								reset();
 								//SAVE GAME
 								return 0;
 								canContinue = false;
