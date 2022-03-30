@@ -46,6 +46,7 @@ int main(int argc, char* argv[])
 	ptrPlayer newPlayer = createPlayer("Test Player", 100, 100, 100);
 
 
+
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	if (storyLevelToPlay == LEVEL_ONE)
 	{
@@ -466,7 +467,7 @@ int main(int argc, char* argv[])
 						printf("_______________________________________________________________\n");
 						printf("[YOU DIED(the fallen dead redwood tree squashed you like a bug)]\n");
 						printf("\033[0;37m");
-						exit(1);
+						return(0);
 						canContinue = false;
 						break;
 					//Go around choice
@@ -616,7 +617,7 @@ int main(int argc, char* argv[])
 				printf("_________________________________________________________\n");
 				printf("[YOU DIED(you got a little too comfortable with heights)]\n");
 				printf("\033[0;37m");
-				exit(1);
+				return(0);
 				canContinue = false;
 				break;
 			//Dont go to clif choice
