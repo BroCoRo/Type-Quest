@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer Player = createPlayer("Test Player", 100, 100, 100);
+	ptrPlayer Player = createPlayer("Test Player", 100, 50, 25);
 
 
 
@@ -255,6 +255,8 @@ int main(int argc, char* argv[])
 				while (loopAgain)
 				{
 					yellow();
+					getImage(AngryChef);
+					printf("\n");
 					printf("----------------------------------------------\n");
 					printf("|    > Health: 100                           |\n");
 					printf("|                                            |\n");
@@ -293,8 +295,8 @@ int main(int argc, char* argv[])
 					red();
 					printf("_________________________________________\n");
 					printf("[YOU DIED(the angry chef was too strong)]\n");
-					return(0);
 					reset();
+					return(0);
 				}
 				else //you defeated the monster!
 				{
@@ -572,6 +574,8 @@ int main(int argc, char* argv[])
 				while (loopAgain)
 				{
 					yellow();
+					getImage(CrabbyCrabs);
+					printf("\n");
 					printf("----------------------------------------------\n");
 					printf("|    >Health: 100                            |\n");
 					printf("|                                            |\n");
@@ -726,6 +730,8 @@ int main(int argc, char* argv[])
 					char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
 					CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
 					yellow();
+					getImage(gooeyGlob);
+					printf("\n");
 					printf("----------------------------------------------\n");
 					printf("|    > Health: 100                           |\n");
 					printf("|                                            |\n");
@@ -767,8 +773,8 @@ int main(int argc, char* argv[])
 					red();
 					printf("_________________________________________\n");
 					printf("[YOU DIED(the gooey glob was too strong)]\n");
-					return(0);
 					reset();
+					return(0);
 				}
 				else //you defeated the monster!
 				{
