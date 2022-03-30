@@ -274,8 +274,8 @@ int main(int argc, char* argv[])
 						136, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
-					decreaseMonsterHealth(calculateDamage(newPlayer, typingScore), AngryChef);
-					if (getHealth(newPlayer) <= 0)
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), AngryChef);
+					if (getHealth(Player) <= 0)
 					{
 						loopAgain = false;
 					}
@@ -286,7 +286,7 @@ int main(int argc, char* argv[])
 				}
 
 				//check to see the results of the battle
-				if (getHealth(newPlayer) <= 0) //the monster killed you
+				if (getHealth(Player) <= 0) //the monster killed you
 				{
 					printf("\033[0;31m");
 					printf("_________________________________________\n");
@@ -593,8 +593,8 @@ int main(int argc, char* argv[])
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
 					printf("\033[0;37m");
-					decreaseMonsterHealth(calculateDamage(newPlayer, typingScore), CrabbyCrabs);
-					if (getHealth(newPlayer) <= 0)
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), CrabbyCrabs);
+					if (getHealth(Player) <= 0)
 					{
 						loopAgain = false;
 					}
@@ -605,7 +605,7 @@ int main(int argc, char* argv[])
 				}
 
 				//check to see the results of the battle
-				if (getHealth(newPlayer) <= 0) //the monster killed you
+				if (getHealth(Player) <= 0) //the monster killed you
 				{
 					printf("\033[0;31m");
 					printf("_________________________________________\n");
@@ -747,8 +747,8 @@ int main(int argc, char* argv[])
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
 					printf("\033[0;37m");
-					decreaseMonsterHealth(calculateDamage(newPlayer, typingScore), gooeyGlob);
-					if (getHealth(newPlayer) <= 0)
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), gooeyGlob);
+					if (getHealth(Player) <= 0)
 					{
 						loopAgain = false;
 					}
@@ -759,7 +759,7 @@ int main(int argc, char* argv[])
 				}
 
 				//check to see the results of the battle
-				if (getHealth(newPlayer) <= 0) //the monster killed you
+				if (getHealth(Player) <= 0) //the monster killed you
 				{
 					printf("\033[0;31m");
 					printf("_________________________________________\n");
@@ -972,7 +972,7 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("while you're trying to piece it together an arrow drops down beside you, oh so thats what I hit you say to yourself\n");
 						while (getchar() != '\n');
-						ITEM* board = createItem("damage", "arrow", 15, newPlayer);
+						ITEM* board = createItem("damage", "arrow", 15, Player);
 						printf("You take the arrow maybe it could be useful in hunting for food.\n");
 						while (getchar() != '\n');
 						//None of the menu options were selected
@@ -1127,9 +1127,9 @@ int main(int argc, char* argv[])
 
 						while (getchar() != '\n');
 						typingSpeed = 0.0;
-						double typingSpeed = 0.0;
-						char* setenceTyped = GetInput(&typingSpeed);
-						double typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
+						typingSpeed = 0.0;
+						setenceTyped = GetInput(&typingSpeed);
+						typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
 							73, //sentence length
 							setenceTyped, //users sentence entry
 							typingSpeed);
@@ -1405,7 +1405,7 @@ int main(int argc, char* argv[])
 									while (getchar() != '\n');
 									printf("You waste no time in gobbling it down! It may not be the best meal but at least it's food.\n");
 									while (getchar() != '\n');
-									ITEM* Crow = createItem("gFood", "Cooked crow", 15, newPlayer);
+									ITEM* Crow = createItem("gFood", "Cooked crow", 15, Player);
 									printf("As you're just about to finish your meal you hear the cyclops beginning to get back up.\n");
 									while (getchar() != '\n');
 									printf("You rush out of the cyclop's cabin in a panic looking for someplace to hide, you spot a dark cave entrance hidden behind some rotting logs.\n");
@@ -1523,7 +1523,7 @@ int main(int argc, char* argv[])
 								printf("With all these branches lying around you get to work quickly sharping the branch.\n");
 								while (getchar() != '\n');
 								while (getchar() != '\n');
-								ITEM* Spear = createItem("damage", "Spear", 30, newPlayer);
+								ITEM* Spear = createItem("damage", "Spear", 30, Player);
 								printf("You successfully crafted a spear! Now you have an edge over those pesky animals..\n");
 								while (getchar() != '\n');
 								printf("Far off in the distance you notice a small flicking light.\n");
@@ -1544,7 +1544,7 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("and tie it to a small branch you broke off a tree.\n");
 								while (getchar() != '\n');
-								ITEM* Bow = createItem("damage", "Bow", 25, newPlayer);
+								ITEM* Bow = createItem("damage", "Bow", 25, Player);
 								printf("It may not be somewhat flimsy but it sure beats using your hands\n");
 								while (getchar() != '\n');
 								printf("Far off in the distance you notice a small flicking light.\n");
