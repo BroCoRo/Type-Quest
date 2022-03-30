@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer Player = createPlayer("Test Player", 100, 100, 100);
+	ptrPlayer Player = createPlayer("Test Player", 100, 50, 25);
 
 
 
