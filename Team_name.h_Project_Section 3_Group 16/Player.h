@@ -29,5 +29,5 @@ int getDefence(ptrPlayer);
 void setDefence(ptrPlayer, int);
 bool checkHealth(ptrPlayer);
 void printPlayer(ptrPlayer);
-void printAffects(ptrPlayer, ITEM);
+//void printAffects(ptrPlayer, ITEM);
 int calculateDamage(ptrPlayer, double);
