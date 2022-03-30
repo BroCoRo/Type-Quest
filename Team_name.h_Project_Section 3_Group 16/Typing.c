@@ -44,7 +44,7 @@ char* GetInput(double *storeSpeed)
 	endTime = clock();
 	//calculate the time take to enter the sentence by subtracting the end clock recording with the start clock recording divided by
 	//the number of clock cycles per second (THIS WILL CALCULATE THE TIME TAKEN IN SECONDS)
-	tempStoreSpeed = (endTime - startTime) / CLOCKS_PER_SEC; 
+	tempStoreSpeed = (((endTime - startTime) / CLOCKS_PER_SEC) - 2); //subtract 2 so its easier 
 	printf("----------------------------------------------\n");
 	//send back the recorded speed
 	*storeSpeed = tempStoreSpeed;
