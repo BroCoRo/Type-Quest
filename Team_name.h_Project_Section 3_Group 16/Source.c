@@ -245,7 +245,7 @@ int main(int argc, char* argv[])
 				char AngryChefName[MAX_NAME_SIZE] = "Angry Chef";
 				CHARACTER* AngryChef = CreateCharacter(AngryChefHealth, AngryChefID, AngryChefName);
 
-				while (getHealth(newPlayer) > 0 || getMonsterHeath(AngryChef))
+				while (getHealth(newPlayer) > 0 || getMonsterHealth(AngryChef))
 				{
 					printf("\033[0;33m");
 					printf("----------------------------------------------\n");
