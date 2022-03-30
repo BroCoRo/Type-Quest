@@ -203,3 +203,8 @@ bool getImage(struct character* monster)
 	
 }
 
+int getMonsterHealth(struct character* monster)
+{
+	return monster->health;
+}
+
