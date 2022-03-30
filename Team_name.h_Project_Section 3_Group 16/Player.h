@@ -26,6 +26,5 @@ int getDamage(ptrPlayer);
 void setDamage(ptrPlayer, int);
 int getDefence(ptrPlayer);
 void setDefence(ptrPlayer, int);
-bool checkHealth(ptrPlayer);
 void printPlayer(ptrPlayer);
 int calculateDamage(ptrPlayer, double);
