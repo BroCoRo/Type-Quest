@@ -245,28 +245,49 @@ int main(int argc, char* argv[])
 				char AngryChefName[MAX_NAME_SIZE] = "Angry Chef";
 				CHARACTER* AngryChef = CreateCharacter(AngryChefHealth, AngryChefID, AngryChefName);
 
-				printf("\033[0;33m");
-				printf("----------------------------------------------\n");
-				printf("|    > Health: 100                           |\n");
-				printf("|                                            |\n");
-				printf("|    > Chef Damage Required: 50              |\n");
-				printf("|                                            |\n");
-				printf("|    > The angry chef wields his burnt pie   |\n");
-				printf("|    > and is ready to attack                |\n");
-				printf("|                                            |\n");
-				printf("|    > Enter:                                |\n");
-				printf("|      As the chef thrusts the pie forwards, |\n");
-				printf("|      you lunge forward, grasp the door,    |\n");
-				printf("|      and slam it closed so the pie can     |\n");
-				printf("|      bounce off the door shield!           |\n");
-				printf("----------------------------------------------\n");
-				while (getchar() != '\n');
-				double typingSpeed = 0.0;
-				char* setenceTyped = GetInput(&typingSpeed);
-				double typingScore = CheckSentence(getSentence(AngryChef), //sentence to type
-													136, //sentence length
-													setenceTyped, //users sentence entry
-													typingSpeed); //users typing speed
+				while (getHealth(newPlayer) > 0 || getMonsterHeath(AngryChef))
+				{
+					printf("\033[0;33m");
+					printf("----------------------------------------------\n");
+					printf("|    > Health: 100                           |\n");
+					printf("|                                            |\n");
+					printf("|    > Chef Damage Required: 50              |\n");
+					printf("|                                            |\n");
+					printf("|    > The angry chef wields his burnt pie   |\n");
+					printf("|    > and is ready to attack                |\n");
+					printf("|                                            |\n");
+					printf("|    > Enter:                                |\n");
+					printf("|      As the chef thrusts the pie forwards, |\n");
+					printf("|      you lunge forward, grasp the door,    |\n");
+					printf("|      and slam it closed so the pie can     |\n");
+					printf("|      bounce off the door shield!           |\n");
+					printf("----------------------------------------------\n");
+					while (getchar() != '\n');
+					double typingSpeed = 0.0;
+					char* setenceTyped = GetInput(&typingSpeed);
+					double typingScore = CheckSentence(getSentence(AngryChef), //sentence to type
+						136, //sentence length
+						setenceTyped, //users sentence entry
+						typingSpeed); //users typing speed
+				}
+
+				//check to see the results of the battle
+				if (getHealth(newPlayer) <= 0) //the monster killed you
+				{
+					printf("\033[0;31m");
+					printf("_________________________________________\n");
+					printf("[YOU DIED(the angry chef was too strong)]\n");
+					printf("\033[0;37m");
+				}
+				else //you defeated the monster!
+				{
+					printf("\033[1;32m");
+					printf("______________________________________________\n");
+					printf("[CONGRATULATIONS(you defeated the angry chef)]\n");
+					printf("\033[0;37m");
+				}
+
+
 				printf("\033[0;37m");
 
 				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
@@ -328,8 +349,7 @@ int main(int argc, char* argv[])
 							printf("________________________________________________\n");
 							printf("[YOU DIED(the poisonous potato wasn't so savoury)]\n");
 							printf("\033[0;37m");
-							//SAVE GAME
-							exit(1);
+							return(0);
 						}
 
 						//the poisonous potato did not kill the player
