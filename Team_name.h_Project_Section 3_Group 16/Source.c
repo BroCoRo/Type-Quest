@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	if (storyLevelToPlay == LEVEL_ONE)
 	{
-		printf("\033[1;32m");
+		green();
 		printf("________________________________________________________________________________________________________\n");
 		printf("|                                                                                                      |\n");
 		printf("|                                                                                                      |\n");
@@ -106,8 +106,8 @@ int main(int argc, char* argv[])
 		printf("|                                                                                                      |\n");
 		printf("|                           Hint: Use the enter key to move the story along!                           |\n");
 		printf("|                                                                                                      |\n");
-		printf("|______________________________________________________________________________________________________|\n");
-		printf("\033[0;37m");
+		printf("|______________________________________________________________________________________________________|\n");	
+		reset();
 		printf("\nYou wake up coughing up water to beaming sunlight passing through large trees.\n");
 		while (getchar() != '\n');
 		printf("You wonder where am I?\n");
@@ -128,7 +128,7 @@ int main(int argc, char* argv[])
 		while (getchar() != '\n');
 		printf("And now it begins you are left to make a choice...\n");
 		while (getchar() != '\n');
-		printf("\033[0;36m");
+		cyan();
 		printf("______________________________________________________________________________________________________\n");
 		printf("You think should I:\n");
 		printf("   1. Walk up the beach?\n");
@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
 		printf("   3. Walk into the redwood forest but do not follow the path?\n");
 		printf("   4. Wait on the beach and hope that someone will come to help?\n");
 		int userInput = CollectNumericSelection(1, 4);
-		printf("\033[0;37m");
+		reset();
 		//Determine the next steps for the game!
 		canContinue = true;
 		while (canContinue == true)
@@ -150,7 +150,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("Just as you are about to leave, you think that it might be helpful to have a weapon with you.\n");
 				while (getchar() != '\n');
-				printf("\033[0;36m");
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("Should you...\n");
 
@@ -166,6 +166,7 @@ int main(int argc, char* argv[])
 					//Board choice
 					case 1:
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
+						
 						ITEM* board = createItem("damage", "board", 25, Player);
 						while (getchar() != '\n');
 						canContinue = false;
@@ -183,7 +184,7 @@ int main(int argc, char* argv[])
 						break;
 					}
 				}
-				printf("\033[0;37m");
+				reset();
 				while (getchar() != '\n');
 				printf("You start wandering down the beach, following the gentle curve of the water.\n");
 				while (getchar() != '\n');
@@ -249,10 +250,11 @@ int main(int argc, char* argv[])
 				double typingSpeed = 0.0;
 				char* setenceTyped = "N/A";
 				double typingScore = 0.0;
+				bool loopAgain = true;
 
-				while (getHealth(Player) > 0 || getMonsterHealth(AngryChef))
+				while (loopAgain)
 				{
-					printf("\033[0;33m");
+					yellow();
 					printf("----------------------------------------------\n");
 					printf("|    > Health: 100                           |\n");
 					printf("|                                            |\n");
@@ -274,29 +276,34 @@ int main(int argc, char* argv[])
 						136, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), AngryChef);
+					if (getHealth(Player) <= 0)
+					{
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(AngryChef) <= 0)
+					{
+						loopAgain = false;
+					}
 				}
 
 				//check to see the results of the battle
 				if (getHealth(Player) <= 0) //the monster killed you
 				{
-					printf("\033[0;31m");
+					red();
 					printf("_________________________________________\n");
 					printf("[YOU DIED(the angry chef was too strong)]\n");
 					printf("\033[0;37m");
 				}
 				else //you defeated the monster!
 				{
-					printf("\033[1;32m");
+					green();
 					printf("______________________________________________\n");
 					printf("[CONGRATULATIONS(you defeated the angry chef)]\n");
 					printf("\033[0;37m");
 				}
 
-
-				printf("\033[0;37m");
-
-				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
-
+				reset();
 				printf("You hear the chef losing it over his now ruined door, and you realize that this chef will not be of any help for your escape, so you sprint away from his shed as quickly as you can.\n");
 				while (getchar() != '\n');
 				while (getchar() != '\n');
@@ -310,7 +317,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You also notice it looks rather green and you think...\n");
 				while (getchar() != '\n');
-				printf("\033[0;36m");
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("I should...\n");
 
@@ -350,10 +357,10 @@ int main(int argc, char* argv[])
 						//if the poisonous potato killed the player
 						if (getHealth(Player) == 0) //health decrease causes health to drop below zero
 						{
-							printf("\033[0;31m");
+							red();
 							printf("________________________________________________\n");
 							printf("[YOU DIED(the poisonous potato wasn't so savoury)]\n");
-							printf("\033[0;37m");
+							reset();
 							return(0);
 						}
 
@@ -372,7 +379,7 @@ int main(int argc, char* argv[])
 						printf("You decide no, that doesn't look too good ill pass on eating that, and I could lose a little weight anyway.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
-						printf("\033[0;37m");
+						reset();
 						printf("You think that it might be poisonous, so you decide to leave it and continue your quest.\n");
 
 						canContinue = false;
@@ -399,7 +406,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You think to yourself, what could this be? \n");
 				while (getchar() != '\n');
-				printf("\033[0;36m");
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("Should you...\n");
 
@@ -417,7 +424,7 @@ int main(int argc, char* argv[])
 						printf("You feel you have to know what this object is, so you wonder the forset for a few minutes searching for a big stick.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
-						printf("\033[0;37m");
+						reset();
 						printf("After searching for a few minutes, you find a sizeable thick stick that should do the job perfectly!\n");
 						while (getchar() != '\n');
 						printf("So you wander back to the object and pry it out of the ground with this stick.\n");
@@ -440,7 +447,7 @@ int main(int argc, char* argv[])
 					case 2:
 						printf("You decide that digging it the rest of the way out of the ground would be far too complicated, so you continue leaving this object behind.\n");
 						while (getchar() != '\n');
-						printf("\033[0;37m");
+						reset();
 						canContinue = false;
 						break;
 						//None of the menu options were selected
@@ -461,7 +468,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You can hear the tree's wood groaning under the weight of the fallen redwood.\n");
 				while (getchar() != '\n');
-				printf("\033[0;36m");
+				cyan();
 				printf("______________________________________________________________________________________________________\n");
 				printf("You think, should I...\n");
 
@@ -479,7 +486,7 @@ int main(int argc, char* argv[])
 						printf("You decide why walk all the way around this tree; it's staying now, so I'll take my chances.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
-						printf("\033[0;37m");
+						reset();
 						printf("You step forward and duck under this massive tree.\n");
 						while (getchar() != '\n');
 						printf("Just as you are shuffling underneath the tree, you hear a loud CRACK!\n");
@@ -488,10 +495,10 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("Then bam, all went dark...\n");
 						while (getchar() != '\n');
-						printf("\033[0;31m");
+						red();
 						printf("_______________________________________________________________\n");
 						printf("[YOU DIED(the fallen dead redwood tree squashed you like a bug)]\n");
-						printf("\033[0;37m");
+						reset();
 						return(0);
 						canContinue = false;
 						break;
@@ -500,7 +507,7 @@ int main(int argc, char* argv[])
 						printf("You think that my luck has not been excellent lately, so I will not take my chances on this.You spend the extra 15 minutes working your way around this tree.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
-						printf("\033[0;37m");
+						reset();
 						printf("Then suddenly, just as you pass the tree, you hear a loud CRACK, and the giant redwood tree crashes to the ground!\n");
 						while (getchar() != '\n');
 						printf("You sigh in relief as that would have been you under the falling tree if you didn't make the intelligent choice of going around.\n");
@@ -559,31 +566,60 @@ int main(int argc, char* argv[])
 				char CrabbyCrabsName[MAX_NAME_SIZE] = "Crabby Crabs";
 				CHARACTER* CrabbyCrabs = CreateCharacter(CrabbyCrabshealth, CrabbyCrabsID, CrabbyCrabsName);
 
-				printf("\033[0;33m");
-				printf("----------------------------------------------\n");
-				printf("|    >Health: 100                            |\n");
-				printf("|                                            |\n");
-				printf("|    >Crabby crabs Health: 25                |\n");
-				printf("|                                            |\n");
-				printf("|    >The crabby crabs start circling and    |\n");
-				printf("|    >are snaping their claws to attack      |\n");
-				printf("|                                            |\n");
-				printf("|    >Enter:                                 |\n");
-				printf("|      The crabby crabs curiously circled,   |\n");
-				printf("|      moving closer and closer after each   |\n");
-				printf("|      circle. They lunge, snapping their    |\n");
-				printf("|      crushing claws!                       |\n");
-				printf("----------------------------------------------\n");
+				loopAgain = true;
 
-				while (getchar() != '\n');
-				typingSpeed = 0.0;
-				setenceTyped = GetInput(&typingSpeed);
-				typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
-					124, //sentence length
-					setenceTyped, //users sentence entry
-					typingSpeed); //users typing speed
-				printf("\033[0;37m");
-				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+				while (loopAgain)
+				{
+					yellow();
+					printf("----------------------------------------------\n");
+					printf("|    >Health: 100                            |\n");
+					printf("|                                            |\n");
+					printf("|    >Crabby crabs Health: 25                |\n");
+					printf("|                                            |\n");
+					printf("|    >The crabby crabs start circling and    |\n");
+					printf("|    >are snaping their claws to attack      |\n");
+					printf("|                                            |\n");
+					printf("|    >Enter:                                 |\n");
+					printf("|      The crabby crabs curiously circled,   |\n");
+					printf("|      moving closer and closer after each   |\n");
+					printf("|      circle. They lunge, snapping their    |\n");
+					printf("|      crushing claws!                       |\n");
+					printf("----------------------------------------------\n");
+
+					while (getchar() != '\n');
+					typingSpeed = 0.0;
+					setenceTyped = GetInput(&typingSpeed);
+					typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
+						124, //sentence length
+						setenceTyped, //users sentence entry
+						typingSpeed); //users typing speed
+					reset();
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), CrabbyCrabs);
+					if (getHealth(Player) <= 0)
+					{
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(CrabbyCrabs) <= 0)
+					{
+						loopAgain = false;
+					}
+				}
+
+				//check to see the results of the battle
+				if (getHealth(Player) <= 0) //the monster killed you
+				{
+					red();
+					printf("_________________________________________\n");
+					printf("[YOU DIED(the angry chef was too strong)]\n");
+					reset();
+				}
+				else //you defeated the monster!
+				{
+					green();
+					printf("______________________________________________\n");
+					printf("[CONGRATULATIONS(you defeated the crabby crabs)]\n");
+					reset();
+				}
 
 				printf("You spin in circles, swinging the board at the crabs around you.\n");
 				while (getchar() != '\n');
@@ -607,7 +643,7 @@ int main(int argc, char* argv[])
 		while (getchar() != '\n');
 		printf("You look around and think, \n");
 		while (getchar() != '\n');
-		printf("\033[0;36m");
+		cyan();
 		printf("______________________________________________________________________________________________________\n");
 		printf("Should I...\n");
 
@@ -625,7 +661,7 @@ int main(int argc, char* argv[])
 				printf("You decide to wander over the cliff to determine what you can see over the edge.\n");
 				while (getchar() != '\n');
 				while (getchar() != '\n');
-				printf("\033[0;37m");
+				reset();
 				printf("As you approach the cliff, you notice that the terrain close to the edge looks a little loose, but you don't think anything of it.\n");
 				while (getchar() != '\n');
 				printf("You get close to the edge and peer over to see absolutely nothing.\n");
@@ -638,10 +674,10 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("You attempt to lunge forward and grab onto a nearby root, but you miss the rootand slide over the cliff's edge.\n");
 				while (getchar() != '\n');
-				printf("\033[0;31m");
+				red();
 				printf("_________________________________________________________\n");
 				printf("[YOU DIED(you got a little too comfortable with heights)]\n");
-				printf("\033[0;37m");
+				reset();
 				return(0);
 				canContinue = false;
 				break;
@@ -678,40 +714,60 @@ int main(int argc, char* argv[])
 				printf("Then without skipping a beat, the disgusting gooey glob of stink starts crashing forward at you!\n");
 				while (getchar() != '\n');
 				printf("So you prepare to fight!!\n");
-				
-				int GooeyGlobhealth = 100;
-				int GooeyGlobID = 6;
-				char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
-				CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
-				printf("\033[0;33m");
-				printf("----------------------------------------------\n");
-				printf("|    > Health: 100                           |\n");
-				printf("|                                            |\n");
-				printf("|    > Gooey Glob Health: 100                |\n");
-				printf("|                                            |\n");
-				printf("|    >The stinky glob plows forward with     |\n");
-				printf("|    >a brutal cloud of stink                |\n");
-				printf("|                                            |\n");
-				printf("|    >Enter:                                 |\n");
-				printf("|      Send your disgusting drowning goopy   |\n");
-				printf("|      stink away! Swat the thick slime      |\n");
-				printf("|      away to avoid potential suffocation!  |\n");
-				printf("|      Push through the cloud, eyes burning, |\n");
-				printf("|      nose plugged, you can do this!        |\n");
-				printf("----------------------------------------------\n");
 
-				while (getchar() != '\n');
-				double typingSpeed = 0.0;
-				char* setenceTyped = GetInput(&typingSpeed);
-				double typingScore = CheckSentence(getSentence(gooeyGlob), //sentence to type
-					176, //sentence length
-					setenceTyped, //users sentence entry
-					typingSpeed); //users typing speed
-				printf("\033[0;37m");
+				bool loopAgain = true;
 
-				//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+				while (loopAgain)
+				{
+					int GooeyGlobhealth = 100;
+					int GooeyGlobID = 6;
+					char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
+					CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
+					yellow();
+					printf("----------------------------------------------\n");
+					printf("|    > Health: 100                           |\n");
+					printf("|                                            |\n");
+					printf("|    > Gooey Glob Health: 100                |\n");
+					printf("|                                            |\n");
+					printf("|    >The stinky glob plows forward with     |\n");
+					printf("|    >a brutal cloud of stink                |\n");
+					printf("|                                            |\n");
+					printf("|    >Enter:                                 |\n");
+					printf("|      Send your disgusting drowning goopy   |\n");
+					printf("|      stink away! Swat the thick slime      |\n");
+					printf("|      away to avoid potential suffocation!  |\n");
+					printf("|      Push through the cloud, eyes burning, |\n");
+					printf("|      nose plugged, you can do this!        |\n");
+					printf("----------------------------------------------\n");
 
-				if (gooeyGlob->health == 0) // boss defeated
+					while (getchar() != '\n');
+					double typingSpeed = 0.0;
+					char* setenceTyped = GetInput(&typingSpeed);
+					double typingScore = CheckSentence(getSentence(gooeyGlob), //sentence to type
+						176, //sentence length
+						setenceTyped, //users sentence entry
+						typingSpeed); //users typing speed
+					reset();
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), gooeyGlob);
+					if (getHealth(Player) <= 0)
+					{
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(gooeyGlob) <= 0)
+					{
+						loopAgain = false;
+					}
+				}
+
+				//check to see the results of the battle
+				if (getHealth(Player) <= 0) //the monster killed you
+				{
+					red();
+					printf("_________________________________________\n");
+					printf("[YOU DIED(the gooey glob was too strong)]\n");
+					reset();
+				}
+				else //you defeated the monster!
 				{
 					while (getchar() != '\n');
 					printf("You have done it!The gooey glob spills over the forest floor, and the glow from the chemical reaction of the stink dims to nothing.\n");
@@ -722,10 +778,10 @@ int main(int argc, char* argv[])
 					while (getchar() != '\n');
 					printf("With the excitement for a change of scenery, you run into the swamp where a new journey can begin...\n");
 					while (getchar() != '\n');
-					printf("\033[0;32m");
+					green();
 					printf("______________________________________________________________________\n");
 					printf("[CONGRATULATIONS YOU HAVE SURVIVED LEVEL 1 - Into The RedWood Forest!!!]\n");
-					printf("\033[0;37m");
+					reset();
 				}
 
 				canContinue = false;
@@ -736,7 +792,7 @@ int main(int argc, char* argv[])
 				break;
 			}
 		}
-		printf("\033[0;36m");
+		cyan();
 		//Determine the next steps for the game!
 		canContinue = true;
 		while (canContinue == true)
@@ -764,8 +820,9 @@ int main(int argc, char* argv[])
 				break;
 			}
 		}
-		printf("\033[0;37m");
+		reset();
 	}
+	
 	//Play level 2---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	else if (storyLevelToPlay == LEVEL_TWO)
 	{
@@ -1081,9 +1138,9 @@ int main(int argc, char* argv[])
 						reset();
 						while (getchar() != '\n');
 						typingSpeed = 0.0;
-						double typingSpeed = 0.0;
-						char* setenceTyped = GetInput(&typingSpeed);
-						double typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
+						typingSpeed = 0.0;
+						setenceTyped = GetInput(&typingSpeed);
+						typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
 							73, //sentence length
 							setenceTyped, //users sentence entry
 							typingSpeed);
@@ -1581,7 +1638,7 @@ int main(int argc, char* argv[])
 			}
 
 		}
-
+		
 		//Determine the next steps for the game!
 		canContinue = true;
 		while (canContinue == true)
