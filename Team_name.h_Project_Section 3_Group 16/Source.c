@@ -170,19 +170,13 @@ int main(int argc, char* argv[])
 						reset();
 						strcpy(type, "damage");
 						pts = 25;
-
 						printAffects(Player, type, pts);
+						reset();
 						ITEM* board = createItem(type, "board", pts, Player);
 						cyan();
-						
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
-						
 						while (getchar() != '\n');
-
-						
-						
 						while (getchar() != '\n');
-
 						canContinue = false;
 						break;
 					//Rock choice
@@ -191,6 +185,7 @@ int main(int argc, char* argv[])
 						strcpy(type, "damage");
 						pts = 20;
 						printAffects(Player, type, pts);
+						reset();
 						ITEM* rock = createItem("damage", "rock", 20, Player);
 						while (getchar() != '\n');
 						canContinue = false;
@@ -275,7 +270,7 @@ int main(int argc, char* argv[])
 					getImage(AngryChef);
 					printf("\n");
 					printf("----------------------------------------------\n");
-					printf("|    > Health: %d                           |\n", getMonsterHealth(AngryChef));
+					printf("|    > Health: %d                            |\n", getMonsterHealth(AngryChef));
 					printf("|                                            |\n");
 					printf("|    > Chef Damage Required: 50              |\n");
 					printf("|                                            |\n");
@@ -289,7 +284,7 @@ int main(int argc, char* argv[])
 					printf("|      bounce off the door shield!           |\n");
 					printf("----------------------------------------------\n");
 					green();
-					printf("Player Health = %d", getHealth(Player));
+					printf("Player Health = %d\n", getHealth(Player));
 					yellow();
 					while (getchar() != '\n');
 					double typingSpeed = 0.0;
@@ -364,6 +359,7 @@ int main(int argc, char* argv[])
 						int potatoDamage = ((rand() % (100 - 0 + 1)) + 0);
 						strcpy(type, "bFood");
 						pts = potatoDamage;
+						reset();
 						printAffects(Player, type, pts);
 
 
@@ -470,6 +466,9 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("You think eh its extra protection.\n");
 						ITEM* chestplate = createItem("defence", "chestplate", 50, Player);
+						pts = 50;
+						reset();
+						printAffects(Player, "defence", pts);
 						canContinue = false;
 						break;
 					//Move on choice
@@ -603,7 +602,7 @@ int main(int argc, char* argv[])
 					getImage(CrabbyCrabs);
 					printf("\n");
 					printf("----------------------------------------------\n");
-					printf("|    >Health: %d                            |\n", getMonsterHealth(CrabbyCrabs));
+					printf("|    >Health: %d                             |\n", getMonsterHealth(CrabbyCrabs));
 					printf("|                                            |\n");
 					printf("|    >Crabby crabs Health: 25                |\n");
 					printf("|                                            |\n");
@@ -617,7 +616,7 @@ int main(int argc, char* argv[])
 					printf("|      crushing claws!                       |\n");
 					printf("----------------------------------------------\n");
 					green();
-					printf("Player Health = %d", getHealth(Player));
+					printf("Player Health = %d\n", getHealth(Player));
 					yellow();
 					while (getchar() != '\n');
 					typingSpeed = 0.0;
@@ -761,7 +760,7 @@ int main(int argc, char* argv[])
 					getImage(gooeyGlob);
 					printf("\n");
 					printf("----------------------------------------------\n");
-					printf("|    > Health: %d                           |\n", getMonsterHealth(gooeyGlob));
+					printf("|    > Health: %d                            |\n", getMonsterHealth(gooeyGlob));
 					printf("|                                            |\n");
 					printf("|    > Gooey Glob Health: 100                |\n");
 					printf("|                                            |\n");
@@ -776,7 +775,7 @@ int main(int argc, char* argv[])
 					printf("|      nose plugged, you can do this!        |\n");
 					printf("----------------------------------------------\n");
 					green();
-					printf("Player Health = %d", getHealth(Player));
+					printf("Player Health = %d\n", getHealth(Player));
 					yellow();
 
 					while (getchar() != '\n');
