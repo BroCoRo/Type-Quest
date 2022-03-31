@@ -107,3 +107,44 @@ void DisposePlayer(ptrPlayer p) {
 	free(p);
 }
 
+void printAffects(ptrPlayer p, char type[MAXNAME] , int pts) {
+	printPlayer(p);
+
+	printf("|\n");
+	printf("|\n");
+	printf("|\n");
+	printf("V\n");
+	if (!strcmp(type, "gFood")) {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d", p->Health);
+		green();
+		printf("+ %d\n", pts);
+		reset();
+		printf("Damage: %d\n", p->Damage);
+		printf("Defence: %d\n", p->Defence);
+	}else if (!strcmp(type,"bFood")) {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d", p->Health);
+		red();
+		printf("- %d\n", pts);
+		reset();
+		printf("Damage: %d\n", p->Damage);
+		printf("Defence: %d\n", p->Defence);
+	}else if (!strcmp(type,"damage")) {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d\n", p->Health);
+		printf("Damage: %d", p->Damage);
+		green();
+		printf("+ %d\n", pts);
+		reset();
+		printf("Defence: %d\n", p->Defence);
+	}else if (!strcmp(type, "defence")) {
+		printf("Name: %s\n", p->name);
+		printf("Health: %d\n", p->Health);
+		printf("Damage: %d\n", p->Damage);
+		printf("Defence: %d", p->Defence);
+		green();
+		printf("+ %d\n", pts);
+		reset();
+	}
+}
