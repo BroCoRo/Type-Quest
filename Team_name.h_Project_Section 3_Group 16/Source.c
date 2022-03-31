@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
 		while (getchar() != '\n');
 		printf("But all that mattered was that you were alive and made it to land.\n");
 		while (getchar() != '\n');
-		printf("You had no idea where we were, and there was no sign of human inhabitance for miles.\n");
+		printf("You had no idea where you were, and there was no sign of human inhabitance for miles.\n");
 		while (getchar() != '\n');
 		printf("And now it begins you are left to make a choice...\n");
 		while (getchar() != '\n');
@@ -173,7 +173,7 @@ int main(int argc, char* argv[])
 						break;
 					//Rock choice
 					case 2:
-						printf("You think that the rock will be the best option as this is a weapon with range, so you pick up the rockand stuff it into your pocket.\n");
+						printf("You think that the rock will be the best option as this is a weapon with range, so you pick up the rock and stuff it into your pocket.\n");
 						ITEM* rock = createItem("damage", "rock", 20, Player);
 						while (getchar() != '\n');
 						canContinue = false;
@@ -368,7 +368,7 @@ int main(int argc, char* argv[])
 						}
 
 						//the poisonous potato did not kill the player
-						printf("After about an hourand a half of consistent spinningand seeing colours, the world starts to level out.\n");
+						printf("After about an hour and a half of consistent spinningand seeing colours, the world starts to level out.\n");
 						while (getchar() != '\n');
 						printf("You thought great the effects must have passed now.\n");
 						while (getchar() != '\n');
@@ -424,7 +424,7 @@ int main(int argc, char* argv[])
 					{
 					//Search choice
 					case 1:
-						printf("You feel you have to know what this object is, so you wonder the forset for a few minutes searching for a big stick.\n");
+						printf("You feel you have to know what this object is, so you wander the forset for a few minutes searching for a big stick.\n");
 						while (getchar() != '\n');
 						while (getchar() != '\n');
 						reset();
@@ -525,7 +525,7 @@ int main(int argc, char* argv[])
 						break;
 						//None of the menu options were selected
 					default:
-						printf("Invalid selction entered, please enter a number listen in the menu\n");
+						printf("Invalid selction entered, please enter a number listed in the menu\n");
 						break;
 					}
 				}
@@ -552,7 +552,7 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("The sand all around you starts to rustle.\n");
 				while (getchar() != '\n');
-				printf("Then a massive cast of craps emerges from the sand!\n");
+				printf("Then a massive cast of crabs emerges from the sand!\n");
 				while (getchar() != '\n');
 				printf("You are surrounded!\n");
 				while (getchar() != '\n');
@@ -674,11 +674,11 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("Just more of the redwood trees that you have already seen far too many of today.\n");
 				while (getchar() != '\n');
-				printf("So, discouraged, you turn to go back to wandering amongst the trees.Then out of nowhere, the ground beneath you shiftsand starts sliding towards the cliff's edge!\n");
+				printf("So, discouraged, you turn to go back to wandering amongst the trees.Then out of nowhere, the ground beneath you shifts and starts sliding towards the cliff's edge!\n");
 				while (getchar() != '\n');
 				printf("You think there is absolutely no way that this is happening and that you have already been through too much!\n");
 				while (getchar() != '\n');
-				printf("You attempt to lunge forward and grab onto a nearby root, but you miss the rootand slide over the cliff's edge.\n");
+				printf("You attempt to lunge forward and grab onto a nearby root, but you miss the root and slide over the cliff's edge.\n");
 				while (getchar() != '\n');
 				red();
 				printf("_________________________________________________________\n");
