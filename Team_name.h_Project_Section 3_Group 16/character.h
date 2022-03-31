@@ -13,7 +13,7 @@
 #define MAX_NAME_SIZE 20
 #define MAX_ID_SIZE 10
 #define MAX_COLUM 100
-#define MAX_ROW 30
+#define MAX_ROW 50
 #define MAX_ID 7
 #include <stdbool.h>
 

@@ -117,7 +117,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>character.obj;IO.obj;object.obj;Player.obj;Source.obj;Typing.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>character.obj;IO.obj;object.obj;Player.obj;Source.obj;Typing.obj;Colours.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Team_name.h_Project_Section 3_Group 16\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
