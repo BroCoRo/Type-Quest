@@ -721,14 +721,14 @@ int main(int argc, char* argv[])
 				while (getchar() != '\n');
 				printf("So you prepare to fight!!\n");
 
+				int GooeyGlobhealth = 100;
+				int GooeyGlobID = 6;
+				char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
+				CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
 				bool loopAgain = true;
 
 				while (loopAgain)
 				{
-					int GooeyGlobhealth = 100;
-					int GooeyGlobID = 6;
-					char GooeyGlobName[MAX_NAME_SIZE] = "Gooey Glob";
-					CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
 					yellow();
 					getImage(gooeyGlob);
 					printf("\n");
