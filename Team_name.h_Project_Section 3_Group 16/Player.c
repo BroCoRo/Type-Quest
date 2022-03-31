@@ -9,6 +9,7 @@
 #include "Player.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "Colours.h"
 #include <string.h>
 #include <stdbool.h>
 
@@ -105,3 +106,4 @@ void printPlayerStats(ptrPlayer player, FILE* fp) {
 void DisposePlayer(ptrPlayer p) {
 	free(p);
 }
+

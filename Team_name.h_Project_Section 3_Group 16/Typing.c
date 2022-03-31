@@ -44,7 +44,7 @@ char* GetInput(double *storeSpeed)
 	endTime = clock();
 	//calculate the time take to enter the sentence by subtracting the end clock recording with the start clock recording divided by
 	//the number of clock cycles per second (THIS WILL CALCULATE THE TIME TAKEN IN SECONDS)
-	tempStoreSpeed = (endTime - startTime) / CLOCKS_PER_SEC; 
+	tempStoreSpeed = (((endTime - startTime) / CLOCKS_PER_SEC) - 2); //subtract 2 so its easier 
 	printf("----------------------------------------------\n");
 	//send back the recorded speed
 	*storeSpeed = tempStoreSpeed;
@@ -72,7 +72,7 @@ double CheckSentence(char* sentenceToType, int sentenceLength, char* sentenceTyp
 	double accuracyScore = tempStoreNumCorrectChars / sentenceLen; // Calculate the accuracy of the entry based on the num of correct chars (from 0-100)
 
 	//determine the influence that the entry time will have on the score (a longer setence will take a longer time to type
-	double timeScore = typingSpeed / sentenceLength; //reduce the impact of the typing speed as typing speed isnt everything 
+	double timeScore = typingSpeed / sentenceLength - 0.25; //reduce the impact of the typing speed as typing speed isnt everything 
 
 	//based on research the average person can type 200 character per minute so based on the above calculate any score below 0.25 is a great speed
 	//So if the speed is below the great speed of 0.25 then dont reduce score at all

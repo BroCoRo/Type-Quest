@@ -78,9 +78,9 @@ namespace CharacterTypingStoryIntegrationTests
 		}
 		TEST_METHOD(INT_TEST_OPEN_SENTENCE_FILE)
 		{//Tyler
-			CHARACTER monster = { 100,7,"Slime" };
+			CHARACTER monster = { 100,1,"Angry chef" };
 			CHARACTER* p = &monster;
-			char* expected = "Slimes are made of Gooey goo, make sure not to let them touch your favourte shoe.\n";
+			char* expected = "As the chef thrusts the pie forwards, you lunge forward, grasp the door, and slam it closed so the pie can bounce off the door shield!\n";
 
 			char* error = "Monster has nothing to say.\n";
 			char* actual = getSentence(p);
