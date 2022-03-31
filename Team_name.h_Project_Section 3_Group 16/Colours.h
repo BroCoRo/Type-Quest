@@ -2,7 +2,6 @@
 void red();
 void yellow();
 void reset();
-void black();
 void green();
 void blue();
 void purple();

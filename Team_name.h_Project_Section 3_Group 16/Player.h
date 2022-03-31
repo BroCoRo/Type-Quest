@@ -27,4 +27,5 @@ void setDamage(ptrPlayer, int);
 int getDefence(ptrPlayer);
 void setDefence(ptrPlayer, int);
 void printPlayer(ptrPlayer);
+void printAffects(ptrPlayer p, char type[MAXNAME], int pts);
 int calculateDamage(ptrPlayer, double);
