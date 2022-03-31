@@ -57,24 +57,60 @@ namespace IntegrationMainTests
 			//player should be dead and "Gamer over should be printed to the terminal"
 			Assert::AreEqual(0, newPlayer->Health);
 		}
-		/*
-		Object
+		
+		//Object
+		TEST_METHOD(INT_TEST_OBJPLAYERBUFF1) {
+			ptrPlayer player = createPlayer("Player", 100, 50, 25);
+			createItem("gFood", "apple", 25, player);
+			int result = strcmp(player->name, "Player");
+
+			//checks to see if it increases player's health without changing anything else
+			Assert::AreEqual(result, 0);
+			Assert::AreEqual(125, player->Health);
+			Assert::AreEqual(50, player->Damage);
+			Assert::AreEqual(25, player->Defence);
+		}
+		TEST_METHOD(INT_TEST_OBJPLAYERDEBUFF1) {
+			ptrPlayer player = createPlayer("Player", 100, 50, 25);
+			createItem("bFood", "potato", 45, player);
+			int result = strcmp(player->name, "Player");
+
+			//checks to see if it decreases player's health without changing anything else
+			Assert::AreEqual(result, 0);
+			Assert::AreEqual(55, player->Health);
+			Assert::AreEqual(50, player->Damage);
+			Assert::AreEqual(25, player->Defence);
+		}
+		TEST_METHOD(INT_TEST_OBJPLAYERBUFF2) {
+			ptrPlayer player = createPlayer("Player", 100, 50, 25);
+			createItem("damage", "sword", 25, player);
+			int result = strcmp(player->name, "Player");
+
+			//checks to see if it increases player's damage without changing anything else
+			Assert::AreEqual(result, 0);
+			Assert::AreEqual(100, player->Health);
+			Assert::AreEqual(75, player->Damage);
+			Assert::AreEqual(25, player->Defence);
+		}
+		TEST_METHOD(INT_TEST_OBJPLAYERBUFF3) {
+			ptrPlayer player = createPlayer("Player", 100, 50, 25);
+			createItem("defence", "shield", 35, player);
+			int result = strcmp(player->name, "Player");
+
+			//checks to see if it increases player's defence without changing anything else
+			Assert::AreEqual(result, 0);
+			Assert::AreEqual(100, player->Health);
+			Assert::AreEqual(50, player->Damage);
+			Assert::AreEqual(60, player->Defence);
+		}
+		
 		
 		
 		
 		
 		*/
-		
-		//Character
-		TEST_METHOD(INT_TEST_DAMAGECHARACTER)
-		{
-			CHARACTER* p = CreateCharacter(100,1,"wizard");
-			ptrPlayer Player = createPlayer("Joe", 20, 50, 10);
-			double perfectScore = 1.0;
-			int expectedHealth = 50;
-			decreaseMonsterHealth(calculateDamage(Player,perfectScore), p);
-			Assert::AreEqual(expectedHealth, p->health);
-		}
+		/*
+		Character
 		
 		
 		
