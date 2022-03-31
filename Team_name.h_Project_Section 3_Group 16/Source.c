@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	//setup a player for the game
-	ptrPlayer Player = createPlayer("Test Player", 100, 100, 100);
+	ptrPlayer Player = createPlayer("Test Player", 100, 50, 25);
 
 
 
@@ -275,7 +275,7 @@ int main(int argc, char* argv[])
 						136, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
-					decreaseMonsterHealth(calculateDamage(Player, typingScore), AngryChef);
+					decreaseMonsterHealth((calculateDamage(Player, typingScore)), AngryChef);
 					if (getHealth(Player) <= 0)
 					{
 						loopAgain = false;
@@ -292,6 +292,7 @@ int main(int argc, char* argv[])
 					printf("\033[0;31m");
 					printf("_________________________________________\n");
 					printf("[YOU DIED(the angry chef was too strong)]\n");
+					return(0);
 					printf("\033[0;37m");
 				}
 				else //you defeated the monster!
@@ -725,7 +726,7 @@ int main(int argc, char* argv[])
 					CHARACTER* gooeyGlob = CreateCharacter(GooeyGlobhealth, GooeyGlobID, GooeyGlobName);
 					printf("\033[0;33m");
 					printf("----------------------------------------------\n");
-					printf("|    > Health: 100                           |\n");
+					printf("|    > Health: %d                           |\n", gooeyGlob->health);
 					printf("|                                            |\n");
 					printf("|    > Gooey Glob Health: 100                |\n");
 					printf("|                                            |\n");
