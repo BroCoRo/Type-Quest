@@ -1063,9 +1063,9 @@ int main(int argc, char* argv[])
 								printf("%s couldn't be displayed\n", Slime->name);
 							}
 							printf("----------------------------------------------\n");
-							printf("|    > Health: 100                           |\n");
+							printf("|    > Health: %d                            |\n",Player->Health);
 							printf("|                                            |\n");
-							printf("|    > Slime Damage Required: 80             |\n");
+							printf("|    > Slime Damage Required: %d             |\n",Slime->health);
 							printf("|                                            |\n");
 							printf("|    > You look in front of you, shocked to  |\n");
 							printf("|    > see a grotesque pile of slime!        |\n");
@@ -1168,9 +1168,9 @@ int main(int argc, char* argv[])
 								printf("%s couldn't be displayed\n", Minotaur->name);
 							}
 							printf("----------------------------------------------\n");
-							printf("|    > Health: 100                           |\n");
+							printf("|    > Health: %d                            |\n",Player->Health);
 							printf("|                                            |\n");
-							printf("|    > Minotaur Damage Required: 100         |\n");
+							printf("|    > Minotaur Damage Required: %d          |\n",Minotaur->health);
 							printf("|                                            |\n");
 							printf("|    > It's too late the beast's beaty       |\n");
 							printf("|    > little red eyes have spotted you.     |\n");
@@ -1367,9 +1367,9 @@ int main(int argc, char* argv[])
 								printf("%s couldn't be displayed\n", Wizard->name);
 							}
 							printf("----------------------------------------------\n");
-							printf("|    > Health: 100                           |\n");
+							printf("|    > Health: %d                            |\n",Player->Health);
 							printf("|                                            |\n");
-							printf("|    > Wizard Damage Required: 120           |\n");
+							printf("|    > Wizard Damage Required: %d            |\n",Wizard->health);
 							printf("|                                            |\n");
 							printf("|    > The old man raises his hands in       |\n");
 							printf("|    > the air summoning a thick purple fog  |\n");
@@ -1499,9 +1499,9 @@ int main(int argc, char* argv[])
 										printf("%s couldn't be displayed\n", Cyclops->name);
 									}
 									printf("----------------------------------------------\n");
-									printf("|    > Health: 100                           |\n");
+									printf("|    > Health: %d                            |\n",Player->Health);
 									printf("|                                            |\n");
-									printf("|    > Cyclops Damage Required: 200          |\n");
+									printf("|    > Cyclops Damage Required: %d           |\n",Cyclops->health);
 									printf("|                                            |\n");
 									printf("|    > The one eyed monsterous figure        |\n");
 									printf("|    > emerges from the shadows.             |\n");
