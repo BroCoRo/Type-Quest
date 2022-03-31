@@ -250,7 +250,7 @@ int main(int argc, char* argv[])
 				double typingSpeed = 0.0;
 				char* setenceTyped = "N/A";
 				double typingScore = 0.0;
-				bool loopAgain = true;
+				bool loopAgain = true;	
 
 				while (loopAgain)
 				{
@@ -960,7 +960,7 @@ int main(int argc, char* argv[])
 						printf("As you lower your foot down to the branch below you hear a loud CRACK!\n");
 						while (getchar() != '\n');
 						red();
-						printf("_______________________________________________________________\n");
+						printf("___________________________________________\n");
 						printf("[YOU DIED(you fell out of a tree head first)\n");
 						reset();
 						//SAVE GAME
@@ -1043,44 +1043,75 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("The goo beneath begins to shake and groan, a large object bursts from underneath you.\n");
 						while (getchar() != '\n');
-						printf("You look in front of you shocked and terrified to see a pile of slime with eyes and even a mouth!\n");
-						while (getchar() != '\n');
+
 						int SlimeHealth = 80;
 						int SlimeID = 7;
 						char SlimeName[MAX_NAME_SIZE] = "Slime";
-						yellow();
 						CHARACTER* Slime = CreateCharacter(SlimeHealth, SlimeID, SlimeName);
-						if (!getImage(Slime))
+
+						double typingSpeed = 0.0;
+						char* setenceTyped = "N/A";
+						double typingScore = 0.0;
+						bool loopAgain = true;
+
+						while (loopAgain)
 						{
-							printf("%s couldn't be displayed\n", Slime->name);
+							yellow();
+							if (!getImage(Slime))
+							{
+								printf("%s couldn't be displayed\n", Slime->name);
+							}
+							printf("----------------------------------------------\n");
+							printf("|    > Health: 100                           |\n");
+							printf("|                                            |\n");
+							printf("|    > Slime Damage Required: 80             |\n");
+							printf("|                                            |\n");
+							printf("|    > You look in front of you, shocked to  |\n");
+							printf("|    > see a grotesque pile of slime!        |\n");
+							printf("|                                            |\n");
+							printf("|    > Enter:                                |\n");
+							printf("|    > Slimes are made of Gooey goo,         |\n");
+							printf("|    > make sure not to let them touch       |\n");
+							printf("|    > your favourite shoe.                  |\n");
+							printf("|                                            |\n");
+							printf("----------------------------------------------\n");
+							while (getchar() != '\n');
+							double typingSpeed = 0.0;
+							char* setenceTyped = GetInput(&typingSpeed);
+							double typingScore = CheckSentence(getSentence(Slime), //sentence to type
+								83, //sentence length
+								setenceTyped, //users sentence entry
+								typingSpeed); //users typing speed
+							decreaseMonsterHealth(calculateDamage(Player, typingScore), Slime);
+							if (getHealth(Player) <= 0)
+							{
+								loopAgain = false;
+							}
+							else if (getMonsterHealth(Slime) <= 0)
+							{
+								loopAgain = false;
+							}
 						}
 
-						//LOAD SLIME MONSTER IN HERE damage required to defeat 80
+						//check to see the results of the battle
+						if (getHealth(Player) <= 0) //the monster killed you
+						{
+							red();
+							printf("__________________________________\n");
+							printf("[YOU DIED(the Slime consumed you)]\n");
+							return(0);
+							reset();
+						}
+						else //you defeated the monster!
+						{
+							green();
+							printf("_________________________________________\n");
+							printf("[CONGRATULATIONS(you defeated the slime)]\n");
+							reset();
+						}
+						
+					
 
-						printf("----------------------------------------------\n");
-						printf("|    >Health: 100                            |\n");
-						printf("|                                            |\n");
-						printf("|    >Slime Health: 80                       |\n");
-						printf("|                                            |\n");
-						printf("|    >Slimes are made of Gooey goo,          |\n");
-						printf("|    >make sure not to let them touch        |\n");
-						printf("|    >your favourite shoe                    |\n");
-						printf("|                                            |\n");
-						printf("|    >Enter:                                 |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("----------------------------------------------\n");
-						reset();
-						while (getchar() != '\n');
-						double typingSpeed = 0.0;
-						char* setenceTyped = GetInput(&typingSpeed);
-						double typingScore = CheckSentence(getSentence(Slime), //sentence to type
-							83, //sentence length
-							setenceTyped, //users sentence entry
-							typingSpeed);
-						//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
 						printf("You break free from it's slimey hold and dash towards the shore.\n");
 						while (getchar() != '\n');
@@ -1120,42 +1151,72 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						int MinotaurHealth = 100;
 						int MinotaurID = 2;
-						yellow();
 						char MinotaurName[MAX_NAME_SIZE] = "Minotaur";
 						CHARACTER* Minotaur = CreateCharacter(MinotaurHealth, MinotaurID, MinotaurName);
-						//LOAD MINOTAUR MONSTER IN HERE damage required to defeat 100
-						if (!getImage(Minotaur))
+
+						double typingSpeed = 0.0;
+						char* setenceTyped = "N/A";
+						double typingScore = 0.0;
+						bool loopAgain = true;
+
+						while (loopAgain)
 						{
-							printf("%s couldn't be displayed\n", Minotaur->name);
+							yellow();
+							if (!getImage(Minotaur))
+							{
+								printf("%s couldn't be displayed\n", Minotaur->name);
+							}
+							printf("----------------------------------------------\n");
+							printf("|    > Health: 100                           |\n");
+							printf("|                                            |\n");
+							printf("|    > Minotaur Damage Required: 100         |\n");
+							printf("|                                            |\n");
+							printf("|    > It's too late the beast's beaty       |\n");
+							printf("|    > little red eyes have spotted you.     |\n");
+							printf("|                                            |\n");
+							printf("|    > Enter:                                |\n");
+							printf("|    > Minotaurs are half man, half bull     |\n");
+							printf("|    > abominations who hate the colour red. |\n");
+							printf("|                                            |\n");
+							printf("|                                            |\n");
+							printf("----------------------------------------------\n");
+							while (getchar() != '\n');
+							double typingSpeed = 0.0;
+							char* setenceTyped = GetInput(&typingSpeed);
+							double typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
+								73, //sentence length
+								setenceTyped, //users sentence entry
+								typingSpeed); //users typing speed
+							decreaseMonsterHealth(calculateDamage(Player, typingScore), Minotaur);
+							if (getHealth(Player) <= 0)
+							{
+								loopAgain = false;
+							}
+							else if (getMonsterHealth(Slime) <= 0)
+							{
+								loopAgain = false;
+							}
 						}
 
-						printf("----------------------------------------------\n");
-						printf("|    >Health: 100                            |\n");
-						printf("|                                            |\n");
-						printf("|    >Minotaur Health: 100                   |\n");
-						printf("|                                            |\n");
-						printf("|    >Minotaurs are half man, half bull      |\n");
-						printf("|    >abominations who hate the colour red.  |\n");
-						printf("|                                            |\n");
-						printf("|    >Enter:                                 |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("----------------------------------------------\n");
+						//check to see the results of the battle
+						if (getHealth(Player) <= 0) //the monster killed you
+						{
+							red();
+							printf("__________________________________\n");
+							printf("[YOU DIED(the Minotaur overpowered you)]\n");
+							return(0);
+							reset();
+						}
+						else //you defeated the monster!
+						{
+							green();
+							printf("_________________________________________\n");
+							printf("[CONGRATULATIONS(you defeated the Minotaur)]\n");
+							reset();
+						}
 						
-						reset();
-						while (getchar() != '\n');
-						typingSpeed = 0.0;
-						typingSpeed = 0.0;
-						setenceTyped = GetInput(&typingSpeed);
-						typingScore = CheckSentence(getSentence(Minotaur), //sentence to type
-							73, //sentence length
-							setenceTyped, //users sentence entry
-							typingSpeed);
-
 						//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
-						printf("You defeated the minotaur and stopped it from eating you, it might have the body of a man but not the brain.\n");
+						printf("You overpowered the minotaur and stopped it from eating you, it might have the body of a man but not the brain.\n");
 						while (getchar() != '\n');
 						printf("Horrified of the creature you just encountered you decide to climb a tree to avoid any more minotaurs roaming around.\n");
 						while (getchar() != '\n');
@@ -1263,7 +1324,7 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 
 								red();
-								printf("_______________________________________________________________\n");
+								printf("_______________________________\n");
 								printf("[YOU DIED(you ate cursed meat!)]\n");
 								reset();
 								//SAVE GAME
@@ -1284,46 +1345,75 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("With the pig meat in sight you make a mad dash towards it.\n");
 						while (getchar() != '\n');
-						printf("But unfortunatly you're too slow the old man has spotted you.\n");
-						while (getchar() != '\n');
-						printf("The old man raises his hands in the air and a thick purple fog surronds the both of you.\n");
+						printf("But unfortunatly you're too slow the old man has locked his eyes on you.\n");
 						while (getchar() != '\n');
 						//LOAD WIZARD MONSTER IN HERE damage required to defeat 100
 						int WizardHealth = 120;
 						int WizardID = 3;
 						char WizardName[MAX_NAME_SIZE] = "Wizard";
-						yellow();
 						CHARACTER* Wizard = CreateCharacter(WizardHealth, WizardID, WizardName);
-						if (!getImage(Wizard))
-						{
-							printf("%s couldn't be displayed\n", Wizard->name);
-						}
-						printf("----------------------------------------------\n");
-						printf("|    >Health: 100                            |\n");
-						printf("|                                            |\n");
-						printf("|    >wizard Health: 120                     |\n");
-						printf("|                                            |\n");
-						printf("|    >The mystical world is filled with      |\n");
-						printf("|    >wizards monsters and magic.            |\n");
-						printf("|                                            |\n");
-						printf("|    >Enter:                                 |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("|                                            |\n");
-						printf("----------------------------------------------\n");
-						reset();
-						while (getchar() != '\n');
-						double typingSpeed = 0.0;
-						char* setenceTyped = GetInput(&typingSpeed);
-						//printf("The mystical world is filled with wizards monsters and magic.\n")
-						double typingScore = CheckSentence(getSentence(Wizard), //sentence to type
-							63, //sentence length
-							setenceTyped, //users sentence entry
-							typingSpeed);
-						
 
-						//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+						double typingSpeed = 0.0;
+						char* setenceTyped = "N/A";
+						double typingScore = 0.0;
+						bool loopAgain = true;
+
+						while (loopAgain)
+						{
+							yellow();
+							if (!getImage(Wizard))
+							{
+								printf("%s couldn't be displayed\n", Wizard->name);
+							}
+							printf("----------------------------------------------\n");
+							printf("|    > Health: 100                           |\n");
+							printf("|                                            |\n");
+							printf("|    > Wizard Damage Required: 120           |\n");
+							printf("|                                            |\n");
+							printf("|    > The old man raises his hands in       |\n");
+							printf("|    > the air summoning a thick purple fog  |\n");
+							printf("|                                            |\n");
+							printf("|    > Enter:                                |\n");
+							printf("|    > The mystical world is filled with     |\n");
+							printf("|    > wizards monsters and magic.           |\n");
+							printf("|                                            |\n");
+							printf("|                                            |\n");
+							printf("----------------------------------------------\n");
+							while (getchar() != '\n');
+							double typingSpeed = 0.0;
+							char* setenceTyped = GetInput(&typingSpeed);
+							double typingScore = CheckSentence(getSentence(Wizard), //sentence to type
+								63, //sentence length
+								setenceTyped, //users sentence entry
+								typingSpeed); //users typing speed
+							decreaseMonsterHealth(calculateDamage(Player, typingScore), Wizard);
+							if (getHealth(Player) <= 0)
+							{
+								loopAgain = false;
+							}
+							else if (getMonsterHealth(Wizard) <= 0)
+							{
+								loopAgain = false;
+							}
+						}
+
+						//check to see the results of the battle
+						if (getHealth(Player) <= 0) //the monster killed you
+						{
+							red();
+							printf("____________________________________________________\n");
+							printf("[YOU DIED(you were no match for the wizard's magic)]\n");
+							return(0);
+							reset();
+						}
+						else //you defeated the monster!
+						{
+							green();
+							printf("_________________________________________\n");
+							printf("[CONGRATULATIONS(you defeated the Wizard)]\n");
+							reset();
+						}
+
 						printf("You defeated the wizard and the purple fog begins to settle. You look around for the pig meat.\n");
 						while (getchar() != '\n');
 						printf("but it's nowhere in sight, it must of been lost in the battle.\n");
@@ -1331,7 +1421,7 @@ int main(int argc, char* argv[])
 						printf("Angered at the loss of a meal you head back into the marshy swamp.\n");
 						while (getchar() != '\n');
 						disposeCharacter(Wizard);
-						canContinue = true;
+
 						yellow();
 						printf("______________________________________________________________________________________________________\n");
 						printf("Should you...\n");
@@ -1360,7 +1450,7 @@ int main(int argc, char* argv[])
 								printf("The booming of thunder can be heard in the distance, exhausted, you decide to simply wait it out in the clearing.\n");
 								while (getchar() != '\n');
 								red();
-								printf("_________________________________________________________\n");
+								printf("________________________________________\n");
 								printf("[YOU DIED(you got struck by lightninng!)]\n");
 								reset();
 								//SAVE GAME
@@ -1390,47 +1480,73 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("At then moment, the 8 foot wooden door creaks open revealing a hulking figure standing in the door way.\n");
 								while (getchar() != '\n');
-								printf("You jump back in horror as the one eyed monsterous figure emerges from the shadows wielding a sturdy metal arm.  \n");
-								while (getchar() != '\n');
 								int CyclopsHealth = 200;
 								int CyclopsID = 4;
 								char CyclopsName[MAX_NAME_SIZE] = "Cyclops";
 								CHARACTER* Cyclops = CreateCharacter(CyclopsHealth, CyclopsID, CyclopsName);
-								//Load in level 2 BOSS CYCLOPS damage required to defeat 200%
-								yellow();
-								if (!getImage(Cyclops))
+
+								double typingSpeed = 0.0;
+								char* setenceTyped = "N/A";
+								double typingScore = 0.0;
+								bool loopAgain = true;
+
+								while (loopAgain)
 								{
-									printf("%s couldn't be displayed\n", Cyclops->name);
+									yellow();
+									if (!getImage(Cyclops))
+									{
+										printf("%s couldn't be displayed\n", Cyclops->name);
+									}
+									printf("----------------------------------------------\n");
+									printf("|    > Health: 100                           |\n");
+									printf("|                                            |\n");
+									printf("|    > Cyclops Damage Required: 200          |\n");
+									printf("|                                            |\n");
+									printf("|    > The one eyed monsterous figure        |\n");
+									printf("|    > emerges from the shadows.             |\n");
+									printf("|                                            |\n");
+									printf("|    > Enter:                                |\n");
+									printf("|    > watch out for that cyclops' metal arm!|\n");
+									printf("|    > Careful he doesn't poke out your eye. |\n");
+									printf("|                                            |\n");
+									printf("|                                            |\n");
+									printf("----------------------------------------------\n");
+									while (getchar() != '\n');
+									double typingSpeed = 0.0;
+									char* setenceTyped = GetInput(&typingSpeed);
+									double typingScore = CheckSentence(getSentence(Cyclops), //sentence to type
+										78, //sentence length
+										setenceTyped, //users sentence entry
+										typingSpeed); //users typing speed
+									decreaseMonsterHealth(calculateDamage(Player, typingScore), Cyclops);
+									if (getHealth(Player) <= 0)
+									{
+										loopAgain = false;
+									}
+									else if (getMonsterHealth(Wizard) <= 0)
+									{
+										loopAgain = false;
+									}
 								}
 
-								printf("----------------------------------------------\n");
-								printf("|    > Health: 100                           |\n");
-								printf("|                                            |\n");
-								printf("|    > Cyclops Health: 200                   |\n");
-								printf("|                                            |\n");
-								printf("|    >watch out for that cyclops' metal arm! |\n");
-								printf("|    >Careful he doesn't poke out your eye.  |\n");
-								printf("|                                            |\n");
-								printf("|    >Enter:                                 |\n");
-								printf("|                                            |\n");
-								printf("|                                            |\n");
-								printf("|                                            |\n");
-								printf("|                                            |\n");
-								printf("|                                            |\n");
-								printf("----------------------------------------------\n");
-								reset();
-								while (getchar() != '\n');
-								double typingSpeed = 0.0;
-								char* setenceTyped = GetInput(&typingSpeed);
-								//printf("watch out for that cyclops' metal arm! Careful he doesn't poke out your eye.\n")
-								double typingScore = CheckSentence(getSentence(Cyclops), //sentence to type
-									78, //sentence length
-									setenceTyped, //users sentence entry
-									typingSpeed);
+								//check to see the results of the battle
+								if (getHealth(Player) <= 0) //the monster killed you
+								{
+									red();
+									printf("____________________________________________________\n");
+									printf("[YOU DIED(The cyclops' was too strong)]\n");
+									return(0);
+									reset();
+								}
+								else //you defeated the monster!
+								{
+									green();
+									printf("_________________________________________\n");
+									printf("[CONGRATULATIONS(you defeated the Cyclops)]\n");
+									reset();
+								}
 
-								//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
-
-								if (0 == 0) // boss defeated
+								if (Cyclops->health == 0) // boss defeated
 								{
 									while (getchar() != '\n');
 									printf("You managed to land a critical strike to the cyclops' eye!\n");
@@ -1449,8 +1565,8 @@ int main(int argc, char* argv[])
 									while (getchar() != '\n');
 									printf("With the cyclops on your tail it seems the cave is the only escape...\n");
 									while (getchar() != '\n');
-									yellow();
-									printf("______________________________________________________________________\n");
+									green();
+									printf("_________________________________________________________________\n");
 									printf("[CONGRATULATIONS YOU HAVE SURVIVED LEVEL 2 - Lost In The Swamp!!!]\n");
 									reset();
 
@@ -1472,7 +1588,7 @@ int main(int argc, char* argv[])
 								printf("Out of the blue you feel the gooey surface beneath you pulling you down!n");
 								while (getchar() != '\n');
 								red();
-								printf("_________________________________________________________\n");
+								printf("__________________________________________\n");
 								printf("[YOU DIED(you were sucked into the swamp!)]\n");
 								reset();
 								//SAVE GAME
@@ -1614,7 +1730,7 @@ int main(int argc, char* argv[])
 								printf("torch you stumble over a rock whichs sents you flying right into the fire.\n");
 								while (getchar() != '\n');
 								red();
-								printf("_______________________________________________________________\n");
+								printf("_____________________________________\n");
 								printf("[YOU DIED(next time watch your step!)]\n");
 								reset();
 								//SAVE GAME
