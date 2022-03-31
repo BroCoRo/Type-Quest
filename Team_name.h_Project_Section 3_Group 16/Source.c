@@ -1021,7 +1021,12 @@ int main(int argc, char* argv[])
 						while (getchar() != '\n');
 						printf("while you're trying to piece it together an arrow drops down beside you, oh so thats what I hit you say to yourself\n");
 						while (getchar() != '\n');
-						ITEM* board = createItem("damage", "arrow", 15, Player);
+						reset();
+						strcpy(type, "damage");
+						pts = 15;
+						printAffects(Player, type, pts);
+						reset();
+						ITEM* Arrow = createItem(type, "Arrow", pts, Player);
 						printf("You take the arrow maybe it could be useful in hunting for food.\n");
 						while (getchar() != '\n');
 						canContinue = false;
@@ -1101,9 +1106,9 @@ int main(int argc, char* argv[])
 							}
 							printf("\n");
 							printf("----------------------------------------------\n");
-							printf("|    > Health: %d                           |\n",Player->Health);
+							printf("|    > Health: %d                            |\n", getMonsterHealth(Slime));
 							printf("|                                            |\n");
-							printf("|    > Slime Damage Required: %d             |\n",Slime->health);
+							printf("|    > Slime Damage Required: 80             |\n");
 							printf("|                                            |\n");
 							printf("|    > You look in front of you, shocked to  |\n");
 							printf("|    > see a grotesque pile of slime!        |\n");
@@ -1208,9 +1213,9 @@ int main(int argc, char* argv[])
 							}
 							printf("\n");
 							printf("----------------------------------------------\n");
-							printf("|    > Health: %d                            |\n",Player->Health);
+							printf("|    > Health: %d                            |\n", getMonsterHealth(Minotaur));
 							printf("|                                            |\n");
-							printf("|    > Minotaur Damage Required: %d          |\n",Minotaur->health);
+							printf("|    > Minotaur Damage Required: 100         |\n");
 							printf("|                                            |\n");
 							printf("|    > It's too late the beast's beaty       |\n");
 							printf("|    > little red eyes have spotted you.     |\n");
@@ -1414,9 +1419,9 @@ int main(int argc, char* argv[])
 							}
 							printf("\n");
 							printf("----------------------------------------------\n");
-							printf("|    > Health: %d                           |\n",Player->Health);
+							printf("|    > Health: %d                           |\n", getMonsterHealth(Wizard));
 							printf("|                                            |\n");
-							printf("|    > Wizard Damage Required: %d           |\n",Wizard->health);
+							printf("|    > Wizard Damage Required: 120           |\n",Wizard->health);
 							printf("|                                            |\n");
 							printf("|    > The old man raises his hands in       |\n");
 							printf("|    > the air summoning a thick purple fog  |\n");
@@ -1549,9 +1554,9 @@ int main(int argc, char* argv[])
 									}
 									printf("\n");
 									printf("----------------------------------------------\n");
-									printf("|    > Health: %d                            |\n",Player->Health);
+									printf("|    > Health: %d                            |\n", getMonsterHealth(Cyclops));
 									printf("|                                            |\n");
-									printf("|    > Cyclops Damage Required: %d           |\n",Cyclops->health);
+									printf("|    > Cyclops Damage Required: 200          |\n");
 									printf("|                                            |\n");
 									printf("|    > The one eyed monsterous figure        |\n");
 									printf("|    > emerges from the shadows.             |\n");
@@ -1609,7 +1614,13 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("You waste no time in gobbling it down! It may not be the best meal but at least it's food.\n");
 								while (getchar() != '\n');
-								ITEM* Crow = createItem("gFood", "Cooked crow", 15, Player);
+								reset();
+								strcpy(type, "gFood");
+								pts = 20;
+								printAffects(Player, type, pts);
+								reset();
+								ITEM* Crow = createItem(type, "Crow", pts, Player);
+								
 								printf("As you're just about to finish your meal you hear the cyclops beginning to get back up.\n");
 								while (getchar() != '\n');
 								printf("You rush out of the cyclop's cabin in a panic looking for someplace to hide, you spot a dark cave entrance hidden behind some rotting logs.\n");
@@ -1745,7 +1756,12 @@ int main(int argc, char* argv[])
 								printf("With all these branches lying around you get to work quickly sharping the branch.\n");
 								while (getchar() != '\n');
 								while (getchar() != '\n');
-								ITEM* Spear = createItem("damage", "Spear", 30, Player);
+								reset();
+								strcpy(type, "damage");
+								pts = 30;
+								printAffects(Player, type, pts);
+								reset();
+								ITEM* Spear = createItem(type, "Spear", pts, Player);
 								printf("You successfully crafted a spear! Now you have an edge over those pesky animals..\n");
 								while (getchar() != '\n');
 								printf("Far off in the distance you notice a small flicking light.\n");
@@ -1766,7 +1782,12 @@ int main(int argc, char* argv[])
 								while (getchar() != '\n');
 								printf("and tie it to a small branch you broke off a tree.\n");
 								while (getchar() != '\n');
-								ITEM* Bow = createItem("damage", "Bow", 25, Player);
+								reset();
+								strcpy(type, "damage");
+								pts = 25;
+								printAffects(Player, type, pts);
+								reset();
+								ITEM* Bow = createItem(type, "Bow", pts, Player);
 								printf("It may not be somewhat flimsy but it sure beats using your hands\n");
 								while (getchar() != '\n');
 								printf("Far off in the distance you notice a small flicking light.\n");
