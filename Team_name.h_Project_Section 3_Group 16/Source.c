@@ -1226,6 +1226,9 @@ int main(int argc, char* argv[])
 							printf("|                                            |\n");
 							printf("|                                            |\n");
 							printf("----------------------------------------------\n");
+							green();
+							printf("Player Health = %d\n", getHealth(Player));
+							yellow();
 							while (getchar() != '\n');
 							double typingSpeed = 0.0;
 							char* setenceTyped = GetInput(&typingSpeed);
@@ -1432,13 +1435,15 @@ int main(int argc, char* argv[])
 							printf("|                                            |\n");
 							printf("|                                            |\n");
 							printf("----------------------------------------------\n");
+							green();
+							printf("Player Health = %d\n", getHealth(Player));
+							yellow();
+
 							while (getchar() != '\n');
 							double typingSpeed = 0.0;
-							char* setenceTyped = GetInput(&typingSpeed);
-							double typingScore = CheckSentence(getSentence(Wizard), //sentence to type
-								63, //sentence length
-								setenceTyped, //users sentence entry
-								typingSpeed); //users typing speed
+							setenceTyped = GetInput(&typingSpeed);
+							int length = 63;
+							double typingScore = CheckSentence(getSentence(Wizard),length,setenceTyped, typingSpeed); //users typing speed
 							decreaseMonsterHealth(calculateDamage(Player, typingScore), Wizard);
 							if (getHealth(Player) <= 0)
 							{
@@ -1567,6 +1572,9 @@ int main(int argc, char* argv[])
 									printf("|                                            |\n");
 									printf("|                                            |\n");
 									printf("----------------------------------------------\n");
+									green();
+									printf("Player Health = %d\n", getHealth(Player));
+									yellow();
 									while (getchar() != '\n');
 									double typingSpeed = 0.0;
 									char* setenceTyped = GetInput(&typingSpeed);
