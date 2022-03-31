@@ -801,6 +801,7 @@ int main(int argc, char* argv[])
 				break;
 			}
 		}
+		printf("\n");
 		cyan();
 		//Determine the next steps for the game!
 		canContinue = true;
