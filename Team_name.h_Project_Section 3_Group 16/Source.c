@@ -1155,10 +1155,10 @@ int main(int argc, char* argv[])
 						char MinotaurName[MAX_NAME_SIZE] = "Minotaur";
 						CHARACTER* Minotaur = CreateCharacter(MinotaurHealth, MinotaurID, MinotaurName);
 
-						double typingSpeed = 0.0;
-						char* setenceTyped = "N/A";
-						double typingScore = 0.0;
-						bool loopAgain = true;
+						typingSpeed = 0.0;
+						setenceTyped = "N/A";
+						typingScore = 0.0;
+						loopAgain = true;
 
 						while (loopAgain)
 						{
@@ -1193,7 +1193,7 @@ int main(int argc, char* argv[])
 							{
 								loopAgain = false;
 							}
-							else if (getMonsterHealth(Slime) <= 0)
+							else if (getMonsterHealth(Minotaur) <= 0)
 							{
 								loopAgain = false;
 							}
