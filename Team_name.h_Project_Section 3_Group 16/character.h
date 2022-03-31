@@ -9,7 +9,7 @@
 // Revision History 
 // 1.0       March 3rd      2022
 
-#define MAX_SIZE 200
+#define MAX_SIZE 400
 #define MAX_NAME_SIZE 20
 #define MAX_ID_SIZE 10
 #define MAX_COLUM 100
