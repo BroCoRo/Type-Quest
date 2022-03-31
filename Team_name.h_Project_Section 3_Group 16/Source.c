@@ -1421,7 +1421,7 @@ int main(int argc, char* argv[])
 							printf("----------------------------------------------\n");
 							printf("|    > Health: %d                           |\n", getMonsterHealth(Wizard));
 							printf("|                                            |\n");
-							printf("|    > Wizard Damage Required: 120           |\n",Wizard->health);
+							printf("|    > Wizard Damage Required: 120           |\n");
 							printf("|                                            |\n");
 							printf("|    > The old man raises his hands in       |\n");
 							printf("|    > the air summoning a thick purple fog  |\n");

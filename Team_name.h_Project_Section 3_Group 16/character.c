@@ -107,7 +107,7 @@ char* getSentence(struct character* monster)
 		return sentence;
 	}
 
-	char IDNumber[2];
+	char IDNumber[14];
 	sprintf(IDNumber, "%d", monster->ID);
 	int length = 4 + strlen(IDNumber);
 	int messageLength = 0;
