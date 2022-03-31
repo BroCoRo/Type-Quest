@@ -258,9 +258,6 @@ int main(int argc, char* argv[])
 				char AngryChefName[MAX_NAME_SIZE] = "Angry Chef";
 				CHARACTER* AngryChef = CreateCharacter(AngryChefHealth, AngryChefID, AngryChefName);
 
-				double typingSpeed = 0.0;
-				char* setenceTyped = "N/A";
-				double typingScore = 0.0;
 				bool loopAgain = true;	
 
 				while (loopAgain)
@@ -287,10 +284,10 @@ int main(int argc, char* argv[])
 					yellow();
 					while (getchar() != '\n');
 					double typingSpeed = 0.0;
-					char* setenceTyped = GetInput(&typingSpeed);
+					char* sentenceTyped = GetInput(&typingSpeed);
 					double typingScore = CheckSentence(getSentence(AngryChef), //sentence to type
 						136, //sentence length
-						setenceTyped, //users sentence entry
+						sentenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
 					decreaseMonsterHealth((calculateDamage(Player, typingScore)), AngryChef);
 					if (getHealth(Player) <= 0)
@@ -618,9 +615,9 @@ int main(int argc, char* argv[])
 					printf("Player Health = %d\n", getHealth(Player));
 					yellow();
 					while (getchar() != '\n');
-					typingSpeed = 0.0;
-					setenceTyped = GetInput(&typingSpeed);
-					typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
+					double typingSpeed = 0.0;
+					char* setenceTyped = GetInput(&typingSpeed);
+					double typingScore = CheckSentence(getSentence(CrabbyCrabs), //sentence to type
 						124, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
@@ -864,7 +861,10 @@ int main(int argc, char* argv[])
 	//Play level 2---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	 if (storyLevelToPlay == LEVEL_TWO)
 	{
-	  bool ending = false;
+		bool ending = false;
+		setHealth(Player, 100);
+		setDamage(Player, 50);
+		setDefence(Player, 25);
 	
 		green();
 		printf("________________________________________________________________________________________________________\n");
@@ -1398,16 +1398,11 @@ int main(int argc, char* argv[])
 						printf("With the pig meat in sight you make a mad dash towards it.\n");
 						while (getchar() != '\n');
 						printf("But unfortunatly you're too slow the old man has locked his eyes on you.\n");
-						while (getchar() != '\n');
-						//LOAD WIZARD MONSTER IN HERE damage required to defeat 100
+
 						int WizardHealth = 120;
 						int WizardID = 3;
 						char WizardName[MAX_NAME_SIZE] = "Wizard";
 						CHARACTER* Wizard = CreateCharacter(WizardHealth, WizardID, WizardName);
-
-						double typingSpeed = 0.0;
-						char* setenceTyped = "N/A";
-						double typingScore = 0.0;
 						bool loopAgain = true;
 
 						while (loopAgain)
@@ -1432,6 +1427,9 @@ int main(int argc, char* argv[])
 							printf("|                                            |\n");
 							printf("|                                            |\n");
 							printf("----------------------------------------------\n");
+							green();
+							printf("Player Health = %d\n", getHealth(Player));
+							yellow();
 							while (getchar() != '\n');
 							double typingSpeed = 0.0;
 							char* setenceTyped = GetInput(&typingSpeed);
