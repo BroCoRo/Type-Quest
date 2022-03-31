@@ -103,6 +103,20 @@ namespace IntegrationMainTests
 			Assert::AreEqual(50, player->Damage);
 			Assert::AreEqual(60, player->Defence);
 		}
+		TEST_METHOD(INT_TEST_DAMAGECHARACTER) {
+			CHARACTER* monster = CreateCharacter(100,6,"Monster");
+			ptrPlayer player = createPlayer("Player", 100, 50, 0);
+			double calculatedScore;
+			int expectedHealth = 50;
+			double recordedSpeed = 1.0;
+			//caculate damage using a perfect score so 50 should be subtracted by monster health
+			calculatedScore = CheckSentence(getSentence(monster), 176, "Send your disgusting drowning goopy stink away! Swat the thick slime away to avoid potential suffocation! Push through the cloud, eyes burning, nose plugged, you can do this!\n", recordedSpeed);
+			int result = calculateDamage(player, calculatedScore);
+			decreaseMonsterHealth(result, monster);
 
+			//health should be 50 
+			Assert::AreEqual(monster->health, expectedHealth);
+		
+		}
 	};
 }
