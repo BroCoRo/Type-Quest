@@ -1611,7 +1611,6 @@ int main(int argc, char* argv[])
 								printf("__________________________________________\n");
 								printf("[YOU DIED(you were sucked into the swamp!)]\n");
 								reset();
-								//SAVE GAME
 								return 0;
 								canContinue = false;
 								break;

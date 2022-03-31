@@ -103,25 +103,6 @@ namespace IntegrationMainTests
 			Assert::AreEqual(50, player->Damage);
 			Assert::AreEqual(60, player->Defence);
 		}
-		
-		
-		
-		
-		
-		*/
-		/*
-		Character
-		
-		
-		
-		
-		/*
-		Player
-		
-		
-		
-		
-		*/
 
 	};
 }
