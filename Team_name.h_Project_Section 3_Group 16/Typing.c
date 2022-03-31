@@ -15,7 +15,7 @@
 #include <string.h>
 
 #define MAX_INPUT_BUFER      300
-#define PERFECT_TYPING_SPEED 0.50
+#define PERFECT_TYPING_SPEED 0.75
 #define REDUCE_IMPACT        10
 #define TWO_DECIMAL_PLACES   100.0
 #define DECIMAL_FORMAT       100

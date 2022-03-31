@@ -24,14 +24,14 @@ namespace TypingModuleTests
 			Assert::AreEqual(1.0,calculatedScore);
 		}
 		//This test method will test if the calculated score from typing function works properly 
-		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_PerfectMatch_ModerateTime_ModerateScoreOUTPUTTED)
+		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_PerfectMatch_ModerateTime_PerfectScoreOUTPUTTED)
 		{
 			double calculatedScore;
 			double recordedSpeed = 6.5;
 			//calculate the score with an non-impactful time and a perfectly matched sentence
 			calculatedScore = CheckSentence("Test sentence", 13, "Test sentence", recordedSpeed);
 			//check for perfect score
-			Assert::AreEqual(0.5, calculatedScore);
+			Assert::AreEqual(1.0, calculatedScore);
 		}
 		//This test method will test if the calculated score from typing function works properly 
 		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_PerfectMatch_SlowTime_FailedScoreOUTPUTTED)
@@ -55,14 +55,14 @@ namespace TypingModuleTests
 			Assert::AreEqual(0.54, calculatedScore);
 		}
 		//This test method will test if the calculated score from typing function works properly 
-		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_ModerateMatch_ModerateTime_NearFailedScoreOUTPUTTED)
+		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_ModerateMatch_ModerateTime_ModerateScoreOUTPUTTED)
 		{
 			double calculatedScore;
 			double recordedSpeed = 5;
 			//calculate the score with an non-impactful time and a perfectly matched sentence
 			calculatedScore = CheckSentence("Test sentence", 13, "TeBB sentBBBB", recordedSpeed);
 			//check for perfect score
-			Assert::AreEqual(0.15, calculatedScore);
+			Assert::AreEqual(0.54, calculatedScore);
 		}
 		//This test method will test if the calculated score from typing function works properly 
 		TEST_METHOD(TypingScoreCalculationFunctionality_INPUT_ModerateMatch_SlowTime_FailedScoreOUTPUTTED)

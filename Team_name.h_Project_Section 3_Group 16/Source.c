@@ -176,7 +176,6 @@ int main(int argc, char* argv[])
 						cyan();
 						printf("You think that the board will be the best option, so you pick it upand lug it over your shoulder.\n");
 						while (getchar() != '\n');
-						while (getchar() != '\n');
 						canContinue = false;
 						break;
 					//Rock choice
@@ -785,7 +784,6 @@ int main(int argc, char* argv[])
 						176, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
-					reset();
 					decreaseMonsterHealth(calculateDamage(Player, typingScore), gooeyGlob);
 					if (getHealth(Player) <= 0)
 					{
@@ -796,7 +794,7 @@ int main(int argc, char* argv[])
 						loopAgain = false;
 					}
 				}
-
+				reset();
 				//check to see the results of the battle
 				if (getHealth(Player) <= 0) //the monster killed you
 				{
