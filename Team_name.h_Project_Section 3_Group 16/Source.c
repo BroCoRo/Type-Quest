@@ -2342,9 +2342,9 @@ int main(int argc, char* argv[])
 												 char vampireName[MAX_NAME_SIZE] = "Dracula";
 												 CHARACTER* vampire = CreateCharacter(vampireHealth, vampireID, vampireName);
 
-												 bool loopAgain = true;
+												 bool loopAgain1 = true;
 
-												 while (loopAgain)
+												 while (loopAgain1)
 												 {
 													 getImage(vampire);
 													 printf("\n");
@@ -2377,11 +2377,11 @@ int main(int argc, char* argv[])
 													 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire);
 													 if (getHealth(Player) <= 0)
 													 {
-														 loopAgain = false;
+														 loopAgain1 = false;
 													 }
 													 else if (getMonsterHealth(vampire) <= 0)
 													 {
-														 loopAgain = false;
+														 loopAgain1 = false;
 													 }
 												 }
 
@@ -2476,7 +2476,8 @@ int main(int argc, char* argv[])
 										 while (getchar() != '\n');
 										 printf("You pick up a stone thinking it might come in handy soon.\n");
 										 while (getchar() != '\n');
-										 ITEM* stone = createItem("damage", "stone", 20, Player);
+										 ITEM* stone1 = createItem("damage", "stone", 20, Player);
+										 
 										 while (getchar() != '\n');
 
 										 printf("The laugh continues to get louder and louder as you walk through the tunnel.\n");
@@ -2506,19 +2507,20 @@ int main(int argc, char* argv[])
 										 printf("Get ready to defend yourself, you got another battle coming.\n");
 										 while (getchar() != '\n');
 
-										 int trollHealth = 60;
-										 int trollID = 14;
-										 char trollName[MAX_NAME_SIZE] = "Troll";
-										 CHARACTER* troll = CreateCharacter(trollHealth, trollID, trollName);
+										 int trollHealth1 = 60;
+										 int trollID1 = 14;
+										 char trollName1[MAX_NAME_SIZE] = "Troll";
+										 CHARACTER* troll1 = CreateCharacter(trollHealth, trollID, trollName);
+										 
 
-										 bool loopAgain = true;
+										 bool loopAgain2 = true;
 
-										 while (loopAgain)
+										 while (loopAgain2)
 										 {
-											 getImage(troll);
+											 getImage(troll1);
 											 printf("\n");
 											 printf("---------------------------------------------------------------\n");
-											 printf("|    >Health: %d											  |\n", troll->health);
+											 printf("|    >Health: %d											  |\n", troll1->health);
 											 printf("|															  |\n");
 											 printf("|    >Troll damage required: 60								  |\n");
 											 printf("|															  |\n");
@@ -2539,18 +2541,18 @@ int main(int argc, char* argv[])
 											 while (getchar() != '\n');
 											 double typingSpeed = 0.0;
 											 char* sentenceTyped = GetInput(&typingSpeed);
-											 double typingScore = CheckSentence(getSentence(troll), //sentence to type
+											 double typingScore = CheckSentence(getSentence(troll1), //sentence to type
 												 108, //sentence length
 												 sentenceTyped, //users sentence entry
 												 typingSpeed); //users typing speed
-											 decreaseMonsterHealth((calculateDamage(Player, typingScore)), troll);
+											 decreaseMonsterHealth((calculateDamage(Player, typingScore)), troll1);
 											 if (getHealth(Player) <= 0)
 											 {
-												 loopAgain = false;
+												 loopAgain2 = false;
 											 }
-											 else if (getMonsterHealth(troll) <= 0)
+											 else if (getMonsterHealth(troll1) <= 0)
 											 {
-												 loopAgain = false;
+												 loopAgain2 = false;
 											 }
 										 }
 
@@ -2579,9 +2581,9 @@ int main(int argc, char* argv[])
 										 printf("Be wildered about the garlic and stake, you still decide to take all the items\n");
 										 while (getchar() != '\n');
 
-										 ITEM* meat = createItem("gFood", "meat", 50, Player);
-										 ITEM* helmet = createItem("defence", "helmet", 30, Player);
-										 ITEM* garlicStake = createItem("damage", "garlicStake", 40, Player);
+										 ITEM* meat1 = createItem("gFood", "meat", 50, Player);
+										 ITEM* helmet1 = createItem("defence", "helmet", 30, Player);
+										 ITEM* garlicStake1 = createItem("damage", "garlicStake", 40, Player);
 
 
 										 printf("You walk towards the light wondering if this is the way out.\n");
@@ -2613,19 +2615,19 @@ int main(int argc, char* argv[])
 										 printf("You have no choice but to fight this thing like your life depended on it\n");
 										 while (getchar() != '\n');
 
-										 int vampireHealth = 300;
-										 int vampireID = 12;
-										 char vampireName[MAX_NAME_SIZE] = "Dracula";
-										 CHARACTER* vampire = CreateCharacter(vampireHealth, vampireID, vampireName);
+										 int vampireHealth1 = 300;
+										 int vampireID1 = 12;
+										 char vampireName1[MAX_NAME_SIZE] = "Dracula";
+										 CHARACTER* vampire1 = CreateCharacter(vampireHealth1, vampireID1, vampireName1);
 
-										 bool loopAgain = true;
+										 bool loopAgain3 = true;
 
-										 while (loopAgain)
+										 while (loopAgain3)
 										 {
-											 getImage(vampire);
+											 getImage(vampire1);
 											 printf("\n");
 											 printf("---------------------------------------------------------------\n");
-											 printf("|    >Health: %d											  |\n", vampire->health);
+											 printf("|    >Health: %d											  |\n", vampire1->health);
 											 printf("|															  |\n");
 											 printf("|    >vampire damage required: 300							  |\n");
 											 printf("|															  |\n");
@@ -2646,18 +2648,18 @@ int main(int argc, char* argv[])
 											 while (getchar() != '\n');
 											 double typingSpeed = 0.0;
 											 char* sentenceTyped = GetInput(&typingSpeed);
-											 double typingScore = CheckSentence(getSentence(vampire), //sentence to type
+											 double typingScore = CheckSentence(getSentence(vampire1), //sentence to type
 												 180, //sentence length
 												 sentenceTyped, //users sentence entry
 												 typingSpeed); //users typing speed
-											 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire);
+											 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire1);
 											 if (getHealth(Player) <= 0)
 											 {
-												 loopAgain = false;
+												 loopAgain3 = false;
 											 }
-											 else if (getMonsterHealth(vampire) <= 0)
+											 else if (getMonsterHealth(vampire1) <= 0)
 											 {
-												 loopAgain = false;
+												 loopAgain3 = false;
 											 }
 										 }
 
@@ -2756,7 +2758,7 @@ int main(int argc, char* argv[])
 					 printf("You pick up a stone thinking it might come in handy soon.\n");
 					 while (getchar() != '\n');
 
-					 ITEM* stone = createItem("damage", "stone", 20, Player);
+					 ITEM* stone2 = createItem("damage", "stone", 20, Player);
 					 while (getchar() != '\n');
 
 					 printf("The laugh continues to get louder and louder as you walk through the tunnel.\n");
@@ -2786,19 +2788,19 @@ int main(int argc, char* argv[])
 					 printf("Get ready to defend yourself, you got another battle coming.\n");
 					 while (getchar() != '\n');
 
-					 int trollHealth = 60;
-					 int trollID = 14;
-					 char trollName[MAX_NAME_SIZE] = "Troll";
-					 CHARACTER* troll = CreateCharacter(trollHealth, trollID, trollName);
+					 int trollHealth2 = 60;
+					 int trollID2 = 14;
+					 char trollName2[MAX_NAME_SIZE] = "Troll";
+					 CHARACTER* troll2 = CreateCharacter(trollHealth2, trollID2, trollName2);
 
-					 bool loopAgain = true;
+					 bool loopAgain4 = true;
 
-					 while (loopAgain)
+					 while (loopAgain4)
 					 {
-						 getImage(troll);
+						 getImage(troll2);
 						 printf("\n");
 						 printf("---------------------------------------------------------------\n");
-						 printf("|    >Health: %d											  |\n", troll->health);
+						 printf("|    >Health: %d											  |\n", troll2->health);
 						 printf("|															  |\n");
 						 printf("|    >Troll damage required: 60								  |\n");
 						 printf("|															  |\n");
@@ -2819,18 +2821,18 @@ int main(int argc, char* argv[])
 						 while (getchar() != '\n');
 						 double typingSpeed = 0.0;
 						 char* sentenceTyped = GetInput(&typingSpeed);
-						 double typingScore = CheckSentence(getSentence(troll), //sentence to type
+						 double typingScore = CheckSentence(getSentence(troll2), //sentence to type
 							 108, //sentence length
 							 sentenceTyped, //users sentence entry
 							 typingSpeed); //users typing speed
-						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), troll);
+						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), troll2);
 						 if (getHealth(Player) <= 0)
 						 {
-							 loopAgain = false;
+							 loopAgain4 = false;
 						 }
-						 else if (getMonsterHealth(troll) <= 0)
+						 else if (getMonsterHealth(troll2) <= 0)
 						 {
-							 loopAgain = false;
+							 loopAgain4 = false;
 						 }
 					 }
 
@@ -2883,9 +2885,9 @@ int main(int argc, char* argv[])
 							 printf("Be wildered about the garlic and stake, you still decide to take all the items\n");
 							 while (getchar() != '\n');
 
-							 ITEM* meat = createItem("gFood", "meat", 50, Player);
-							 ITEM* helmet = createItem("defence", "helmet", 30, Player);
-							 ITEM* garlicStake = createItem("damage", "garlicStake", 40, Player);
+							 ITEM* meat3 = createItem("gFood", "meat", 50, Player);
+							 ITEM* helmet3 = createItem("defence", "helmet", 30, Player);
+							 ITEM* garlicStake3 = createItem("damage", "garlicStake", 40, Player);
 
 							 printf("You notice the same sliver of light in the previous tunnel as you did in this one.\n");
 							 while (getchar() != '\n');
@@ -2918,19 +2920,19 @@ int main(int argc, char* argv[])
 							 printf("You have no choice but to fight this thing like your life depended on it\n");
 							 while (getchar() != '\n');
 
-							 int vampireHealth = 300;
-							 int vampireID = 12;
-							 char vampireName[MAX_NAME_SIZE] = "Dracula";
-							 CHARACTER* vampire = CreateCharacter(vampireHealth, vampireID, vampireName);
+							 int vampireHealth3 = 300;
+							 int vampireID3 = 12;
+							 char vampireName3[MAX_NAME_SIZE] = "Dracula";
+							 CHARACTER* vampire3 = CreateCharacter(vampireHealth3, vampireID3, vampireName3);
 
-							 bool loopAgain = true;
+							 bool loopAgain5 = true;
 
-							 while (loopAgain)
+							 while (loopAgain5)
 							 {
-								 getImage(vampire);
+								 getImage(vampire3);
 								 printf("\n");
 								 printf("---------------------------------------------------------------\n");
-								 printf("|    >Health: %d											  |\n", vampire->health);
+								 printf("|    >Health: %d											  |\n", vampire3->health);
 								 printf("|															  |\n");
 								 printf("|    >Vampire damage required: 300							  |\n");
 								 printf("|															  |\n");
@@ -2951,18 +2953,18 @@ int main(int argc, char* argv[])
 								 while (getchar() != '\n');
 								 double typingSpeed = 0.0;
 								 char* sentenceTyped = GetInput(&typingSpeed);
-								 double typingScore = CheckSentence(getSentence(vampire), //sentence to type
+								 double typingScore = CheckSentence(getSentence(vampire3), //sentence to type
 									 180, //sentence length
 									 sentenceTyped, //users sentence entry
 									 typingSpeed); //users typing speed
-								 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire);
+								 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire3);
 								 if (getHealth(Player) <= 0)
 								 {
-									 loopAgain = false;
+									 loopAgain5 = false;
 								 }
-								 else if (getMonsterHealth(vampire) <= 0)
+								 else if (getMonsterHealth(vampire3) <= 0)
 								 {
-									 loopAgain = false;
+									 loopAgain5 = false;
 								 }
 							 }
 
@@ -3060,7 +3062,7 @@ int main(int argc, char* argv[])
 					 while (getchar() != '\n');
 					 printf("You pick up a stone thinking it might come in handy soon.\n");
 					 while (getchar() != '\n');
-					 ITEM* stone = createItem("damage", "stone", 20, Player);
+					 ITEM* stone4 = createItem("damage", "stone", 20, Player);
 					 while (getchar() != '\n');
 
 					 printf("The laugh continues to get louder and louder as you walk through the tunnel.\n");
@@ -3090,19 +3092,19 @@ int main(int argc, char* argv[])
 					 printf("Get ready to defend yourself, you got another battle coming.\n");
 					 while (getchar() != '\n');
 
-					 int trollHealth = 60;
-					 int trollID = 14;
-					 char trollName[MAX_NAME_SIZE] = "Troll";
-					 CHARACTER* troll = CreateCharacter(trollHealth, trollID, trollName);
+					 int trollHealth5 = 60;
+					 int trollID5 = 14;
+					 char trollName5[MAX_NAME_SIZE] = "Troll";
+					 CHARACTER* troll5 = CreateCharacter(trollHealth5, trollID5, trollName5);
 
-					 bool loopAgain = true;
+					 bool loopAgain6 = true;
 
-					 while (loopAgain)
+					 while (loopAgain6)
 					 {
-						 getImage(troll);
+						 getImage(troll5);
 						 printf("\n");
 						 printf("---------------------------------------------------------------\n");
-						 printf("|    >Health: %d											  |\n", troll->health);
+						 printf("|    >Health: %d											  |\n", troll5->health);
 						 printf("|															  |\n");
 						 printf("|    >Troll damage required: 60								  |\n");
 						 printf("|															  |\n");
@@ -3123,18 +3125,18 @@ int main(int argc, char* argv[])
 						 while (getchar() != '\n');
 						 double typingSpeed = 0.0;
 						 char* sentenceTyped = GetInput(&typingSpeed);
-						 double typingScore = CheckSentence(getSentence(troll), //sentence to type
+						 double typingScore = CheckSentence(getSentence(troll5), //sentence to type
 							 108, //sentence length
 							 sentenceTyped, //users sentence entry
 							 typingSpeed); //users typing speed
-						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), troll);
+						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), troll5);
 						 if (getHealth(Player) <= 0)
 						 {
-							 loopAgain = false;
+							 loopAgain6 = false;
 						 }
-						 else if (getMonsterHealth(troll) <= 0)
+						 else if (getMonsterHealth(troll5) <= 0)
 						 {
-							 loopAgain = false;
+							 loopAgain6 = false;
 						 }
 					 }
 
@@ -3163,9 +3165,9 @@ int main(int argc, char* argv[])
 					 printf("Be wildered about the garlic and stake, you still decide to take all the items\n");
 					 while (getchar() != '\n');
 
-					 ITEM* meat = createItem("gFood", "meat", 50, Player);
-					 ITEM* helmet = createItem("defence", "helmet", 30, Player);
-					 ITEM* garlicStake = createItem("damage", "garlicStake", 40, Player);
+					 ITEM* meat4 = createItem("gFood", "meat", 50, Player);
+					 ITEM* helmet4 = createItem("defence", "helmet", 30, Player);
+					 ITEM* garlicStake4 = createItem("damage", "garlicStake", 40, Player);
 
 
 					 printf("You walk towards the light wondering if this is the way out.\n");
@@ -3197,19 +3199,19 @@ int main(int argc, char* argv[])
 					 printf("You have no choice but to fight this thing like your life depended on it\n");
 					 while (getchar() != '\n');
 
-					 int vampireHealth = 300;
-					 int vampireID = 12;
-					 char vampireName[MAX_NAME_SIZE] = "Dracula";
-					 CHARACTER* vampire = CreateCharacter(vampireHealth, vampireID, vampireName);
+					 int vampireHealth5 = 300;
+					 int vampireID5 = 12;
+					 char vampireName5[MAX_NAME_SIZE] = "Dracula";
+					 CHARACTER* vampire5 = CreateCharacter(vampireHealth5, vampireID5, vampireName5);
 
-					 bool loopAgain = true;
+					 bool loopAgain7 = true;
 
-					 while (loopAgain)
+					 while (loopAgain7)
 					 {
-						 getImage(vampire);
+						 getImage(vampire5);
 						 printf("\n");
 						 printf("---------------------------------------------------------------\n");
-						 printf("|    >Health: %d											  |\n", vampire->health);
+						 printf("|    >Health: %d											  |\n", vampire5->health);
 						 printf("|															  |\n");
 						 printf("|    >Vampire damage required: 300							  |\n");
 						 printf("|															  |\n");
@@ -3230,18 +3232,18 @@ int main(int argc, char* argv[])
 						 while (getchar() != '\n');
 						 double typingSpeed = 0.0;
 						 char* sentenceTyped = GetInput(&typingSpeed);
-						 double typingScore = CheckSentence(getSentence(vampire), //sentence to type
+						 double typingScore = CheckSentence(getSentence(vampire5), //sentence to type
 							 180, //sentence length
 							 sentenceTyped, //users sentence entry
 							 typingSpeed); //users typing speed
-						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire);
+						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), vampire5);
 						 if (getHealth(Player) <= 0)
 						 {
-							 loopAgain = false;
+							 loopAgain7 = false;
 						 }
-						 else if (getMonsterHealth(vampire) <= 0)
+						 else if (getMonsterHealth(vampire5) <= 0)
 						 {
-							 loopAgain = false;
+							 loopAgain7 = false;
 						 }
 					 }
 
@@ -3913,3 +3915,4 @@ int main(int argc, char* argv[])
 	return(0);
 
 	}
+}
