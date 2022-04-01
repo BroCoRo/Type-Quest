@@ -1436,7 +1436,7 @@ int main(int argc, char* argv[])
 
 							while (getchar() != '\n');
 							double typingSpeed = 0.0;
-							setenceTyped = GetInput(&typingSpeed);
+							char* setenceTyped = GetInput(&typingSpeed);
 							int length = 63;
 							double typingScore = CheckSentence(getSentence(Wizard),length,setenceTyped, typingSpeed); //users typing speed
 							decreaseMonsterHealth(calculateDamage(Player, typingScore), Wizard);
