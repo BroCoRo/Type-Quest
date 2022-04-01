@@ -2066,9 +2066,9 @@ int main(int argc, char* argv[])
 									 getImage(monsterBat);
 									 printf("\n");
 									 printf("----------------------------------------------\n");
-									 printf("|    >Health: %d                             |\n", monsterBat->health);
+									 printf("|    >Health: %d                             |\n", getMonsterHealth(monsterBat));
 									 printf("|                                            |\n");
-									 printf("|    >Fangs damage required: 110             |\n", getMonsterHealth(monsterBat));
+									 printf("|    >Fangs damage required: 110             |\n");
 									 printf("|                                            |\n");
 									 printf("|    >Fangs is circling around               |\n");
 									 printf("|    >It's fangs are large and sharp         |\n");
@@ -2217,16 +2217,16 @@ int main(int argc, char* argv[])
 											 getImage(troll);
 											 printf("\n");
 											 printf("---------------------------------------------------------------\n");
-											 printf("|    >Health: %d											  |\n", troll->health);
+											 printf("|    >Health: %d											  |\n", getMonsterHealth(troll));
 											 printf("|															  |\n");
-											 printf("|    >Troll damage required: 60								  |\n");
+											 printf("|    >Troll damage required: 60							  |\n");
 											 printf("|															  |\n");
 											 printf("|    >The troll loves laughing								  |\n");
 											 printf("|    >Can't tell if they're crazy or						  |\n");
-											 printf("|    >just want to have fun									  |\n");
+											 printf("|    >just want to have fun						      	  |\n");
 											 printf("|															  |\n");
 											 printf("|    >Enter:												  |\n");
-											 printf("|     Don't let it's size fool you for one second.            |\n");
+											 printf("|     Don't let it's size fool you for one second.           |\n");
 											 printf("|     Trolls in these parts might be miniature				  |\n");
 											 printf("|     but they are fierce!									  |\n");
 											 printf("|														      |\n");
@@ -2349,17 +2349,17 @@ int main(int argc, char* argv[])
 													 getImage(vampire);
 													 printf("\n");
 													 printf("---------------------------------------------------------------\n");
-													 printf("|    >Health: %d											  |\n", vampire->health);
+													 printf("|    >Health: %d											  |\n", getMonsterHealth(vampire));
 													 printf("|															  |\n");
 													 printf("|    >Troll damage required: 300							  |\n");
 													 printf("|															  |\n");
 													 printf("|    >They love the taste of blood							  |\n");
-													 printf("|    >Especially human blood...								  |\n");
+													 printf("|    >Especially human blood...							  |\n");
 													 printf("|    >Make sure not to lose the garlic and stake			  |\n");
 													 printf("|															  |\n");
 													 printf("|    >Enter:												  |\n");
-													 printf("|     The moon is my sun, and the night is my day.            |\n");
-													 printf("|     Blood is my life and you are my prey.				      |\n");
+													 printf("|     The moon is my sun, and the night is my day.           |\n");
+													 printf("|     Blood is my life and you are my prey.			      |\n");
 													 printf("|     Don't let this blood sucking creature near you!		  |\n");
 													 printf("|	  Will them away with all the power you've got!			  |\n");
 													 printf("|															  |\n");
@@ -2419,12 +2419,6 @@ int main(int argc, char* argv[])
 												 }
 
 
-
-
-
-
-
-
 											 }
 											 //walk away fast
 									 case 2:
@@ -2451,39 +2445,37 @@ int main(int argc, char* argv[])
 									 default:
 										 printf("Invalid selction entered, please enter a number listen in the menu\n");
 										 break;
-										 }
 									 }
 
-									 {
-										 //Determine the next steps for the game!
-										 canContinue = true;
-										 while (canContinue == true)
-										 {
-											 printf("Would you like to save and exit or continue on to level 2?\n");
-											 printf("1. Save and exit\n");
-											 printf("2. Continue to level 4\n");
-											 int userInput = CollectNumericSelection(1, 2);
-											 switch (userInput)
-											 {
-												 //Save and exit
-											 case 1:
-												 printf("Saving game...\n");
-												 canContinue = false;
-												 //CALL SAVE FUNCTION HERE
-												 break;
-												 //Continue to next level
-											 case 2:
-												 printf("Loading level 4...\n");
-												 canContinue = false;
-												 storyLevelToPlay = LEVEL_FOUR;
-												 break;
-												 //None of the menu options were selected
-											 default:
-												 printf("Invalid selction entered, please enter a number listen in the menu\n");
-												 break;
-											 }
-										 }
-									 }
+									 
+									//Determine the next steps for the game!
+									canContinue = true;
+									while (canContinue == true)
+									{
+										printf("Would you like to save and exit or continue on to level 2?\n");
+										printf("1. Save and exit\n");
+										printf("2. Continue to level 4\n");
+										int userInput = CollectNumericSelection(1, 2);
+										switch (userInput)
+										{
+											//Save and exit
+										case 1:
+											printf("Saving game...\n");
+											canContinue = false;
+											//CALL SAVE FUNCTION HERE
+											break;
+											//Continue to next level
+										case 2:
+											printf("Loading level 4...\n");
+											canContinue = false;
+											storyLevelToPlay = LEVEL_FOUR;
+											break;
+											//None of the menu options were selected
+										default:
+											printf("Invalid selction entered, please enter a number listen in the menu\n");
+											break;
+										}
+									}
 								 }
 							 }
 						 }
