@@ -13,9 +13,9 @@ Game Levels
 
 Level 1 - Into The Redwood Forest
 
-Level 2 - Trespassing Count's Cave
+Level 2 - Lost In The Swamp
 
-Level 3 - Down Into The Caves
+Level 3 - Trespassing Count's Cave
 
 Level 4 - The Castle
 
