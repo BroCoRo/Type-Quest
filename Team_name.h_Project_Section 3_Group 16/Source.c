@@ -36,6 +36,7 @@
 
 int main(int argc, char* argv[])
 {
+	ptrPlayer Player = createPlayer("N\A", 0,0,0);
 	char type[MAXNAME];
 	int pts;
 	//collect which level of the story to play
@@ -43,29 +44,68 @@ int main(int argc, char* argv[])
 	sscanf_s(argv[FIRST_ARGUMENT], "%d", &storyLevelToPlay);
 	bool canContinue = true;
 
-	////setup a player for the game
-	FILE* fp = fopen("PlayerImage.txt", "r");
-	if (!fp) {
-		printf("couldn't open file!\n");
-		exit(1);
-	}
-	char scoreBoard[IMAGESIZEW][IMAGESIZEH];
-	for (int i = 0; i < IMAGESIZEW; i++) {
-		for (int j = 0; j < IMAGESIZEH; j++) {
-			fscanf(fp, "%c", &scoreBoard[i][j]);
+	green();
+	printf("WELLCOME TO TYPE QUEST!!\n Press Enter to continue....\n");
+	while (getchar() != '\n');
+	reset();
+	printf("1. Create a New Player??\n");
+	printf("2. Load Player from save?\n");
+	int Input = CollectNumericSelection(1, 2);
+	switch (Input)
+	{
+	case 1:
+		////setup a player for the game
+		printf("\n");
+		FILE * fp = fopen("PlayerImage.txt", "r");
+		if (!fp) {
+			printf("couldn't open file!\n");
+			exit(1);
 		}
+		char scoreBoard[IMAGESIZEW][IMAGESIZEH];
+		for (int i = 0; i < IMAGESIZEW; i++) {
+			for (int j = 0; j < IMAGESIZEH; j++) {
+				fscanf(fp, "%c", &scoreBoard[i][j]);
+			}
+		}
+
+		for (int i = 0; i < IMAGESIZEW; i++) {
+			for (int j = 0; j < IMAGESIZEH; j++) {
+				printf("%c", scoreBoard[i][j]);
+			}
+		}
+		fclose(fp);
+
+
+
+		char name[MAXNAME];
+		printf("Name your Character\n");
+		scanf_s("%s", name, MAXNAME);
+		 Player = createPlayer(name, 100, 50, 25);
+	
+		break;
+		//Move on choice
+	case 2:
+		printf("\n");
+		FILE * file = fopen("PlayerData.txt", "r");
+		Player = loadPlayer(file);
+		if (Player == NULL) {
+
+			printf("error loading player\n");
+			exit(1);
+		}
+		printf("Succesfully Loaded Player!!!");
+		printPlayer(Player);
+		while (getchar() != '\n');
+		break;
+		//None of the menu options were selected
+	default:
+		printf("Invalid selction entered, please enter a number listen in the menu\n");
+		break;
 	}
 
-	for (int i = 0; i < IMAGESIZEW; i++) {
-		for (int j = 0; j < IMAGESIZEH; j++) {
-			printf("%c", scoreBoard[i][j]);
-		}
-	}
-	fclose(fp);
-	char name[MAXNAME];
-	printf("Name your Character\n");
-	scanf_s("%s", name, MAXNAME);
-	ptrPlayer Player = createPlayer(name, 100, 50, 25);
+	
+	
+
 	
 
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -837,7 +877,7 @@ int main(int argc, char* argv[])
 					printf("[CONGRATULATIONS YOU HAVE SURVIVED LEVEL 1 - Into The RedWood Forest!!!]\n");
 					reset();
 				}
-
+				
 				canContinue = false;
 				break;
 				//None of the menu options were selected
@@ -853,14 +893,20 @@ int main(int argc, char* argv[])
 		while (canContinue == true)
 		{
 			printf("Would you like to save and exit or continue on to level 2?\n");
-			printf("1. Exit\n");
+			printf("1. Exit and Save Player\n");
 			printf("2. Continue to level 2\n");
 			int userInput = CollectNumericSelection(1,2);
 			switch (userInput)
 			{
-			//Save and exit
+			
 			case 1:
 				printf("Closing game...\n");
+				FILE * fp = fopen("PlayerData.txt", "w");
+				if (!fp) {
+					printf("can not open file!\n");
+				}
+				savePlayer(Player, fp);
+				
 				canContinue = false;
 				break;
 			//Continue to next level
@@ -1886,11 +1932,15 @@ int main(int argc, char* argv[])
 			int userInput = CollectNumericSelection(1, 2);
 			switch (userInput)
 			{
-			//Save and exit
+			
 			case 1:
 				printf("Saving game...\n");
 				canContinue = false;
-				//CALL SAVE FUNCTION HERE
+				FILE* fp = fopen("PlayerData.txt", "w");
+				if (!fp) {
+					printf("can not open file!\n");
+				}
+				savePlayer(Player, fp);
 				break;
 				//Continue to next level
 			case 2:
@@ -2464,7 +2514,7 @@ int main(int argc, char* argv[])
 												 printf("_______________________________________________\n");
 												 printf("[YOU DIED(the vampire sunk it's teeth into you)\n");
 												 reset();
-												 //SAVE GAME
+												 
 												 return 0;
 												 canContinue = false;
 												 break;
@@ -2744,7 +2794,7 @@ int main(int argc, char* argv[])
 							 printf("___________________________________________\n");
 							 printf("[YOU DIED(the bat got your neck)\n");
 							 reset();
-							 //SAVE GAME
+							 
 							 return 0;
 							 canContinue = false;
 							 break;
@@ -3050,7 +3100,7 @@ int main(int argc, char* argv[])
 							 printf("_______________________________________________\n");
 							 printf("[YOU DIED(the vampire sunk it's teeth into you)\n");
 							 reset();
-							 //SAVE GAME
+							 
 							 return 0;
 							 canContinue = false;
 							 break;
@@ -3328,11 +3378,15 @@ int main(int argc, char* argv[])
 				 int userInput = CollectNumericSelection(1, 2);
 				 switch (userInput)
 				 {
-					 //Save and exit
+					 
 				 case 1:
 					 printf("Saving game...\n");
 					 canContinue = false;
-					 //CALL SAVE FUNCTION HERE
+					 FILE* fp = fopen("PlayerData.txt", "w");
+					 if (!fp) {
+						 printf("can not open file!\n");
+					 }
+					 savePlayer(Player, fp);
 					 break;
 					 //Continue to next level
 				 case 2:
@@ -3874,7 +3928,7 @@ int main(int argc, char* argv[])
 			printf("_________________________________________________________\n");
 			printf("[YOU DIED(Thought you could fly, for somereason)]\n");
 			reset();
-			//SAVE GAME
+			
 			return (1);
 			canContinue = false;
 			break;

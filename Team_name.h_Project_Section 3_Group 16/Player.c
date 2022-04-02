@@ -132,10 +132,10 @@ void printAffects(ptrPlayer p, char type[MAXNAME] , int pts) {
 }
 
 bool savePlayer(ptrPlayer player, FILE* fp) {
-	fprintf(fp, "%s", player->name);
-	fprintf(fp, "%d", player->Health);
-	fprintf(fp, "%d", player->Damage);
-	fprintf(fp, "%d", player->Defence);
+	fprintf(fp, "%s\n", player->name);
+	fprintf(fp, "%d\n", player->Health);
+	fprintf(fp, "%d\n", player->Damage);
+	fprintf(fp, "%d\n", player->Defence);
 	if (fclose(fp)) {
 		return true;
 	}
@@ -145,11 +145,11 @@ bool savePlayer(ptrPlayer player, FILE* fp) {
 }
 ptrPlayer loadPlayer(FILE* fp) {
 	char name[MAXNAME];
-	int health, damage, defence;
-	fscanf(fp, "%s", name);
-	fscanf(fp, "%d", health);
-	fscanf(fp, "%d", damage);
-	fscanf(fp, "%d", defence);
+	int health = 0, damage= 0, defence =0;
+	fscanf(fp, "%s\n", name);
+	fscanf(fp, "%d\n", &health);
+	fscanf(fp, "%d\n", &damage);
+	fscanf(fp, "%d\n", &defence);
 	ptrPlayer newPlayer = createPlayer(name, health, damage, defence);
 	return newPlayer;
 
