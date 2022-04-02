@@ -9,8 +9,11 @@
 #define MAXNAME 25
 #define IMAGESIZEH 29
 #define IMAGESIZEW 27
-#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include "Colours.h"
+#include <string.h>
+#include <stdbool.h>
 typedef struct player {
 	char name[MAXNAME];
 	int Health;
@@ -18,6 +21,8 @@ typedef struct player {
 	int Defence;
 
 }PLAYER, * ptrPlayer;
+bool savePlayer(ptrPlayer, FILE*);
+ptrPlayer loadPlayer(FILE*);
 ptrPlayer createPlayer(char[MAXNAME], int, int, int);
 void DisposePlayer(ptrPlayer);
 int getHealth(ptrPlayer);

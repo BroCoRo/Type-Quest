@@ -7,11 +7,7 @@
 // 1.0       March 14th      2022
 #define _CRT_SECURE_NO_WARNINGS
 #include "Player.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include "Colours.h"
-#include <string.h>
-#include <stdbool.h>
+
 
 ptrPlayer createPlayer(char name[MAXNAME], int Health, int Damage, int Defence) {
 	ptrPlayer newPlayer = (ptrPlayer)malloc(sizeof(PLAYER));
@@ -88,21 +84,7 @@ int calculateDamage(ptrPlayer p, double score) {
 	}
 	return outputDamage;
 }
-void printPlayerStats(ptrPlayer player, FILE* fp) {
-	char scoreBoard[IMAGESIZEW][IMAGESIZEH];
-	for (int i = 0; i < IMAGESIZEW; i++) {
-		for (int j = 0; j < IMAGESIZEH; j++) {
-			fscanf(fp, "%c", &scoreBoard[i][j]);
-		}
-	}
 
-	for (int i = 0; i < IMAGESIZEW; i++) {
-		for (int j = 0; j < IMAGESIZEH; j++) {
-			printf("%c", scoreBoard[i][j]);
-		}
-	}
-	fclose(fp);
-}
 void DisposePlayer(ptrPlayer p) {
 	free(p);
 }
@@ -147,4 +129,28 @@ void printAffects(ptrPlayer p, char type[MAXNAME] , int pts) {
 		printf("+ %d\n", pts);
 		reset();
 	}
+}
+
+bool savePlayer(ptrPlayer player, FILE* fp) {
+	fprintf(fp, "%s", player->name);
+	fprintf(fp, "%d", player->Health);
+	fprintf(fp, "%d", player->Damage);
+	fprintf(fp, "%d", player->Defence);
+	if (fclose(fp)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+ptrPlayer loadPlayer(FILE* fp) {
+	char name[MAXNAME];
+	int health, damage, defence;
+	fscanf(fp, "%s", name);
+	fscanf(fp, "%d", health);
+	fscanf(fp, "%d", damage);
+	fscanf(fp, "%d", defence);
+	ptrPlayer newPlayer = createPlayer(name, health, damage, defence);
+	return newPlayer;
+
 }

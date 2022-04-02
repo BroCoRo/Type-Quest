@@ -9,8 +9,6 @@
 #include "Typing.h"
 #include "IO.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include "character.h"
 #include "object.h"
 #include "Player.h"
@@ -45,8 +43,29 @@ int main(int argc, char* argv[])
 	sscanf_s(argv[FIRST_ARGUMENT], "%d", &storyLevelToPlay);
 	bool canContinue = true;
 
-	//setup a player for the game
-	ptrPlayer Player = createPlayer("Test Player", 100, 50, 25);
+	////setup a player for the game
+	FILE* fp = fopen("PlayerImage.txt", "r");
+	if (!fp) {
+		printf("couldn't open file!\n");
+		exit(1);
+	}
+	char scoreBoard[IMAGESIZEW][IMAGESIZEH];
+	for (int i = 0; i < IMAGESIZEW; i++) {
+		for (int j = 0; j < IMAGESIZEH; j++) {
+			fscanf(fp, "%c", &scoreBoard[i][j]);
+		}
+	}
+
+	for (int i = 0; i < IMAGESIZEW; i++) {
+		for (int j = 0; j < IMAGESIZEH; j++) {
+			printf("%c", scoreBoard[i][j]);
+		}
+	}
+	fclose(fp);
+	char name[MAXNAME];
+	printf("Name your Character\n");
+	scanf_s("%s", name, MAXNAME);
+	ptrPlayer Player = createPlayer(name, 100, 50, 25);
 	
 
 	//Play level 1---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -163,6 +182,7 @@ int main(int argc, char* argv[])
 					printf("1. Bring the board you washed up to the shore on with you?\n");
 					printf("2. Bring a rock from the beach?\n");
 					int userInput = CollectNumericSelection(1, 2);
+					reset();
 					switch (userInput)
 					{
 					//Board choice
@@ -1428,6 +1448,7 @@ int main(int argc, char* argv[])
 							printf("|    > The mystical world is filled with     |\n");
 							printf("|    > wizards monsters and magic.           |\n");
 							printf("|                                            |\n");
+
 							printf("|                                            |\n");
 							printf("----------------------------------------------\n");
 							while (getchar() != '\n');
@@ -2018,7 +2039,7 @@ int main(int argc, char* argv[])
 				double typingSpeed = 0.0;
 				char* setenceTyped = GetInput(&typingSpeed);
 				double typingScore = CheckSentence(getSentence(cryChild), //sentence to type
-					176, //sentence length
+					266, //sentence length
 					setenceTyped, //users sentence entry
 					typingSpeed); //users typing speed
 				reset();
@@ -2062,8 +2083,13 @@ int main(int argc, char* argv[])
 			while (getchar() != '\n');
 			printf("It looks like a tear shaped chain, should you pick it up ??\n");
 			while (getchar() != '\n');
-			//INSERT Choice for item pickup and this item will +10 to damage, and display the message that "this chain has some never seen before powers you put it on and the power flows through you
-			// "
+			
+			strcpy(type, "damage");
+			pts = 50;
+			printAffects(Player, type, pts);
+
+
+			ITEM* TearBuff = createItem(type, "Tear Chain", pts, Player);
 			printf("You make your way back to where you came through the red door, I guess I should walk up the stairs as my only option\n");
 			//Choice 2
 		case 2:
@@ -2082,8 +2108,14 @@ int main(int argc, char* argv[])
 			while (getchar() != '\n');
 			printf("You lose 10 health because of that fall.\n");
 			while (getchar() != '\n');
+			printAffects(Player, "bFood", 10);
 			Player->Health -= 10;
 			//check if the player's health is below 0, if so exit the program.
+			if (Player->Health < 0) {
+				red();
+				printf("You DIED!!: I guess you can't even trust stairs anymore....\n");
+				reset();
+			}
 			printf("You are trying to collect yourself after that sudden fall, but then you hear a sound of footsteps\n");
 			while (getchar() != '\n');
 			printf("They begin to get louder with each passing second, your hands begin to tremble\n");
@@ -2092,16 +2124,20 @@ int main(int argc, char* argv[])
 			while (getchar() != '\n');
 
 			//Determine the next steps for the game!
+			cyan();
 			canContinue = true;
 			while (canContinue == true)
 			{
 				printf("1. Hide under the destroyed stairs?\n");
 				printf("2. Prepare to fight what ever comes through that door?\n");
+				
 				int userInput = CollectNumericSelection(1, 2);
 				switch (userInput)
 				{
-					//Board choice
+			
+			
 				case 1:
+					reset();
 					printf("You chose to hide, just in time for a large shadowy figure to walk in through a hidden door, this door wasn't there before\n");
 					while (getchar() != '\n');
 					printf("The shadowy figure walks in but doesn't seem to look directly at you or the stairs, it begins to walk and accidently trips over the rubble\n");
@@ -2118,8 +2154,9 @@ int main(int argc, char* argv[])
 					while (getchar() != '\n');
 					canContinue = false;
 					break;
-					//Rock choice
+			
 				case 2:
+					reset();
 					printf("You stand still, as the shadowy figure walks through a hidden door, this door wasn't there before\n");
 					while (getchar() != '\n');
 					printf("This shadowy figure doesn't look at you but it seems like it may be listening so you hold your breath\n");
@@ -2130,31 +2167,81 @@ int main(int argc, char* argv[])
 					while (getchar() != '\n');
 
 					//CREATE SHADOWY FIGURE MONSTER HERE <-- Damage to defeat 125
-
-					printf("----------------------------------------------\n");
-					printf("|    > Health: 125                           |\n");
-					printf("|                                            |\n");
-					printf("|    > Shadow Man Damage Required: 125              |\n");
-					printf("|                                            |\n");
-					printf("|    > Now that you can see it up close, it seems  |\n");
-					printf("|    > That its speed comes from its shoes!!    |\n");
-					printf("|                                            |\n");
-					printf("|    > Enter:                                |\n");
-					printf("|     The monster came towards you with breakneck speeds! |\n");
-					printf("|      But you remember that it must be blind since it didn't attack till you moved    |\n");
-					printf("|      So you pick up a piece of wood from the stairs and threw it to the corner      |\n");
-					printf("|       it sprinted towards the wood thinking it was you, then you escaped through the door and closed it behind you!|\n");
-					printf("----------------------------------------------\n");
-					while (getchar() != '\n');
-					double typingSpeed = 0.0;
-					char* setenceTyped = GetInput(&typingSpeed);
-					double typingScore = CheckSentence("The monster came towards you with breakneck speeds! But you remember that it must be blind since it didn't attack till you moved So you pick up a piece of wood from the stairs and threw it to the corner it sprinted towards the wood thinking it was you, then you escaped through the door and closed it behind you!\0", //sentence to type
-						314, //sentence length
-						setenceTyped, //users sentence entry
-						typingSpeed); //users typing speed
+					int shadowhealth = 125;
+					int shadowID = 10;
+					char shadowName[MAX_NAME_SIZE] = "Shadow Man";
+					CHARACTER* shadowMan = CreateCharacter(shadowhealth, shadowID, shadowName);
+					bool loopAgain = true;
 
 
-	//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
+
+					while (loopAgain)
+					{
+						yellow();
+						getImage(shadowMan);
+						printf("\n");
+						printf("----------------------------------------------------------------------------------------------------------------------------------------------\n");
+						printf("|    > Health: %d                                                                                                                            |\n", getMonsterHealth(shadowMan));
+						printf("|                                                                                                                                            |\n");
+						printf("|    > Shadow Man Damage Required: 125                                                                                                       |\n");
+						printf("|                                                                                                                                            |\n");
+						printf("|    > Now that you can see it up close, it seems                                                                                            |\n");
+						printf("|    > That its speed comes from its shoes!!                                                                                                 |\n");
+						printf("|                                                                                                                                            |\n");
+						printf("|    > Enter:                                                                                                                                |\n");
+						printf("|     The monster came towards you with breakneck speeds!                                                                                    |\n");
+						printf("|      But you remember that it must be blind since it didn't attack till you moved,                                                         |\n");
+						printf("|      so you pick up a piece of wood from the stairs and threw it to the corner                                                             |\n");
+						printf("|       it sprinted towards the wood thinking it was you.                                                                                    |\n");
+						printf("----------------------------------------------------------------------------------------------------------------------------------------------\n");
+						green();
+						printf("Player Health = %d\n", getHealth(Player));
+						yellow();
+						//The monster came towards you with breakneck speeds! But you remember that it must be blind since it didn't attack till you moved, so you pick up a piece of wood from the stairs and throw it to the corner  it sprinted towards the wood thinking it was you, then you escaped through the door and closed it behind you!
+						while (getchar() != '\n');
+						double typingSpeed = 0.0;
+						char* setenceTyped = GetInput(&typingSpeed);
+						double typingScore = CheckSentence(getSentence(shadowMan), //sentence to type
+						 255, //sentence length
+							setenceTyped, //users sentence entry
+							typingSpeed); //users typing speed
+						reset();
+						decreaseMonsterHealth(calculateDamage(Player, typingScore), shadowMan);
+						if (getHealth(Player) <= 0)
+						{
+
+							loopAgain = false;
+						}
+						else if (getMonsterHealth(shadowMan) <= 0)
+						{
+
+							loopAgain = false;
+						}
+					}
+
+					//check to see the results of the battle
+					if (getHealth(Player) <= 0) //the monster killed you
+					{
+						red();
+						printf("The Shadow man Destroyed you........\n");
+						printf("You DIED...\n");
+						reset();
+						return 0;
+					}
+					else //you defeated the monster!
+					{
+						printf("then you escaped through the door and closed it behind you!\n");
+						green();
+						printf("Congratulations You defeated the ShadowMan!!\n");
+						printf("He dropped his speedy shoes, and you pick it up!\n");
+						strcpy(type, "damage");
+						pts = 50;
+						printAffects(Player, type, pts);
+
+
+						ITEM* speedyShoes = createItem(type, "Speedy Shoes", pts, Player);
+						reset();
+					}
 
 					printf("The door way leads to a stair case, made of stone luckily\n");
 					canContinue = false;
@@ -2191,6 +2278,7 @@ int main(int argc, char* argv[])
 				{
 					//Board choice
 				case 1:
+					reset();
 					printf("You chose to walk further into the dungeon, hoping to find a way out without heading back up the stairs\n");
 					while (getchar() != '\n');
 					printf("You see that there is an old elevator in the dungeon that seems like it could be useful\n");
@@ -2203,6 +2291,7 @@ int main(int argc, char* argv[])
 					break;
 					//Rock choice
 				case 2:
+					reset();
 					printf("You sprint towards the chest excited for the awesome loot, feeling thankful that this hellish world is finally treating you with good fortune\n");
 					while (getchar() != '\n');
 					printf("But. as some say nothing is ever free\n");
@@ -2217,35 +2306,85 @@ int main(int argc, char* argv[])
 					while (getchar() != '\n');
 
 					//CREATE Chesty the Great Loot MONSTER HERE <-- Damage to defeat 125
+					int Chestyhealth = 200;
+					int ChestyID = 9;
+					char ChestyName[MAX_NAME_SIZE] = "Chesty";
+					CHARACTER* Chesty = CreateCharacter(Chestyhealth, ChestyID, ChestyName);
+					bool loopAgain = true;
 
-					printf("----------------------------------------------\n");
-					printf("|    > Health: 200                           |\n");
-					printf("|                                            |\n");
-					printf("|    > Chesty the Great Loot Damage Required: 200              |\n");
-					printf("|                                            |\n");
-					printf("|    > The monster seems to be made of wood |\n");
-					printf("|    > The chest opening seems to be its mouth don't put your head into there    |\n");
-					printf("|                                            |\n");
-					printf("|    > Enter:                                |\n");
-					printf("|     You see that it doesn't have any legs, but to move around it is shifting its weight to throw itself, |\n");
-					printf("|      you must figure out how to stop it, from killing you. So you sprint towards it   |\n");
-					printf("|      , not allowing it to get a chance to attack by sliding and kicking the chest over on its side.      |\n");
-					printf("|       This saved you since it can't easily pick itself back up, with no legs!|\n");
-					printf("----------------------------------------------\n");
+
+
+					while (loopAgain)
+					{
+						yellow();
+						getImage(Chesty);
+						printf("\n");
+						printf("-------------------------------------------------------------------------------------------------------------\n");
+						printf("|    > Health: %d                                                                                          |\n", getMonsterHealth(Chesty));
+						printf("|                                                                                                           |\n");
+						printf("|    > Chesty the Great Loot Damage Required: 200                                                           |\n");
+						printf("|                                                                                                           |\n");
+						printf("|    > The monster seems to be made of wood                                                                 |\n");
+						printf("|    > The chest opening seems to be its mouth don't put your head into there                               |\n");
+						printf("|                                                                                                           |\n");
+						printf("|    > Enter:                                                                                               |\n");
+						printf("|     You see that it doesn't have any legs, but to move around it is shifting its weight to throw itself,  |\n");
+						printf("|      you must figure out how to stop it, from killing you. So you sprint towards it                       |\n");
+						printf("|      , not allowing it to get a chance to attack by sliding and kicking the chest over on its side.       |\n");             
+						printf("-------------------------------------------------------------------------------------------------------------\n");
+					green();
+					printf("Player Health = %d\n", getHealth(Player));
+					yellow();
+					//The monster came towards you with breakneck speeds! But you remember that it must be blind since it didn't attack till you moved, so you pick up a piece of wood from the stairs and throw it to the corner  it sprinted towards the wood thinking it was you, then you escaped through the door and closed it behind you!
 					while (getchar() != '\n');
 					double typingSpeed = 0.0;
 					char* setenceTyped = GetInput(&typingSpeed);
-					double typingScore = CheckSentence("You see that it doesn't have any legs, but to move around it is shifting its weight to throw itself, you must figure out how to stop it, from killing you. So you sprint towards it  , not allowing it to get a chance to attack by sliding and kicking the chest over on its side. This saved you since it can't easily pick itself back up, with no legs!\0", //sentence to type
-						314, //sentence length
+					double typingScore = CheckSentence(getSentence(Chesty), //sentence to type
+						275, //sentence length
 						setenceTyped, //users sentence entry
 						typingSpeed); //users typing speed
+					reset();
+					decreaseMonsterHealth(calculateDamage(Player, typingScore), Chesty);
+					if (getHealth(Player) <= 0)
+					{
 
+						loopAgain = false;
+					}
+					else if (getMonsterHealth(Chesty) <= 0)
+					{
+
+						loopAgain = false;
+					}
+					}
+
+					//check to see the results of the battle
+					if (getHealth(Player) <= 0) //the monster killed you
+					{
+						red();
+						printf("The Chesty man Destroyed you........\n");
+						printf("You DIED...\n");
+						reset();
+						return 1;
+					}
+					else //you defeated the monster!
+					{
+						green();
+						printf("Congratulations You defeated the Chesty man monster!!\n");
+			
+						reset();
+					}
 
 	//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
 
-					printf("You defeated the chest monster\n");
+					
 					printf("You see that the monster dropped a sword, this would help in future battles\n");
 					//INSERT CHOICE TO PICK UP THE SWORD IF SO +50 DAMAGE
+					strcpy(type, "damage");
+					pts = 50;
+					printAffects(Player, type, pts);
+
+
+					ITEM* sword = createItem(type, "Sword", pts, Player);
 
 					printf("You begin to walk further into the dungeon, hoping to find a way out without heading back up the stairs\n");
 					while (getchar() != '\n');
@@ -2274,7 +2413,7 @@ int main(int argc, char* argv[])
 	canContinue = true;
 	while (canContinue == true)
 	{
-
+		cyan();
 		printf("1. Pry open the door and jump?\n");
 		printf("2. Go to the top floor of the castle?\n");
 		int userInput = CollectNumericSelection(1, 2);
@@ -2282,6 +2421,7 @@ int main(int argc, char* argv[])
 		{
 			//Walk over to clif choice
 		case 1:
+			reset();
 			printf("You decide to pry open the door and jump!\n");
 			while (getchar() != '\n');
 			while (getchar() != '\n');
@@ -2297,14 +2437,16 @@ int main(int argc, char* argv[])
 			while (getchar() != '\n');
 			printf("To your death obviously..\n");
 			while (getchar() != '\n');
+			red();
 			printf("_________________________________________________________\n");
 			printf("[YOU DIED(Thought you could fly, for somereason)]\n");
+			reset();
 			//SAVE GAME
-			exit(1);
+			return (1);
 			canContinue = false;
 			break;
-			//Dont go to clif choice
 		case 2:
+			reset();
 			printf("You chose to head towards the top of the castle.\n");
 			while (getchar() != '\n');
 			while (getchar() != '\n');
@@ -2332,31 +2474,14 @@ int main(int argc, char* argv[])
 			canContinue = true;
 			while (canContinue == true)
 			{
+				cyan();
 				printf("1. ''Im sorry dragon, I have been just wondering around this place trying to find a way out, I have been tortured and beaten throughout this whole journey and I just want to get home safe''\n");
 				printf("2. ''Get ready to die dragon, I am the typing king, inherited my typing skills from my father OMAR, so you better watch out or your death will be a horrific one....''\n");
 				int userInput = CollectNumericSelection(1, 2);
 				switch (userInput)
 				{
-					//Board choice
-				case 1:
-					printf("''Oh I see'' says the dragon, well I think we can figure somthing out..\n");
-					while (getchar() != '\n');
-					printf("Hmmmmmmmmm.........\n");
-					while (getchar() != '\n');
-					printf("''Well I am lacking a bit of human friends, I don't have any, I eat them before we can talk, but that birthday hat you have on, is it your birthday?''\n");
-					while (getchar() != '\n');
-					printf("''Because I love birthday parties and If you party with me then ill take you home because thats what friends do!''\n");
-					while (getchar() != '\n'); printf("what do you say back?\n");
-					canContinue = true;
-					while (canContinue == true)
-					{
-						printf("1. ''Im sorry dragon, I have been just wndering around this place trying to find a way out, I have been tortured and beaten throughout this whole journey and I just want to get home safe''\n");
-						printf("2. ''Get ready to die dragon, I am the typing king, inherited my typing skills from my father OMAR, so you better watch out or your death will be a horrific one....''\n");
-						int userInput = CollectNumericSelection(1, 2);
-						switch (userInput)
-						{
-							//Board choice
 						case 1:
+							reset();
 							printf("''Oh I see'' says the dragon, well I think we can figure somthing out..\n");
 							while (getchar() != '\n');
 							printf("Hmmmmmmmmm.........\n");
@@ -2367,37 +2492,23 @@ int main(int argc, char* argv[])
 							while (getchar() != '\n');
 							printf("what do you say back?\n");
 							canContinue = true;
-							while (canContinue == true)
-							{
-								printf("1. ''Im sorry dragon, I have been just wondering around this place trying to find a way out, I have been tortured and beaten throughout this whole journey and I just want to get home safe''\n");
-								printf("2. ''Get ready to die dragon, I am the typing king, inherited my typing skills from my father OMAR, so you better watch out or your death will be a horrific one....''\n");
-								int userInput = CollectNumericSelection(1, 2);
-								switch (userInput)
-								{
-									//Board choice
-								case 1:
-									printf("''Oh I see'' says the dragon, well I think we can figure somthing out..\n");
-									while (getchar() != '\n');
-									printf("Hmmmmmmmmm.........\n");
-									while (getchar() != '\n');
-									printf("''Well I am lacking a bit of human friends, I don't have any, I eat them before we can talk, but that birthday hat you have on, is it your birthday?''\n");
-									while (getchar() != '\n');
-									printf("''Because I love birthday parties and If you party with me then ill take you home because thats what friends do!''\n");
-									while (getchar() != '\n');
-									//END THE GAME THE GOOD ENDING YOU BEFRIEND THE BOSS AND HAVE A HAPPY BIRTHDAY
-									/*
-									The story has ended, your player has befriended a dragon ,one of the most sacred mythlogical beasts, the world was full of angry, evil beings but they never stoped and talked to you first,
-									Thats what ended different, others resorted right to volience and resulted you to attack with same force. But don't worry you chose a passive ending, some say this was the right choice
-									Or others think it was no point, anyways what choice you made was the right choice!.
-									THE END YOU COMPLETED THE FINAL LEVEL
-									exit(1);
-									delete save and restart the game,
+							//END THE GAME THE GOOD ENDING YOU BEFRIEND THE BOSS AND HAVE A HAPPY BIRTHDAY
+									
+							printf("The story has ended, your player has befriended a dragon, one of the most sacred mythlogical beasts, the world was full of anger, evil beings but they never stopped and talked to you first\n");
+							printf("Thats what ended different, others resorted right to volience and resulted you to attack with same force. But don't worry you chose a passive ending, some say this was the right choice\n");
+							printf("Or others think it was no point, anyways what choice you made was the right choice!.\n");
+							green();
+							printf("THE END YOU COMPLETED THE FINAL LEVEL\n");
+							reset();
+							return 1;
+									//delete save and restart the game,
 
-									*/
+							return 0;
 									canContinue = false;
 									break;
 								
 								case 2:
+									reset();
 									printf("''Oh.... well I like the bravery, too bad thats going to be the thing that kills you....''\n");
 									while (getchar() != '\n');
 									printf("The dragon is preparing to attack, you must fight and win!\n");
@@ -2405,36 +2516,74 @@ int main(int argc, char* argv[])
 									printf("Or this dragon is going to burn you to a crisp\n");
 									while (getchar() != '\n');
 									printf("So you prepare to fight!!\n");
-									//Load in level 1 BOSS GOOEY GLOB damage required to defeat 100%
+									
+									int Draghealth = 400;
+									int DragID = 11;
+									char DragName[MAX_NAME_SIZE] = "Dragon";
+									CHARACTER* Drag = CreateCharacter(Draghealth, DragID, DragName);
+									bool loopAgain = true;
 
-									printf("----------------------------------------------\n");
-									printf("|    > Health: 400                          |\n");
-									printf("|                                            |\n");
-									printf("|                                            |\n");
-									printf("|    >This dragon is breathing fire,|\n");
-									printf("|    >Don't let the fire hit you and|\n");
-									printf("|    >Watch out or this will be your end.               |\n");
-									printf("|                                            |\n");
-									printf("|    >Enter:                                 |\n");
-									printf("|      Flames, fire, lava, all the things hotter than this,   |\n");
-									printf("|      You begin to attack, but whenever you get close you can feel the heat.|\n");
-									printf("|      If you don't attack now you will be the next thing to burn, So jump into action first,|\n");
-									printf("|       attack it's feet then slice at it's chest, steam shoots out of its wounds.|\n");
-									printf("|        With this final blow slice with all the power you can use, this is it, this is the final shot!|\n");
-									printf("----------------------------------------------\n");
 
+
+									while (loopAgain)
+									{
+										yellow();
+										getImage(Drag);
+										printf("\n");
+									printf("--------------------------------------------------------------------------------------------------------\n");
+									printf("|    > Health: %d                                                                                     |\n", getMonsterHealth(Drag));
+									printf("|                                                                                                      |\n");
+									printf("|                                                                                                      |\n");
+									printf("|    >This dragon is breathing fire,                                                                   |\n");
+									printf("|    >Don't let the fire hit you and                                                                   |\n");
+									printf("|    >Watch out or this will be your end.                                                              |\n");
+									printf("|                                                                                                      |\n");
+									printf("|    >Enter:                                                                                           |\n");
+									printf("|      Flames, fire, lava, all the things hotter than this,                                            |\n");
+									printf("|      You begin to attack, but whenever you get close you can feel the heat.                          |\n");
+									printf("|      If you don't attack now you will be the next thing to burn, So jump into action first,          |\n");
+									printf("|       attack it's feet then slice at it's chest.                                                     |\n");
+									printf("--------------------------------------------------------------------------------------------------------\n");
+									green();
+									printf("Player Health = %d\n", getHealth(Player));
+									yellow();
+									
+							
+									//The monster came towards you with breakneck speeds! But you remember that it must be blind since it didn't attack till you moved, so you pick up a piece of wood from the stairs and throw it to the corner  it sprinted towards the wood thinking it was you, then you escaped through the door and closed it behind you!
 									while (getchar() != '\n');
 									double typingSpeed = 0.0;
 									char* setenceTyped = GetInput(&typingSpeed);
-									double typingScore = CheckSentence("Flames, fire, lava, all the things hotter than this, You begin to attack, but whenever you get close you can feel the heat. If you don't attack now you will be the next thing to burn, So jump into action first, attack it's feet then slice at it's chest, steam shoots out of its wounds. With this final blow slice with all the power you can use, this is it, this is the final shot!\0", //sentence to type
-										382, //sentence length
+									double typingScore = CheckSentence(getSentence(Drag), //sentence to type
+										275, //sentence length
 										setenceTyped, //users sentence entry
 										typingSpeed); //users typing speed
-
-									//INSERT SOME SORT OF LOOP TO KEEP BACK IF MONSTER NOT DEFEATED!!!!!!!!!!!!!!!!!!!!!!!
-
-									if (0 == 0) // ENDING
+									reset();
+									decreaseMonsterHealth(calculateDamage(Player, typingScore), Drag);
+									if (getHealth(Player) <= 0)
 									{
+
+										loopAgain = false;
+									}
+									else if (getMonsterHealth(Drag) <= 0)
+									{
+
+										loopAgain = false;
+									}
+									}
+
+									//check to see the results of the battle
+									if (getHealth(Player) <= 0) //the monster killed you
+									{
+										red();
+										printf("The Dragon Burned you to a crisp........\n");
+										printf("You DIED...\n");
+										reset();
+										return 0;
+									}
+									else //you defeated the monster!
+									{
+										printf(" steam shoots out of its wounds. With this final blow slice with all the power you can use, this is it, this is the final shot!\n");
+										printf("He dropped his speedy shoes, and you pick it up!\n");
 										while (getchar() != '\n');
 										printf("This must be the end of this hellish world!\n");
 										while (getchar() != '\n');
@@ -2450,8 +2599,10 @@ int main(int argc, char* argv[])
 										while (getchar() != '\n');
 										printf("______________________________________________________________________\n");
 										printf("[The End...... Thanks for playing]\n");
+									   printf("Creators:\n Brodin Collins-Robb\n Owen Garland\n Raghu Podipireddy \n Tyler Scheifley  ");
+										reset();
 									}
-									printf("Creators:\n Brodin  Robb-Collins\n Owen Garland\n Raghu Podipireddy \n Tyler Scheifley  ");
+
 									canContinue = false;
 									break;
 									//None of the menu options were selected
@@ -2467,10 +2618,8 @@ int main(int argc, char* argv[])
 						}
 					}
 				}
-			}
-		}
-	}
-	}
+			
+		
 	//Invalid Level---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	else
 	{

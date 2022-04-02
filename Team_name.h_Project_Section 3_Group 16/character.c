@@ -107,7 +107,7 @@ char* getSentence(struct character* monster)
 		return sentence;
 	}
 
-	char IDNumber[2];
+	char IDNumber[14];
 	sprintf(IDNumber, "%d", monster->ID);
 	int length = 4 + strlen(IDNumber);
 	int messageLength = 0;
@@ -136,6 +136,8 @@ char* getSentence(struct character* monster)
 		}
 	}
 
+
+
 }
 bool getImage(struct character* monster)
 {
@@ -145,7 +147,7 @@ bool getImage(struct character* monster)
 	bool fileOpen = true;
 	char holder = ' ';
 
-	char IDNumber[3];
+	char IDNumber[MAX_ID];
 	sprintf(IDNumber, "%d", monster->ID);
 	int length = 4 + strlen(IDNumber);
 
