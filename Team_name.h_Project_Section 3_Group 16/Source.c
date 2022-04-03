@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 		if (Player == NULL) {
 
 			printf("error loading player\n");
-			exit(1);
+			return(1);
 		}
 		printf("Succesfully Loaded Player!!!");
 		printPlayer(Player);
