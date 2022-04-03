@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 	bool canContinue = true;
 
 	green();
-	printf("WELLCOME TO TYPE QUEST!!\n Press Enter to continue....\n");
+	printf("WELLCOME TO TYPE QUEST!!\nPress Enter to continue....\n");
 	while (getchar() != '\n');
 	reset();
 	printf("1. Create a New Player??\n");
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
 		FILE * fp = fopen("PlayerImage.txt", "r");
 		if (!fp) {
 			printf("couldn't open file!\n");
-			exit(1);
+			return(1);
 		}
 		char scoreBoard[IMAGESIZEW][IMAGESIZEH];
 		for (int i = 0; i < IMAGESIZEW; i++) {
@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
 		char name[MAXNAME];
 		printf("Name your Character\n");
 		scanf_s("%s", name, MAXNAME);
-		 Player = createPlayer(name, 100, 50, 25);
+		Player = createPlayer(name, 100, 50, 25);
 	
 		break;
 		//Move on choice
@@ -3609,7 +3609,7 @@ int main(int argc, char* argv[])
 			
 		
 	//Invalid Level---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	else
+	if(storyLevelToPlay < 1 || storyLevelToPlay > 4)
 	{
 		fprintf(stderr, "An error occured when attempted to load a story. Ensure that a valid story number is entered (1-4)\n");
 		
