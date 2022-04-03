@@ -145,7 +145,9 @@ bool savePlayer(ptrPlayer player, FILE* fp) {
 }
 ptrPlayer loadPlayer(FILE* fp) {
 	char name[MAXNAME];
-	int health, damage, defence;
+	int health = 0;
+	int damage = 0;
+	int defence = 0;
 	fscanf(fp, "%s", name);
 	fscanf(fp, "%d", health);
 	fscanf(fp, "%d", damage);
