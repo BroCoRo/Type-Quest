@@ -5,6 +5,7 @@
 // 
 // Revision History 
 // 1.0       March 3rd      2022
+
 #define _CRT_SECURE_NO_WARNINGS
 #include "Typing.h"
 #include "IO.h"
@@ -1398,8 +1399,8 @@ int main(int argc, char* argv[])
 								printf("_______________________________\n");
 								printf("[YOU DIED(you ate cursed meat!)]\n");
 								reset();
-								//SAVE GAME
-								exit(1);
+
+								return(0);
 								canContinue = false;
 								break;
 
