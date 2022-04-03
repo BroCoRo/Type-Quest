@@ -2021,7 +2021,8 @@ int main(int argc, char* argv[])
 		 {
 			 //walk back to swamp
 		 case 1:
-			 printf("You decide its probably not best to go through the cave.\n");
+			 while (getchar() != '\n');
+			 printf("\nYou decide its probably not best to go through the cave.\n");
 			 while (getchar() != '\n');
 			 printf("You turn around and start walking back to the entrance of the cave slowly.\n");
 			 while (getchar() != '\n');
@@ -2089,6 +2090,7 @@ int main(int argc, char* argv[])
 				 {
 					 //pickup stone
 				 case 1:
+					 while (getchar() != '\n');
 					 printf("You think that the stone will be helpful so you walk over to grab it.\n");
 					 while (getchar() != '\n');
 					 printf("As you bend over to grab it you hear something.\n");
@@ -2125,9 +2127,9 @@ int main(int argc, char* argv[])
 					 char monsterBatName[MAX_NAME_SIZE] = "Fangs the Bat";
 					 CHARACTER* monsterBat = CreateCharacter(monsterBatHealth, monsterBatID, monsterBatName);
 
-					 bool loopAgain11 = true;
+					 bool loopAgain = true;
 
-					 while (loopAgain11)
+					 while (loopAgain)
 					 {
 						 purple();
 						 getImage(monsterBat);
@@ -2160,11 +2162,11 @@ int main(int argc, char* argv[])
 						 decreaseMonsterHealth((calculateDamage(Player, typingScore)), monsterBat);
 						 if (getHealth(Player) <= 0)
 						 {
-							 loopAgain11 = false;
+							 loopAgain = false;
 						 }
 						 else if (getMonsterHealth(monsterBat) <= 0)
 						 {
-							 loopAgain11 = false;
+							 loopAgain = false;
 						 }
 					 }
 
@@ -2230,6 +2232,7 @@ int main(int argc, char* argv[])
 							 {
 								 //middle
 							 case 1:
+								 while (getchar() != '\n');
 								 printf("You decide to walk down the middle tunnel.\n");
 								 while (getchar() != '\n');
 								 printf("There is nothing but darkness and the feeling of rubble under your feet.\n");
@@ -2381,6 +2384,7 @@ int main(int argc, char* argv[])
 									 {
 										 //crawl
 									 case 1:
+										 while (getchar() != '\n');
 										 printf("You decide to crawl through the tiny hole.\n");
 										 while (getchar() != '\n');
 										 printf("Once you get to the other side, you notice a sack.\n");
@@ -2529,6 +2533,7 @@ int main(int argc, char* argv[])
 										 }
 										 //walk
 									 case 2:
+										 while (getchar() != '\n');
 										 printf("You decide you can't trust the troll and continue walking through the middle tunnel\n");
 										 while (getchar() != '\n');
 										 printf("You are absolutley tired after that battle and dragging your feet towards the light.\n");
@@ -2558,6 +2563,7 @@ int main(int argc, char* argv[])
 
 										 //None of the menu options were selected
 									 default:
+										 while (getchar() != '\n');
 										 printf("Invalid selction entered, please enter a number listen in the menu\n");
 										 break;
 									 }
@@ -2568,6 +2574,7 @@ int main(int argc, char* argv[])
 
 								 //right
 							 case 2:
+								 while (getchar() != '\n');
 								 printf("You decide to go through the right tunnel.\n");
 								 while (getchar() != '\n');
 								 printf("It is a whole lot of nothingness and echoing drip sounds.\n");
@@ -2831,6 +2838,7 @@ int main(int argc, char* argv[])
 								 }
 								 //None of the menu options were selected
 							 default:
+								 while (getchar() != '\n');
 								 printf("Invalid selction entered, please enter a number listen in the menu\n");
 								 break;
 							 }
@@ -2839,6 +2847,7 @@ int main(int argc, char* argv[])
 
 						 //walk fast
 				 case 2:
+					 while (getchar() != '\n');
 					 printf("You think the best thing to do is to start walking fast.\n");
 					 while (getchar() != '\n');
 					 while (getchar() != '\n');
@@ -2861,6 +2870,7 @@ int main(int argc, char* argv[])
 					 break;
 					 //None of the menu options were selected
 				 default:
+					 while (getchar() != '\n');
 					 printf("Invalid selction entered, please enter a number listen in the menu\n");
 					 break;
 					 }
