@@ -39,3 +39,6 @@ Tyler Scheifley
 Raghu Podipireddy
 
 ---------------------------------------------------------------------------------------------------------------------
+<img width="499" alt="Screenshot 2023-08-23 2241431" src="https://github.com/BroCoRo/Type-Quest/assets/85836332/918994a1-004a-4e87-8815-cb1bbf8e0565">
+<img width="479" alt="Screenshot 2023-08-23 224431" src="https://github.com/BroCoRo/Type-Quest/assets/85836332/6a04d65e-408a-4cc0-95c5-3de1a72351d8">
+<img width="710" alt="Screenshot 2023-08-23 224557" src="https://github.com/BroCoRo/Type-Quest/assets/85836332/30fa9515-b88b-4b0c-9fe6-4d2a095663db">
